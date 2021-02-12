@@ -1,0 +1,83 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) Fortran Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 19.1 Build 20200306
+
+Compiler options: -I./obj -O0 -g -debug all -check all -no-ftz -traceback -shared-intel -module ./obj -gen-interfaces -warn all -qopenmp -qopenmp-simd -fpe-all=0 -fp-stack-check -fstack-protector-all -ftrapuv -O3 -xHost -no-inline-max-size -ipo-jobs4 -align array64byte -qopt-report=5 -qopt-report-phase=all -g -qopt-smm-usage=high -c -o obj/fluid_cylinder_interaction.o
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: disabled
+  -inline-max-per-compile: disabled
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+Begin optimization report for: fluid_cylinder_interaction._
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (fluid_cylinder_interaction._) [1/2=50.0%] source/base/fluid_cylinder_interaction.F90(1,8)
+
+===========================================================================
+
+Begin optimization report for: FLUID_CYLINDER_INTERACTION::MOVE_CIRCLES_HALFSTEP
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (FLUID_CYLINDER_INTERACTION::MOVE_CIRCLES_HALFSTEP) [2/2=100.0%] source/base/fluid_cylinder_interaction.F90(10,14)
+  -> EXTERN: (10,14) for_set_fpe_
+  -> EXTERN: (10,14) __for_ieee_store_env_
+  -> EXTERN: (14,9) for_emit_diagnostic
+  -> EXTERN: (14,9) for_emit_diagnostic
+  -> EXTERN: (14,9) for_emit_diagnostic
+  -> EXTERN: (14,9) for_emit_diagnostic
+  -> EXTERN: (14,9) for_emit_diagnostic
+  -> EXTERN: (14,9) for_emit_diagnostic
+  -> EXTERN: (14,9) for_emit_diagnostic
+  -> EXTERN: (14,9) for_emit_diagnostic
+  -> EXTERN: (14,9) for_emit_diagnostic
+  -> EXTERN: (14,9) for_emit_diagnostic
+  -> EXTERN: (14,41) for_emit_diagnostic
+  -> EXTERN: (14,48) for_emit_diagnostic
+  -> EXTERN: (14,48) for_emit_diagnostic
+  -> EXTERN: (14,48) for_emit_diagnostic
+  -> EXTERN: (14,48) for_emit_diagnostic
+  -> EXTERN: (14,48) for_emit_diagnostic
+  -> EXTERN: (17,12) for_emit_diagnostic
+  -> EXTERN: (17,12) for_emit_diagnostic
+  -> EXTERN: (17,12) for_emit_diagnostic
+  -> EXTERN: (19,12) for_emit_diagnostic
+  -> EXTERN: (19,12) for_emit_diagnostic
+  -> EXTERN: (19,12) for_emit_diagnostic
+  -> EXTERN: (19,12) for_emit_diagnostic
+  -> EXTERN: (19,12) for_emit_diagnostic
+  -> EXTERN: (19,12) for_emit_diagnostic
+  -> EXTERN: (19,12) for_emit_diagnostic
+  -> EXTERN: (19,12) for_emit_diagnostic
+  -> EXTERN: (19,12) for_emit_diagnostic
+  -> EXTERN: (19,12) for_emit_diagnostic
+  -> EXTERN: (19,30) for_emit_diagnostic
+  -> EXTERN: (19,37) for_emit_diagnostic
+  -> EXTERN: (19,37) for_emit_diagnostic
+  -> EXTERN: (19,37) for_emit_diagnostic
+  -> EXTERN: (19,37) for_emit_diagnostic
+  -> EXTERN: (19,37) for_emit_diagnostic
+  -> EXTERN: (25,3) __for_ieee_restore_env_
+
+===========================================================================

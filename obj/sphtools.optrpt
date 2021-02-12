@@ -1,0 +1,91 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) Fortran Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 19.1 Build 20200306
+
+Compiler options: -I./obj -O0 -g -debug all -check all -no-ftz -traceback -shared-intel -module ./obj -gen-interfaces -warn all -qopenmp -qopenmp-simd -fpe-all=0 -fp-stack-check -fstack-protector-all -ftrapuv -O3 -xHost -no-inline-max-size -ipo-jobs4 -align array64byte -qopt-report=5 -qopt-report-phase=all -g -qopt-smm-usage=high -c -o obj/sphtools.o
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: disabled
+  -inline-max-per-compile: disabled
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+Begin optimization report for: sphtools._
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (sphtools._) [1/5=20.0%] source/base/sphtools.F90(1,8)
+
+===========================================================================
+
+Begin optimization report for: SPHTOOLS::FAC
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (SPHTOOLS::FAC) [2/5=40.0%] source/base/sphtools.F90(11,12)
+  -> EXTERN: (11,12) for_set_fpe_
+  -> EXTERN: (11,12) __for_ieee_store_env_
+  -> EXTERN: (19,11) __powr8i4
+  -> EXTERN: (20,11) __powr8i4
+  -> EXTERN: (21,11) __powr8i4
+  -> EXTERN: (34,3) __for_ieee_restore_env_
+
+===========================================================================
+
+Begin optimization report for: SPHTOOLS::WAB
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (SPHTOOLS::WAB) [3/5=60.0%] source/base/sphtools.F90(37,12)
+  -> EXTERN: (37,12) for_set_fpe_
+  -> EXTERN: (37,12) __for_ieee_store_env_
+  -> EXTERN: (45,11) __powr8i4
+  -> EXTERN: (46,11) __powr8i4
+  -> EXTERN: (47,11) __powr8i4
+  -> EXTERN: (57,3) __for_ieee_restore_env_
+
+===========================================================================
+
+Begin optimization report for: SPHTOOLS::C_AKINCI
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (SPHTOOLS::C_AKINCI) [4/5=80.0%] source/base/sphtools.F90(59,12)
+  -> EXTERN: (59,12) for_set_fpe_
+  -> EXTERN: (59,12) __for_ieee_store_env_
+  -> EXTERN: (63,12) __powr8i4
+  -> EXTERN: (64,25) __powr8i4
+  -> EXTERN: (72,3) __for_ieee_restore_env_
+
+===========================================================================
+
+Begin optimization report for: SPHTOOLS::SHIFTING_COHESION
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (SPHTOOLS::SHIFTING_COHESION) [5/5=100.0%] source/base/sphtools.F90(74,12)
+  -> EXTERN: (74,12) for_set_fpe_
+  -> EXTERN: (74,12) __for_ieee_store_env_
+  -> EXTERN: (78,12) __powr8i4
+  -> EXTERN: (79,25) __powr8i4
+  -> EXTERN: (87,3) __for_ieee_restore_env_
+
+===========================================================================

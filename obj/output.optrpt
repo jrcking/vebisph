@@ -1,0 +1,223 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) Fortran Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 19.1 Build 20200306
+
+Compiler options: -I./obj -O0 -g -debug all -check all -no-ftz -traceback -shared-intel -module ./obj -gen-interfaces -warn all -qopenmp -qopenmp-simd -fpe-all=0 -fp-stack-check -fstack-protector-all -ftrapuv -O3 -xHost -no-inline-max-size -ipo-jobs4 -align array64byte -qopt-report=5 -qopt-report-phase=all -g -qopt-smm-usage=high -c -o obj/output.o
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: disabled
+  -inline-max-per-compile: disabled
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+Begin optimization report for: OUTPUT
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (OUTPUT) [1/1=100.0%] source/base/output.F90(4,12)
+  -> EXTERN: (4,12) for_set_fpe_
+  -> EXTERN: (4,12) __for_ieee_store_env_
+  -> EXTERN: (25,9) for_write_int_fmt
+  -> EXTERN: (25,9) for_write_int_fmt_xmit
+  -> EXTERN: (27,9) for_write_int_fmt_xmit
+  -> EXTERN: (27,9) for_write_int_fmt
+  -> EXTERN: (29,9) for_write_int_fmt_xmit
+  -> EXTERN: (29,9) for_write_int_fmt
+  -> EXTERN: (31,9) for_write_int_fmt
+  -> EXTERN: (31,9) for_write_int_fmt_xmit
+  -> EXTERN: (35,6) for_open
+  -> EXTERN: (44,6) for__rtc_uninit_use_src
+  -> EXTERN: (45,12) for_emit_diagnostic
+  -> EXTERN: (45,12) for_emit_diagnostic
+  -> EXTERN: (45,12) for_emit_diagnostic
+  -> EXTERN: (46,9) for_write_seq_lis_xmit
+  -> EXTERN: (46,9) for_write_seq_lis_xmit
+  -> EXTERN: (46,9) for_write_seq_lis_xmit
+  -> EXTERN: (46,9) for_write_seq_lis_xmit
+  -> EXTERN: (46,9) for_write_seq_lis_xmit
+  -> EXTERN: (46,9) for_write_seq_lis_xmit
+  -> EXTERN: (46,9) for_write_seq_lis_xmit
+  -> EXTERN: (46,9) for_write_seq_lis_xmit
+  -> EXTERN: (46,9) for_write_seq_lis_xmit
+  -> EXTERN: (46,9) for_write_seq_lis
+  -> EXTERN: (46,23) for_emit_diagnostic
+  -> EXTERN: (46,23) for_emit_diagnostic
+  -> EXTERN: (46,23) for_emit_diagnostic
+  -> EXTERN: (46,23) for_emit_diagnostic
+  -> EXTERN: (46,23) for_emit_diagnostic
+  -> EXTERN: (46,31) for_emit_diagnostic
+  -> EXTERN: (46,31) for_emit_diagnostic
+  -> EXTERN: (46,31) for_emit_diagnostic
+  -> EXTERN: (46,31) for_emit_diagnostic
+  -> EXTERN: (46,31) for_emit_diagnostic
+  -> EXTERN: (46,39) for_emit_diagnostic
+  -> EXTERN: (46,39) for_emit_diagnostic
+  -> EXTERN: (46,39) for_emit_diagnostic
+  -> EXTERN: (46,39) for_emit_diagnostic
+  -> EXTERN: (46,39) for_emit_diagnostic
+  -> EXTERN: (46,47) for_emit_diagnostic
+  -> EXTERN: (46,47) for_emit_diagnostic
+  -> EXTERN: (46,47) for_emit_diagnostic
+  -> EXTERN: (46,47) for_emit_diagnostic
+  -> EXTERN: (46,47) for_emit_diagnostic
+  -> EXTERN: (46,55) for_emit_diagnostic
+  -> EXTERN: (46,55) for_emit_diagnostic
+  -> EXTERN: (46,55) for_emit_diagnostic
+  -> EXTERN: (46,60) for_emit_diagnostic
+  -> EXTERN: (46,60) for_emit_diagnostic
+  -> EXTERN: (46,60) for_emit_diagnostic
+  -> EXTERN: (46,68) for_emit_diagnostic
+  -> EXTERN: (46,68) for_emit_diagnostic
+  -> EXTERN: (46,68) for_emit_diagnostic
+  -> EXTERN: (46,77) for_emit_diagnostic
+  -> EXTERN: (46,77) for_emit_diagnostic
+  -> EXTERN: (46,77) for_emit_diagnostic
+  -> EXTERN: (46,87) for_emit_diagnostic
+  -> EXTERN: (46,87) for_emit_diagnostic
+  -> EXTERN: (46,87) for_emit_diagnostic
+  -> EXTERN: (46,97) for_emit_diagnostic
+  -> EXTERN: (46,97) for_emit_diagnostic
+  -> EXTERN: (46,97) for_emit_diagnostic
+  -> EXTERN: (52,12) for_close
+  -> EXTERN: (55,6) for_write_seq_lis
+  -> EXTERN: (55,6) for__rtc_uninit_use_src
+  -> EXTERN: (55,6) for_write_seq_lis_xmit
+  -> EXTERN: (55,6) for_write_seq_lis_xmit
+  -> EXTERN: (55,6) for_write_seq_lis_xmit
+  -> EXTERN: (56,6) for_flush
+  -> EXTERN: (59,6) for_open
+  -> EXTERN: (60,6) for_write_seq_lis
+  -> EXTERN: (60,6) for_write_seq_lis_xmit
+  -> EXTERN: (60,6) for_emit_diagnostic
+  -> EXTERN: (60,6) for_write_seq_lis_xmit
+  -> EXTERN: (60,6) for_write_seq_lis_xmit
+  -> EXTERN: (61,6) for_write_seq_lis
+  -> EXTERN: (61,6) for_write_seq_lis_xmit
+  -> EXTERN: (61,6) for_write_seq_lis_xmit
+  -> EXTERN: (61,6) for_write_seq_lis_xmit
+  -> EXTERN: (62,6) for_write_seq_lis
+  -> EXTERN: (62,6) for_write_seq_lis_xmit
+  -> EXTERN: (62,6) for_write_seq_lis_xmit
+  -> EXTERN: (62,6) for_write_seq_lis_xmit
+  -> EXTERN: (62,6) for_write_seq_lis_xmit
+  -> EXTERN: (62,6) for_write_seq_lis_xmit
+  -> EXTERN: (62,6) for_write_seq_lis_xmit
+  -> EXTERN: (66,12) for_emit_diagnostic
+  -> EXTERN: (66,12) for_emit_diagnostic
+  -> EXTERN: (66,12) for_emit_diagnostic
+  -> EXTERN: (67,9) for_write_seq_lis_xmit
+  -> EXTERN: (67,9) for_write_seq_lis_xmit
+  -> EXTERN: (67,9) for_write_seq_lis_xmit
+  -> EXTERN: (67,9) for_write_seq_lis_xmit
+  -> EXTERN: (67,9) for_write_seq_lis_xmit
+  -> EXTERN: (67,9) for_write_seq_lis_xmit
+  -> EXTERN: (67,9) for_write_seq_lis_xmit
+  -> EXTERN: (67,9) for_write_seq_lis
+  -> EXTERN: (67,22) for_emit_diagnostic
+  -> EXTERN: (67,22) for_emit_diagnostic
+  -> EXTERN: (67,22) for_emit_diagnostic
+  -> EXTERN: (67,22) for_emit_diagnostic
+  -> EXTERN: (67,22) for_emit_diagnostic
+  -> EXTERN: (67,30) for_emit_diagnostic
+  -> EXTERN: (67,30) for_emit_diagnostic
+  -> EXTERN: (67,30) for_emit_diagnostic
+  -> EXTERN: (67,30) for_emit_diagnostic
+  -> EXTERN: (67,30) for_emit_diagnostic
+  -> EXTERN: (67,38) for_emit_diagnostic
+  -> EXTERN: (67,38) for_emit_diagnostic
+  -> EXTERN: (67,38) for_emit_diagnostic
+  -> EXTERN: (67,38) for_emit_diagnostic
+  -> EXTERN: (67,38) for_emit_diagnostic
+  -> EXTERN: (67,46) for_emit_diagnostic
+  -> EXTERN: (67,46) for_emit_diagnostic
+  -> EXTERN: (67,46) for_emit_diagnostic
+  -> EXTERN: (67,46) for_emit_diagnostic
+  -> EXTERN: (67,46) for_emit_diagnostic
+  -> EXTERN: (67,54) for_emit_diagnostic
+  -> EXTERN: (67,54) for_emit_diagnostic
+  -> EXTERN: (67,54) for_emit_diagnostic
+  -> EXTERN: (67,62) for_emit_diagnostic
+  -> EXTERN: (67,62) for_emit_diagnostic
+  -> EXTERN: (67,62) for_emit_diagnostic
+  -> EXTERN: (67,73) for_emit_diagnostic
+  -> EXTERN: (67,73) for_emit_diagnostic
+  -> EXTERN: (67,73) for_emit_diagnostic
+  -> EXTERN: (69,12) for_write_seq_lis
+  -> EXTERN: (69,12) for_write_seq_lis_xmit
+  -> EXTERN: (69,12) for_write_seq_lis_xmit
+  -> EXTERN: (69,12) for_write_seq_lis_xmit
+  -> EXTERN: (69,25) for_emit_diagnostic
+  -> EXTERN: (69,25) for_emit_diagnostic
+  -> EXTERN: (69,25) for_emit_diagnostic
+  -> EXTERN: (69,25) for_emit_diagnostic
+  -> EXTERN: (69,25) for_emit_diagnostic
+  -> EXTERN: (69,25) for_emit_diagnostic
+  -> EXTERN: (69,25) for_emit_diagnostic
+  -> EXTERN: (69,38) for_emit_diagnostic
+  -> EXTERN: (69,38) for_emit_diagnostic
+  -> EXTERN: (69,38) for_emit_diagnostic
+  -> EXTERN: (69,38) for_emit_diagnostic
+  -> EXTERN: (69,38) for_emit_diagnostic
+  -> EXTERN: (69,38) for_emit_diagnostic
+  -> EXTERN: (69,38) for_emit_diagnostic
+  -> EXTERN: (69,51) for_emit_diagnostic
+  -> EXTERN: (69,51) for_emit_diagnostic
+  -> EXTERN: (69,51) for_emit_diagnostic
+  -> EXTERN: (69,51) for_emit_diagnostic
+  -> EXTERN: (69,51) for_emit_diagnostic
+  -> EXTERN: (69,51) for_emit_diagnostic
+  -> EXTERN: (69,51) for_emit_diagnostic
+  -> EXTERN: (69,64) for_emit_diagnostic
+  -> EXTERN: (69,64) for_emit_diagnostic
+  -> EXTERN: (69,64) for_emit_diagnostic
+  -> EXTERN: (69,64) for_emit_diagnostic
+  -> EXTERN: (69,64) for_emit_diagnostic
+  -> EXTERN: (69,64) for_emit_diagnostic
+  -> EXTERN: (69,64) for_emit_diagnostic
+  -> EXTERN: (75,12) for_write_seq_lis
+  -> EXTERN: (75,25) for_emit_diagnostic
+  -> EXTERN: (75,25) for_emit_diagnostic
+  -> EXTERN: (75,25) for_emit_diagnostic
+  -> EXTERN: (79,12) for_close
+  -> EXTERN: (83,3) for_write_seq_lis_xmit
+  -> EXTERN: (83,3) for_write_seq_lis_xmit
+  -> EXTERN: (83,3) for_write_seq_lis_xmit
+  -> EXTERN: (83,3) for_write_seq_lis_xmit
+  -> EXTERN: (83,3) for_write_seq_lis_xmit
+  -> EXTERN: (83,3) for_write_seq_lis
+  -> EXTERN: (83,36) for_emit_diagnostic
+  -> EXTERN: (83,36) for_emit_diagnostic
+  -> EXTERN: (83,36) for_emit_diagnostic
+  -> EXTERN: (83,36) for_emit_diagnostic
+  -> EXTERN: (83,36) for_emit_diagnostic
+  -> EXTERN: (83,62) for_emit_diagnostic
+  -> EXTERN: (83,62) for_emit_diagnostic
+  -> EXTERN: (83,62) for_emit_diagnostic
+  -> EXTERN: (83,62) for_emit_diagnostic
+  -> EXTERN: (83,62) for_emit_diagnostic
+  -> EXTERN: (83,88) for_emit_diagnostic
+  -> EXTERN: (83,88) for_emit_diagnostic
+  -> EXTERN: (83,88) for_emit_diagnostic
+  -> EXTERN: (84,3) for_write_seq_lis_xmit
+  -> EXTERN: (84,3) for_write_seq_lis
+  -> EXTERN: (88,1) __for_ieee_restore_env_
+
+===========================================================================

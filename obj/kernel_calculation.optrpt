@@ -1,0 +1,142 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) Fortran Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 19.1 Build 20200306
+
+Compiler options: -I./obj -O0 -g -debug all -check all -no-ftz -traceback -shared-intel -module ./obj -gen-interfaces -warn all -qopenmp -qopenmp-simd -fpe-all=0 -fp-stack-check -fstack-protector-all -ftrapuv -O3 -xHost -no-inline-max-size -ipo-jobs4 -align array64byte -qopt-report=5 -qopt-report-phase=all -g -qopt-smm-usage=high -c -o obj/kernel_calculation.o
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: disabled
+  -inline-max-per-compile: disabled
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+Begin optimization report for: KERNEL_CALCULATION
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (KERNEL_CALCULATION) [1/1=100.0%] source/base/kernel_calculation.F90(2,12)
+  -> EXTERN: (2,12) for_set_fpe_
+  -> EXTERN: (2,12) __for_ieee_store_env_
+  -> EXTERN: (20,3) for_alloc_allocatable
+  -> EXTERN: (20,3) for_check_mult_overflow64
+  -> EXTERN: (21,3) for_alloc_allocatable
+  -> EXTERN: (21,3) for_check_mult_overflow64
+  -> EXTERN: (21,3) for_alloc_allocatable
+  -> EXTERN: (21,3) for_check_mult_overflow64
+  -> EXTERN: (25,13) for_emit_diagnostic
+  -> EXTERN: (25,13) for_emit_diagnostic
+  -> EXTERN: (25,13) for_emit_diagnostic
+  -> EXTERN: (26,11) for_emit_diagnostic
+  -> EXTERN: (26,11) for_emit_diagnostic
+  -> EXTERN: (26,11) for_emit_diagnostic
+  -> EXTERN: (26,11) for_emit_diagnostic
+  -> EXTERN: (26,11) for_emit_diagnostic
+  -> EXTERN: (27,9) for_emit_diagnostic
+  -> EXTERN: (27,9) for_emit_diagnostic
+  -> EXTERN: (27,9) for_emit_diagnostic
+  -> EXTERN: (27,9) for_emit_diagnostic
+  -> EXTERN: (27,9) for_emit_diagnostic
+  -> EXTERN: (27,9) for_emit_diagnostic
+  -> EXTERN: (27,9) for_emit_diagnostic
+  -> EXTERN: (27,9) for_emit_diagnostic
+  -> EXTERN: (27,9) for_emit_diagnostic
+  -> EXTERN: (27,9) for_emit_diagnostic
+  -> EXTERN: (27,9) for_emit_diagnostic
+  -> EXTERN: (27,9) for_emit_diagnostic
+  -> EXTERN: (27,26) for_emit_diagnostic
+  -> EXTERN: (29,20) FAC
+  -> EXTERN: (30,9) for_emit_diagnostic
+  -> EXTERN: (30,9) for_emit_diagnostic
+  -> EXTERN: (30,9) for_emit_diagnostic
+  -> EXTERN: (30,9) for_emit_diagnostic
+  -> EXTERN: (30,9) for_emit_diagnostic
+  -> EXTERN: (30,9) for_emit_diagnostic
+  -> EXTERN: (33,12) for_emit_diagnostic
+  -> EXTERN: (33,12) for_emit_diagnostic
+  -> EXTERN: (33,12) for_emit_diagnostic
+  -> EXTERN: (33,12) for_emit_diagnostic
+  -> EXTERN: (33,12) for_emit_diagnostic
+  -> EXTERN: (33,12) for_emit_diagnostic
+  -> EXTERN: (33,12) for_emit_diagnostic
+  -> EXTERN: (33,12) for_emit_diagnostic
+  -> EXTERN: (33,46) for_emit_diagnostic
+  -> EXTERN: (33,46) for_emit_diagnostic
+  -> EXTERN: (43,13) for_emit_diagnostic
+  -> EXTERN: (43,13) for_emit_diagnostic
+  -> EXTERN: (43,13) for_emit_diagnostic
+  -> EXTERN: (44,11) for_emit_diagnostic
+  -> EXTERN: (44,11) for_emit_diagnostic
+  -> EXTERN: (44,11) for_emit_diagnostic
+  -> EXTERN: (44,11) for_emit_diagnostic
+  -> EXTERN: (44,11) for_emit_diagnostic
+  -> EXTERN: (45,9) for_emit_diagnostic
+  -> EXTERN: (45,9) for_emit_diagnostic
+  -> EXTERN: (45,9) for_emit_diagnostic
+  -> EXTERN: (45,9) for_emit_diagnostic
+  -> EXTERN: (45,9) for_emit_diagnostic
+  -> EXTERN: (45,9) for_emit_diagnostic
+  -> EXTERN: (45,9) for_emit_diagnostic
+  -> EXTERN: (45,9) for_emit_diagnostic
+  -> EXTERN: (45,9) for_emit_diagnostic
+  -> EXTERN: (45,9) for_emit_diagnostic
+  -> EXTERN: (45,9) for_emit_diagnostic
+  -> EXTERN: (45,9) for_emit_diagnostic
+  -> EXTERN: (45,25) for_emit_diagnostic
+  -> EXTERN: (46,9) for_emit_diagnostic
+  -> EXTERN: (46,9) for_emit_diagnostic
+  -> EXTERN: (46,9) for_emit_diagnostic
+  -> EXTERN: (46,9) for_emit_diagnostic
+  -> EXTERN: (46,9) for_emit_diagnostic
+  -> EXTERN: (46,9) for_emit_diagnostic
+  -> EXTERN: (46,9) __resetsp_inlined
+  -> EXTERN: (46,9) __getsp_inlined
+  -> EXTERN: (46,28) for_emit_diagnostic
+  -> EXTERN: (46,28) for_emit_diagnostic
+  -> EXTERN: (46,28) for_emit_diagnostic
+  -> EXTERN: (46,28) for_emit_diagnostic
+  -> EXTERN: (46,28) for_emit_diagnostic
+  -> EXTERN: (46,28) for_emit_diagnostic
+  -> EXTERN: (46,28) for_emit_diagnostic
+  -> EXTERN: (46,28) for_emit_diagnostic
+  -> EXTERN: (46,28) _alloca
+  -> EXTERN: (46,28) for_emit_diagnostic
+  -> EXTERN: (47,9) for_emit_diagnostic
+  -> EXTERN: (47,9) for_emit_diagnostic
+  -> EXTERN: (47,9) for_emit_diagnostic
+  -> EXTERN: (47,9) for_emit_diagnostic
+  -> EXTERN: (47,9) __getsp_inlined
+  -> EXTERN: (47,9) __resetsp_inlined
+  -> EXTERN: (47,46) for_emit_diagnostic
+  -> EXTERN: (47,46) for_emit_diagnostic
+  -> EXTERN: (47,46) for_emit_diagnostic
+  -> EXTERN: (47,46) for_emit_diagnostic
+  -> EXTERN: (47,46) for_emit_diagnostic
+  -> EXTERN: (47,46) for_emit_diagnostic
+  -> EXTERN: (47,46) _alloca
+  -> EXTERN: (47,46) for_emit_diagnostic
+  -> EXTERN: (53,1) __for_ieee_restore_env_
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at source/base/kernel_calculation.F90(22,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+===========================================================================

@@ -1,0 +1,370 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) Fortran Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 19.1 Build 20200306
+
+Compiler options: -I./obj -O0 -g -debug all -check all -no-ftz -traceback -shared-intel -module ./obj -gen-interfaces -warn all -qopenmp -qopenmp-simd -fpe-all=0 -fp-stack-check -fstack-protector-all -ftrapuv -O3 -xHost -no-inline-max-size -ipo-jobs4 -align array64byte -qopt-report=5 -qopt-report-phase=all -g -qopt-smm-usage=high -c -o obj/neighbour_finding_mod.o
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: disabled
+  -inline-max-per-compile: disabled
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+Begin optimization report for: neighbour_finding._
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (neighbour_finding._) [1/6=16.7%] source/base/neighbour_finding_mod.F90(1,8)
+
+===========================================================================
+
+Begin optimization report for: NEIGHBOUR_FINDING::PARTICLE_ALLOCATION
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (NEIGHBOUR_FINDING::PARTICLE_ALLOCATION) [2/6=33.3%] source/base/neighbour_finding_mod.F90(13,14)
+  -> EXTERN: (13,14) for_set_fpe_
+  -> EXTERN: (13,14) __for_ieee_store_env_
+  -> EXTERN: (23,5) for__rtc_uninit_use_src
+  -> EXTERN: (23,5) for_alloc_allocatable
+  -> EXTERN: (23,5) for_check_mult_overflow64
+  -> EXTERN: (24,5) for__rtc_uninit_use_src
+  -> EXTERN: (24,5) for_alloc_allocatable
+  -> EXTERN: (24,5) for_check_mult_overflow64
+  -> EXTERN: (35,5) for__rtc_uninit_use_src
+  -> EXTERN: (35,5) for_alloc_allocatable
+  -> EXTERN: (35,5) for_check_mult_overflow64
+  -> EXTERN: (36,5) for__rtc_uninit_use_src
+  -> EXTERN: (36,5) for_alloc_allocatable
+  -> EXTERN: (36,5) for_check_mult_overflow64
+  -> EXTERN: (37,5) for__rtc_uninit_use_src
+  -> EXTERN: (37,5) for_alloc_allocatable
+  -> EXTERN: (37,5) for_check_mult_overflow64
+  -> (41,10) NEIGHBOUR_FINDING::DIVIDE (isz = 2474) (sz = 2487)
+     [[ Unable to inline callsite  <1>]]
+  -> (42,10) NEIGHBOUR_FINDING::NEIGHBORING_LIST (isz = 348) (sz = 353)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (44,5) for_dealloc_allocatable
+  -> EXTERN: (45,5) for_dealloc_allocatable
+  -> EXTERN: (46,5) for_dealloc_allocatable
+  -> EXTERN: (48,3) __for_ieee_restore_env_
+
+===========================================================================
+
+Begin optimization report for: NEIGHBOUR_FINDING::DIVIDE
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (NEIGHBOUR_FINDING::DIVIDE) [3/6=50.0%] source/base/neighbour_finding_mod.F90(51,14)
+  -> EXTERN: (51,14) for_set_fpe_
+  -> EXTERN: (51,14) __for_ieee_store_env_
+  -> EXTERN: (66,5) for__rtc_uninit_use_src
+  -> EXTERN: (66,5) for_alloc_allocatable
+  -> EXTERN: (66,5) for_check_mult_overflow64
+  -> EXTERN: (69,11) for_emit_diagnostic
+  -> EXTERN: (69,11) for_emit_diagnostic
+  -> EXTERN: (69,11) for_emit_diagnostic
+  -> EXTERN: (70,14) for_emit_diagnostic
+  -> EXTERN: (70,14) for_emit_diagnostic
+  -> EXTERN: (70,14) for_emit_diagnostic
+  -> EXTERN: (70,14) for_emit_diagnostic
+  -> EXTERN: (70,14) for_emit_diagnostic
+  -> EXTERN: (71,14) for_emit_diagnostic
+  -> EXTERN: (71,14) for_emit_diagnostic
+  -> EXTERN: (71,14) for_emit_diagnostic
+  -> EXTERN: (71,14) for_emit_diagnostic
+  -> EXTERN: (71,14) for_emit_diagnostic
+  -> EXTERN: (79,11) for_write_seq_lis
+  -> EXTERN: (79,11) for_write_seq_lis_xmit
+  -> EXTERN: (80,11) for_write_seq_lis
+  -> EXTERN: (80,11) for_write_seq_lis_xmit
+  -> EXTERN: (80,11) for_write_seq_lis_xmit
+  -> EXTERN: (80,11) for_write_seq_lis_xmit
+  -> EXTERN: (81,11) for_write_seq_lis
+  -> EXTERN: (81,11) for_write_seq_lis_xmit
+  -> EXTERN: (82,11) for_write_seq_lis
+  -> EXTERN: (82,11) for_write_seq_lis_xmit
+  -> EXTERN: (82,11) for_write_seq_lis_xmit
+  -> EXTERN: (82,11) for_write_seq_lis_xmit
+  -> EXTERN: (83,11) for_stop_core
+  -> EXTERN: (85,8) for_emit_diagnostic
+  -> EXTERN: (85,8) for_emit_diagnostic
+  -> EXTERN: (85,17) for_emit_diagnostic
+  -> EXTERN: (85,17) for_emit_diagnostic
+  -> EXTERN: (85,17) for_emit_diagnostic
+  -> EXTERN: (88,11) for_emit_diagnostic
+  -> EXTERN: (88,11) for_emit_diagnostic
+  -> EXTERN: (88,11) for_emit_diagnostic
+  -> EXTERN: (88,44) for_emit_diagnostic
+  -> EXTERN: (88,44) for_emit_diagnostic
+  -> EXTERN: (88,44) for_emit_diagnostic
+  -> EXTERN: (90,11) for_write_seq_lis
+  -> EXTERN: (90,11) for_write_seq_lis_xmit
+  -> EXTERN: (90,11) for_write_seq_lis_xmit
+  -> EXTERN: (90,11) for_write_seq_lis_xmit
+  -> EXTERN: (91,11) for_write_seq_lis
+  -> EXTERN: (91,11) for_write_seq_lis_xmit
+  -> EXTERN: (92,11) for_write_seq_lis
+  -> EXTERN: (92,11) for_write_seq_lis_xmit
+  -> EXTERN: (93,11) for_write_seq_lis
+  -> EXTERN: (94,11) for_write_seq_lis
+  -> EXTERN: (94,11) for_write_seq_lis_xmit
+  -> EXTERN: (95,11) for_write_seq_lis
+  -> EXTERN: (95,11) for_write_seq_lis_xmit
+  -> EXTERN: (96,11) for_write_seq_lis
+  -> EXTERN: (96,11) for_write_seq_lis_xmit
+  -> EXTERN: (97,11) for_write_seq_lis
+  -> EXTERN: (97,11) for_write_seq_lis_xmit
+  -> EXTERN: (98,11) for_stop_core
+  -> EXTERN: (100,8) for_emit_diagnostic
+  -> EXTERN: (100,8) for_emit_diagnostic
+  -> EXTERN: (107,5) for_emit_diagnostic
+  -> EXTERN: (107,5) for_emit_diagnostic
+  -> EXTERN: (109,8) for_emit_diagnostic
+  -> EXTERN: (109,8) for_emit_diagnostic
+  -> EXTERN: (109,18) for_emit_diagnostic
+  -> EXTERN: (109,18) for_emit_diagnostic
+  -> EXTERN: (109,18) for_emit_diagnostic
+  -> EXTERN: (109,26) for_emit_diagnostic
+  -> EXTERN: (109,26) for_emit_diagnostic
+  -> EXTERN: (109,26) for_emit_diagnostic
+  -> EXTERN: (110,8) for_emit_diagnostic
+  -> EXTERN: (110,8) for_emit_diagnostic
+  -> EXTERN: (117,11) for_emit_diagnostic
+  -> EXTERN: (117,11) for_emit_diagnostic
+  -> EXTERN: (117,11) for_emit_diagnostic
+  -> EXTERN: (118,8) for_emit_diagnostic
+  -> EXTERN: (118,8) for_emit_diagnostic
+  -> EXTERN: (118,8) for_emit_diagnostic
+  -> EXTERN: (118,8) for_emit_diagnostic
+  -> EXTERN: (118,8) for_emit_diagnostic
+  -> EXTERN: (118,8) for_emit_diagnostic
+  -> EXTERN: (118,8) for_emit_diagnostic
+  -> EXTERN: (118,8) for_emit_diagnostic
+  -> EXTERN: (118,8) for_emit_diagnostic
+  -> EXTERN: (118,8) for_emit_diagnostic
+  -> EXTERN: (118,8) for_emit_diagnostic
+  -> EXTERN: (118,8) for_emit_diagnostic
+  -> EXTERN: (118,8) for_emit_diagnostic
+  -> EXTERN: (118,8) for_emit_diagnostic
+  -> EXTERN: (119,9) for_emit_diagnostic
+  -> EXTERN: (119,9) for_emit_diagnostic
+  -> EXTERN: (119,9) for_emit_diagnostic
+  -> EXTERN: (119,9) for_emit_diagnostic
+  -> EXTERN: (119,9) for_emit_diagnostic
+  -> EXTERN: (119,25) for_emit_diagnostic
+  -> EXTERN: (119,25) for_emit_diagnostic
+  -> EXTERN: (119,25) for_emit_diagnostic
+  -> EXTERN: (119,25) for_emit_diagnostic
+  -> EXTERN: (119,25) for_emit_diagnostic
+  -> EXTERN: (119,25) for_emit_diagnostic
+  -> EXTERN: (122,5) for_dealloc_allocatable
+  -> EXTERN: (124,3) __for_ieee_restore_env_
+  -> EXTERN: (124,3) for_dealloc_allocatable
+
+===========================================================================
+
+Begin optimization report for: NEIGHBOUR_FINDING::NEIGHBORING_LIST
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (NEIGHBOUR_FINDING::NEIGHBORING_LIST) [4/6=66.7%] source/base/neighbour_finding_mod.F90(127,15)
+  -> EXTERN: (127,15) for_set_fpe_
+  -> EXTERN: (127,15) __for_ieee_store_env_
+  -> EXTERN: (145,14) for_emit_diagnostic
+  -> EXTERN: (145,14) for_emit_diagnostic
+  -> EXTERN: (145,14) for_emit_diagnostic
+  -> (153,22) NEIGHBOUR_FINDING::NEIGHBOR_LIST_IJ (isz = 1948) (sz = 1957)
+     [[ Unable to inline callsite  <1>]]
+  -> (157,22) NEIGHBOUR_FINDING::NEIGHBOR_LIST_IJ (isz = 1948) (sz = 1957)
+     [[ Unable to inline callsite  <1>]]
+  -> (162,22) NEIGHBOUR_FINDING::NEIGHBOR_LIST_IJ (isz = 1948) (sz = 1957)
+     [[ Unable to inline callsite  <1>]]
+  -> (167,22) NEIGHBOUR_FINDING::NEIGHBOR_LIST_IJ (isz = 1948) (sz = 1957)
+     [[ Unable to inline callsite  <1>]]
+  -> (175,13) NEIGHBOUR_FINDING::NEIGHBOR_LIST_SELF (isz = 1791) (sz = 1798)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (178,3) __for_ieee_restore_env_
+
+===========================================================================
+
+Begin optimization report for: NEIGHBOUR_FINDING::NEIGHBOR_LIST_IJ
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (NEIGHBOUR_FINDING::NEIGHBOR_LIST_IJ) [5/6=83.3%] source/base/neighbour_finding_mod.F90(182,14)
+  -> EXTERN: (182,14) for_set_fpe_
+  -> EXTERN: (182,14) __for_ieee_store_env_
+  -> EXTERN: (195,11) for_emit_diagnostic
+  -> EXTERN: (195,11) for_emit_diagnostic
+  -> EXTERN: (195,11) for_emit_diagnostic
+  -> EXTERN: (195,26) for_emit_diagnostic
+  -> EXTERN: (195,26) for_emit_diagnostic
+  -> EXTERN: (195,26) for_emit_diagnostic
+  -> EXTERN: (196,14) for_emit_diagnostic
+  -> EXTERN: (196,14) for_emit_diagnostic
+  -> EXTERN: (196,14) for_emit_diagnostic
+  -> EXTERN: (197,14) for_emit_diagnostic
+  -> EXTERN: (197,14) for_emit_diagnostic
+  -> EXTERN: (197,14) for_emit_diagnostic
+  -> EXTERN: (199,15) for_emit_diagnostic
+  -> EXTERN: (199,15) for_emit_diagnostic
+  -> EXTERN: (199,15) for_emit_diagnostic
+  -> EXTERN: (200,17) for_emit_diagnostic
+  -> EXTERN: (200,17) for_emit_diagnostic
+  -> EXTERN: (200,17) for_emit_diagnostic
+  -> EXTERN: (201,17) for_emit_diagnostic
+  -> EXTERN: (201,17) for_emit_diagnostic
+  -> EXTERN: (201,17) for_emit_diagnostic
+  -> EXTERN: (203,18) for_emit_diagnostic
+  -> EXTERN: (203,18) for_emit_diagnostic
+  -> EXTERN: (203,18) for_emit_diagnostic
+  -> EXTERN: (204,21) for_emit_diagnostic
+  -> EXTERN: (204,21) for_emit_diagnostic
+  -> EXTERN: (204,21) for_emit_diagnostic
+  -> EXTERN: (204,21) for_emit_diagnostic
+  -> EXTERN: (204,21) for_emit_diagnostic
+  -> EXTERN: (204,21) for_emit_diagnostic
+  -> EXTERN: (204,21) for_emit_diagnostic
+  -> EXTERN: (204,21) for_emit_diagnostic
+  -> EXTERN: (204,21) for_emit_diagnostic
+  -> EXTERN: (204,21) for_emit_diagnostic
+  -> EXTERN: (204,40) for_emit_diagnostic
+  -> EXTERN: (204,40) for_emit_diagnostic
+  -> EXTERN: (204,40) for_emit_diagnostic
+  -> EXTERN: (204,40) for_emit_diagnostic
+  -> EXTERN: (204,40) for_emit_diagnostic
+  -> EXTERN: (204,40) for_emit_diagnostic
+  -> EXTERN: (204,40) for_emit_diagnostic
+  -> EXTERN: (204,40) for_emit_diagnostic
+  -> EXTERN: (204,40) for_emit_diagnostic
+  -> EXTERN: (204,40) for_emit_diagnostic
+  -> EXTERN: (204,40) for_emit_diagnostic
+  -> EXTERN: (204,56) for_emit_diagnostic
+  -> EXTERN: (208,20) for_emit_diagnostic
+  -> EXTERN: (208,20) for_emit_diagnostic
+  -> EXTERN: (208,32) for_emit_diagnostic
+  -> EXTERN: (208,32) for_emit_diagnostic
+  -> EXTERN: (208,32) for_emit_diagnostic
+  -> EXTERN: (208,48) for_emit_diagnostic
+  -> EXTERN: (208,48) for_emit_diagnostic
+  -> EXTERN: (208,48) for_emit_diagnostic
+  -> EXTERN: (209,20) for_emit_diagnostic
+  -> EXTERN: (209,20) for_emit_diagnostic
+  -> EXTERN: (209,20) for_emit_diagnostic
+  -> EXTERN: (209,20) for_emit_diagnostic
+  -> EXTERN: (212,20) for_emit_diagnostic
+  -> EXTERN: (212,20) for_emit_diagnostic
+  -> EXTERN: (212,32) for_emit_diagnostic
+  -> EXTERN: (212,32) for_emit_diagnostic
+  -> EXTERN: (212,32) for_emit_diagnostic
+  -> EXTERN: (212,48) for_emit_diagnostic
+  -> EXTERN: (212,48) for_emit_diagnostic
+  -> EXTERN: (212,48) for_emit_diagnostic
+  -> EXTERN: (213,20) for_emit_diagnostic
+  -> EXTERN: (213,20) for_emit_diagnostic
+  -> EXTERN: (213,20) for_emit_diagnostic
+  -> EXTERN: (213,20) for_emit_diagnostic
+  -> EXTERN: (219,3) __for_ieee_restore_env_
+
+===========================================================================
+
+Begin optimization report for: NEIGHBOUR_FINDING::NEIGHBOR_LIST_SELF
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (NEIGHBOUR_FINDING::NEIGHBOR_LIST_SELF) [6/6=100.0%] source/base/neighbour_finding_mod.F90(223,14)
+  -> EXTERN: (223,14) for_set_fpe_
+  -> EXTERN: (223,14) __for_ieee_store_env_
+  -> EXTERN: (235,11) for_emit_diagnostic
+  -> EXTERN: (235,11) for_emit_diagnostic
+  -> EXTERN: (235,11) for_emit_diagnostic
+  -> EXTERN: (236,14) for_emit_diagnostic
+  -> EXTERN: (236,14) for_emit_diagnostic
+  -> EXTERN: (236,14) for_emit_diagnostic
+  -> EXTERN: (237,14) for_emit_diagnostic
+  -> EXTERN: (237,14) for_emit_diagnostic
+  -> EXTERN: (237,14) for_emit_diagnostic
+  -> EXTERN: (239,15) for_emit_diagnostic
+  -> EXTERN: (239,15) for_emit_diagnostic
+  -> EXTERN: (239,15) for_emit_diagnostic
+  -> EXTERN: (241,18) for_emit_diagnostic
+  -> EXTERN: (241,18) for_emit_diagnostic
+  -> EXTERN: (241,18) for_emit_diagnostic
+  -> EXTERN: (243,18) for_emit_diagnostic
+  -> EXTERN: (243,18) for_emit_diagnostic
+  -> EXTERN: (243,18) for_emit_diagnostic
+  -> EXTERN: (244,21) for_emit_diagnostic
+  -> EXTERN: (244,21) for_emit_diagnostic
+  -> EXTERN: (244,21) for_emit_diagnostic
+  -> EXTERN: (244,21) for_emit_diagnostic
+  -> EXTERN: (244,21) for_emit_diagnostic
+  -> EXTERN: (244,21) for_emit_diagnostic
+  -> EXTERN: (244,21) for_emit_diagnostic
+  -> EXTERN: (244,21) for_emit_diagnostic
+  -> EXTERN: (244,21) for_emit_diagnostic
+  -> EXTERN: (244,21) for_emit_diagnostic
+  -> EXTERN: (244,40) for_emit_diagnostic
+  -> EXTERN: (244,40) for_emit_diagnostic
+  -> EXTERN: (244,40) for_emit_diagnostic
+  -> EXTERN: (244,40) for_emit_diagnostic
+  -> EXTERN: (244,40) for_emit_diagnostic
+  -> EXTERN: (244,40) for_emit_diagnostic
+  -> EXTERN: (244,40) for_emit_diagnostic
+  -> EXTERN: (244,40) for_emit_diagnostic
+  -> EXTERN: (244,40) for_emit_diagnostic
+  -> EXTERN: (244,40) for_emit_diagnostic
+  -> EXTERN: (244,40) for_emit_diagnostic
+  -> EXTERN: (244,56) for_emit_diagnostic
+  -> EXTERN: (247,20) for_emit_diagnostic
+  -> EXTERN: (247,20) for_emit_diagnostic
+  -> EXTERN: (247,32) for_emit_diagnostic
+  -> EXTERN: (247,32) for_emit_diagnostic
+  -> EXTERN: (247,32) for_emit_diagnostic
+  -> EXTERN: (247,48) for_emit_diagnostic
+  -> EXTERN: (247,48) for_emit_diagnostic
+  -> EXTERN: (247,48) for_emit_diagnostic
+  -> EXTERN: (248,20) for_emit_diagnostic
+  -> EXTERN: (248,20) for_emit_diagnostic
+  -> EXTERN: (248,20) for_emit_diagnostic
+  -> EXTERN: (248,20) for_emit_diagnostic
+  -> EXTERN: (251,20) for_emit_diagnostic
+  -> EXTERN: (251,20) for_emit_diagnostic
+  -> EXTERN: (251,32) for_emit_diagnostic
+  -> EXTERN: (251,32) for_emit_diagnostic
+  -> EXTERN: (251,32) for_emit_diagnostic
+  -> EXTERN: (251,48) for_emit_diagnostic
+  -> EXTERN: (251,48) for_emit_diagnostic
+  -> EXTERN: (251,48) for_emit_diagnostic
+  -> EXTERN: (252,20) for_emit_diagnostic
+  -> EXTERN: (252,20) for_emit_diagnostic
+  -> EXTERN: (252,20) for_emit_diagnostic
+  -> EXTERN: (252,20) for_emit_diagnostic
+  -> EXTERN: (258,3) __for_ieee_restore_env_
+
+===========================================================================
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING FOOTNOTES:
+
+<1> Inlining the subprogram will lead to incorrect program behavior.
+

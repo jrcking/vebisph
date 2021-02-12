@@ -1,0 +1,100 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) Fortran Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 19.1 Build 20200306
+
+Compiler options: -I./obj -O0 -g -debug all -check all -no-ftz -traceback -shared-intel -module ./obj -gen-interfaces -warn all -qopenmp -qopenmp-simd -fpe-all=0 -fp-stack-check -fstack-protector-all -ftrapuv -O3 -xHost -no-inline-max-size -ipo-jobs4 -align array64byte -qopt-report=5 -qopt-report-phase=all -g -qopt-smm-usage=high -c -o obj/put_in_bin.o
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: disabled
+  -inline-max-per-compile: disabled
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+Begin optimization report for: PUT_IN_BIN
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (PUT_IN_BIN) [1/1=100.0%] source/base/put_in_bin.F90(1,12)
+  -> EXTERN: (1,12) for_set_fpe_
+  -> EXTERN: (1,12) __for_ieee_store_env_
+  -> EXTERN: (17,9) for_emit_diagnostic
+  -> EXTERN: (17,9) for_emit_diagnostic
+  -> EXTERN: (17,9) for_emit_diagnostic
+  -> EXTERN: (19,9) for_emit_diagnostic
+  -> EXTERN: (19,9) for_emit_diagnostic
+  -> EXTERN: (19,9) for_emit_diagnostic
+  -> EXTERN: (19,9) for_emit_diagnostic
+  -> EXTERN: (19,9) for_emit_diagnostic
+  -> EXTERN: (19,30) for_emit_diagnostic
+  -> EXTERN: (19,30) for_emit_diagnostic
+  -> EXTERN: (19,30) for_emit_diagnostic
+  -> EXTERN: (19,30) for_emit_diagnostic
+  -> EXTERN: (19,30) for_emit_diagnostic
+  -> EXTERN: (19,51) for_emit_diagnostic
+  -> EXTERN: (19,51) for_emit_diagnostic
+  -> EXTERN: (19,51) for_emit_diagnostic
+  -> EXTERN: (19,51) for_emit_diagnostic
+  -> EXTERN: (19,51) for_emit_diagnostic
+  -> EXTERN: (19,72) for_emit_diagnostic
+  -> EXTERN: (19,72) for_emit_diagnostic
+  -> EXTERN: (19,72) for_emit_diagnostic
+  -> EXTERN: (19,72) for_emit_diagnostic
+  -> EXTERN: (19,72) for_emit_diagnostic
+  -> EXTERN: (20,9) for_emit_diagnostic
+  -> EXTERN: (20,9) for_emit_diagnostic
+  -> EXTERN: (23,9) for_is_nan_t_
+  -> EXTERN: (23,15) for_emit_diagnostic
+  -> EXTERN: (23,15) for_emit_diagnostic
+  -> EXTERN: (23,15) for_emit_diagnostic
+  -> EXTERN: (23,15) for_emit_diagnostic
+  -> EXTERN: (23,15) for_emit_diagnostic
+  -> EXTERN: (23,27) for_is_nan_t_
+  -> EXTERN: (23,33) for_emit_diagnostic
+  -> EXTERN: (23,33) for_emit_diagnostic
+  -> EXTERN: (23,33) for_emit_diagnostic
+  -> EXTERN: (23,33) for_emit_diagnostic
+  -> EXTERN: (23,33) for_emit_diagnostic
+  -> EXTERN: (24,9) for_emit_diagnostic
+  -> EXTERN: (24,9) for_emit_diagnostic
+  -> EXTERN: (32,9) for_emit_diagnostic
+  -> EXTERN: (32,9) for_emit_diagnostic
+  -> EXTERN: (32,9) for_emit_diagnostic
+  -> EXTERN: (34,9) for_emit_diagnostic
+  -> EXTERN: (34,9) for_emit_diagnostic
+  -> EXTERN: (34,9) for_emit_diagnostic
+  -> EXTERN: (34,9) for_emit_diagnostic
+  -> EXTERN: (35,9) for_emit_diagnostic
+  -> EXTERN: (35,9) for_emit_diagnostic
+  -> EXTERN: (35,9) for_emit_diagnostic
+  -> EXTERN: (35,9) for_emit_diagnostic
+  -> EXTERN: (37,9) for_emit_diagnostic
+  -> EXTERN: (37,9) for_emit_diagnostic
+  -> EXTERN: (37,9) for_emit_diagnostic
+  -> EXTERN: (37,9) for_emit_diagnostic
+  -> EXTERN: (41,9) for_emit_diagnostic
+  -> EXTERN: (41,9) for_emit_diagnostic
+  -> EXTERN: (45,6) for_write_seq_lis
+  -> EXTERN: (45,6) for_write_seq_lis_xmit
+  -> EXTERN: (45,6) for_write_seq_lis_xmit
+  -> EXTERN: (46,6) for_stop_core
+  -> EXTERN: (49,1) __for_ieee_restore_env_
+
+===========================================================================

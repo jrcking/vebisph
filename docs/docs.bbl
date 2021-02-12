@@ -1,0 +1,73 @@
+\begin{thebibliography}{7}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\href}[2]{#2}
+\providecommand{\path}[1]{#1}
+\providecommand{\DOIprefix}{doi:}
+\providecommand{\ArXivprefix}{arXiv:}
+\providecommand{\URLprefix}{URL: }
+\providecommand{\Pubmedprefix}{pmid:}
+\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
+\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Misc
+\bibitem[{King and Lind(2020)}]{king_2020_ve}
+\bibinfo{author}{J.~King}, \bibinfo{author}{S.~Lind}, \bibinfo{title}{{H}igh
+  {W}eissenberg number simulations with incompressible {S}moothed {P}article
+  {H}ydrodynamics and the log-conformation formulation}, \bibinfo{year}{2020}.
+  \href{http://arxiv.org/abs/2009.12245}{{\tt arXiv:2009.12245}}.
+%Type = Article
+\bibitem[{Chorin(1968)}]{chorin_1968}
+\bibinfo{author}{A.~J. Chorin},
+\newblock \bibinfo{title}{Numerical solution of the {N}avier {S}tokes
+  equations},
+\newblock \bibinfo{journal}{Journal of Mathematical Computing}
+  \bibinfo{volume}{22} (\bibinfo{year}{1968}) \bibinfo{pages}{745--762}.
+%Type = Article
+\bibitem[{Bonet and Lok(1999)}]{bonet_lok}
+\bibinfo{author}{J.~Bonet}, \bibinfo{author}{T.-S. Lok},
+\newblock \bibinfo{title}{Variational and momentum preservation aspects of
+  {S}mooth {P}article {H}ydrodynamic formulations},
+\newblock \bibinfo{journal}{Computer Methods in Applied Mechanics and
+  Engineering} \bibinfo{volume}{180} (\bibinfo{year}{1999}) \bibinfo{pages}{97
+  -- 115}. \URLprefix
+  \url{http://www.sciencedirect.com/science/article/pii/S0045782599000511}.
+  \DOIprefix\doi{https://doi.org/10.1016/S0045-7825(99)00051-1}.
+%Type = Article
+\bibitem[{Fattal and Kupferman(2004)}]{fattal_2004}
+\bibinfo{author}{R.~Fattal}, \bibinfo{author}{R.~Kupferman},
+\newblock \bibinfo{title}{Constitutive laws for the matrix-logarithm of the
+  conformation tensor},
+\newblock \bibinfo{journal}{Journal of Non-Newtonian Fluid Mechanics}
+  \bibinfo{volume}{123} (\bibinfo{year}{2004}) \bibinfo{pages}{281 -- 285}.
+  \DOIprefix\doi{10.1016/j.jnnfm.2004.08.008}.
+%Type = Article
+\bibitem[{Fattal and Kupferman(2005)}]{fattal_2005}
+\bibinfo{author}{R.~Fattal}, \bibinfo{author}{R.~Kupferman},
+\newblock \bibinfo{title}{Time-dependent simulation of viscoelastic flows at
+  high {W}eissenberg number using the log-conformation representation},
+\newblock \bibinfo{journal}{Journal of Non-Newtonian Fluid Mechanics}
+  \bibinfo{volume}{126} (\bibinfo{year}{2005}) \bibinfo{pages}{23 -- 37}.
+  \DOIprefix\doi{10.1016/j.jnnfm.2004.12.003}.
+%Type = Article
+\bibitem[{L{\'o}pez-Herrera et~al.(2019)L{\'o}pez-Herrera, Popinet, and
+  Castrejón-Pita}]{lopez_2019}
+\bibinfo{author}{J.~L{\'o}pez-Herrera}, \bibinfo{author}{S.~Popinet},
+  \bibinfo{author}{A.~Castrejón-Pita},
+\newblock \bibinfo{title}{An adaptive solver for viscoelastic incompressible
+  two-phase problems applied to the study of the splashing of weakly
+  viscoelastic droplets},
+\newblock \bibinfo{journal}{Journal of Non-Newtonian Fluid Mechanics}
+  \bibinfo{volume}{264} (\bibinfo{year}{2019}) \bibinfo{pages}{144 -- 158}.
+  \DOIprefix\doi{https://doi.org/10.1016/j.jnnfm.2018.10.012}.
+%Type = Article
+\bibitem[{Vázquez-Quesada and Ellero(2012)}]{vazquez_2012}
+\bibinfo{author}{A.~Vázquez-Quesada}, \bibinfo{author}{M.~Ellero},
+\newblock \bibinfo{title}{{SPH} simulations of a viscoelastic flow around a
+  periodic array of cylinders confined in a channel},
+\newblock \bibinfo{journal}{Journal of Non-Newtonian Fluid Mechanics}
+  \bibinfo{volume}{167-168} (\bibinfo{year}{2012}) \bibinfo{pages}{1 -- 8}.
+  \DOIprefix\doi{https://doi.org/10.1016/j.jnnfm.2011.09.002}.
+
+\end{thebibliography}

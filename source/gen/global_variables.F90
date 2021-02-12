@@ -1,0 +1,32 @@
+      module global_variables 
+      use kind_parameters      
+      implicit none
+
+      integer(ikind) :: itime, itmax, iout
+      integer(ikind) :: np, npfb, nbS, nbS_paddle,npfb_gas,nbS_gas
+      integer(ikind) :: i_wall_y_u, i_wall_y_b
+      integer(ikind) :: i_wall_x_l, i_wall_x_r
+      integer(ikind) :: i_per_x, i_per_y
+      integer(ikind) :: i_open_domain
+
+      real(rkind) :: rho, rho0, dx, dy, h, time, dt,  dt_out
+      real(rkind) :: grx, gry
+      real(rkind) :: xb_min, xb_max, yb_min, yb_max, xl
+      real(rkind) :: v_mu,U_bulk   
+      real(rkind), dimension(:), allocatable :: xp, yp ,up, vp, p, vol
+      real(rkind), dimension(:), allocatable :: xp_gas,yp_gas,up_gas,vp_gas
+      real(rkind), dimension(:,:,:), allocatable :: tau_e
+
+      !! jack's boundary condition framework
+      real(rkind),dimension(:,:),allocatable, target :: b_node,b_edge
+      real(rkind),dimension(:),allocatable :: b_vel
+      integer(ikind),dimension(:),allocatable,target :: b_type,b_periodic_parent
+      integer(ikind) :: nb_patches
+      integer(ikind) :: nb_circles
+      real(rkind),dimension(:,:),allocatable :: c_centre,c_vel
+      real(rkind),dimension(:),allocatable :: c_radius,c_omega
+      
+
+      logical :: twophase,slip_walls
+
+      end module global_variables 

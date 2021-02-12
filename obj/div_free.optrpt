@@ -1,0 +1,891 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) Fortran Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 19.1 Build 20200306
+
+Compiler options: -I./obj -O0 -g -debug all -check all -no-ftz -traceback -shared-intel -module ./obj -gen-interfaces -warn all -qopenmp -qopenmp-simd -fpe-all=0 -fp-stack-check -fstack-protector-all -ftrapuv -O3 -xHost -no-inline-max-size -ipo-jobs4 -align array64byte -qopt-report=5 -qopt-report-phase=all -g -qopt-smm-usage=high -c -o obj/div_free.o
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: disabled
+  -inline-max-per-compile: disabled
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+Begin optimization report for: divfree._
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (divfree._) [1/5=20.0%] source/base/div_free.F90(1,8)
+
+===========================================================================
+
+Begin optimization report for: DIVFREE::DIV_FREE
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (DIVFREE::DIV_FREE) [2/5=40.0%] source/base/div_free.F90(22,14)
+  -> EXTERN: (22,14) for_set_fpe_
+  -> EXTERN: (22,14) __for_ieee_store_env_
+  -> EXTERN: (43,19) for_stop_core
+  -> EXTERN: (46,5) for_alloc_allocatable
+  -> EXTERN: (46,5) for_check_mult_overflow64
+  -> EXTERN: (46,5) for_alloc_allocatable
+  -> EXTERN: (46,5) for_check_mult_overflow64
+  -> EXTERN: (47,5) for_emit_diagnostic
+  -> EXTERN: (47,5) for_emit_diagnostic
+  -> EXTERN: (47,5) for_emit_diagnostic
+  -> EXTERN: (47,5) for_emit_diagnostic
+  -> EXTERN: (47,5) for_emit_diagnostic
+  -> EXTERN: (47,5) for_emit_diagnostic
+  -> EXTERN: (47,5) for_emit_diagnostic
+  -> EXTERN: (47,5) for_emit_diagnostic
+  -> EXTERN: (47,5) for_emit_diagnostic
+  -> EXTERN: (47,5) for_emit_diagnostic
+  -> EXTERN: (47,5) for_emit_diagnostic
+  -> EXTERN: (48,5) for_emit_diagnostic
+  -> EXTERN: (48,5) for_emit_diagnostic
+  -> EXTERN: (48,5) for_emit_diagnostic
+  -> EXTERN: (48,5) for_emit_diagnostic
+  -> EXTERN: (48,5) for_emit_diagnostic
+  -> EXTERN: (48,5) for_emit_diagnostic
+  -> EXTERN: (48,5) for_emit_diagnostic
+  -> EXTERN: (48,5) for_emit_diagnostic
+  -> EXTERN: (48,5) for_emit_diagnostic
+  -> EXTERN: (48,5) for_emit_diagnostic
+  -> EXTERN: (48,5) for_emit_diagnostic
+  -> (51,10) DIVFREE::SET_TIME_STEP (isz = 374) (sz = 377)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (57,11) for_emit_diagnostic
+  -> EXTERN: (57,11) for_emit_diagnostic
+  -> EXTERN: (57,11) for_emit_diagnostic
+  -> EXTERN: (57,11) for_emit_diagnostic
+  -> EXTERN: (57,11) for_emit_diagnostic
+  -> EXTERN: (57,11) for_emit_diagnostic
+  -> EXTERN: (57,11) for_emit_diagnostic
+  -> EXTERN: (57,11) for_emit_diagnostic
+  -> EXTERN: (57,11) for_emit_diagnostic
+  -> EXTERN: (57,11) for_emit_diagnostic
+  -> EXTERN: (57,11) for_emit_diagnostic
+  -> EXTERN: (57,11) for_emit_diagnostic
+  -> EXTERN: (57,11) for_emit_diagnostic
+  -> EXTERN: (57,11) for_emit_diagnostic
+  -> EXTERN: (57,11) for_emit_diagnostic
+  -> EXTERN: (57,30) for_emit_diagnostic
+  -> EXTERN: (60,24) MOVE_CIRCLES_HALFSTEP
+  -> EXTERN: (64,10) put_in_bin_
+  -> EXTERN: (65,10) CREATE_MIRROR_PARTICLES
+  -> EXTERN: (66,10) PARTICLE_ALLOCATION
+  -> EXTERN: (67,10) kernel_calculation_
+  -> (68,10) DIVFREE::SMOOTH_MATERIAL_PROPS (isz = 3133) (sz = 3136)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (69,10) LOCATE_FREE_SURF_PART
+  -> EXTERN: (72,5) for_alloc_allocatable
+  -> EXTERN: (75,11) for_check_mult_overflow64
+  -> EXTERN: (75,11) for_alloc_allocatable
+  -> EXTERN: (76,16) NEW_FICK_SHIFT
+  -> EXTERN: (77,11) for_emit_diagnostic
+  -> EXTERN: (77,11) for_emit_diagnostic
+  -> EXTERN: (77,11) for_emit_diagnostic
+  -> EXTERN: (77,11) for_emit_diagnostic
+  -> EXTERN: (77,11) for_emit_diagnostic
+  -> EXTERN: (77,11) for_emit_diagnostic
+  -> EXTERN: (77,11) for_emit_diagnostic
+  -> EXTERN: (77,11) for_emit_diagnostic
+  -> EXTERN: (77,11) for_emit_diagnostic
+  -> EXTERN: (79,17) for_emit_diagnostic
+  -> EXTERN: (79,17) for_emit_diagnostic
+  -> EXTERN: (79,17) for_emit_diagnostic
+  -> EXTERN: (79,36) for_emit_diagnostic
+  -> EXTERN: (79,36) for_emit_diagnostic
+  -> EXTERN: (79,36) for_emit_diagnostic
+  -> EXTERN: (79,36) for_emit_diagnostic
+  -> EXTERN: (79,36) for_emit_diagnostic
+  -> EXTERN: (79,36) for_emit_diagnostic
+  -> EXTERN: (79,36) for_emit_diagnostic
+  -> EXTERN: (79,36) for_emit_diagnostic
+  -> EXTERN: (79,36) for_emit_diagnostic
+  -> EXTERN: (79,36) for_emit_diagnostic
+  -> EXTERN: (81,11) for_dealloc_allocatable
+  -> EXTERN: (83,11) for_emit_diagnostic
+  -> EXTERN: (83,11) for_emit_diagnostic
+  -> EXTERN: (83,11) for_emit_diagnostic
+  -> EXTERN: (83,11) for_emit_diagnostic
+  -> EXTERN: (86,8) for_emit_diagnostic
+  -> EXTERN: (86,8) for_emit_diagnostic
+  -> EXTERN: (86,8) for_emit_diagnostic
+  -> EXTERN: (86,8) for_emit_diagnostic
+  -> EXTERN: (86,8) for_emit_diagnostic
+  -> EXTERN: (86,8) for_emit_diagnostic
+  -> EXTERN: (86,8) for_emit_diagnostic
+  -> EXTERN: (86,8) for_emit_diagnostic
+  -> EXTERN: (86,8) for_emit_diagnostic
+  -> EXTERN: (86,8) for_emit_diagnostic
+  -> EXTERN: (86,8) for_emit_diagnostic
+  -> EXTERN: (90,5) for_alloc_allocatable
+  -> EXTERN: (90,5) for_check_mult_overflow64
+  -> EXTERN: (90,26) for_emit_diagnostic
+  -> EXTERN: (90,26) for_emit_diagnostic
+  -> EXTERN: (91,10) PREDICTION_STEP
+  -> EXTERN: (102,13) REPULSIVE_FORCES
+  -> EXTERN: (106,10) MIRROR_VELOCITIES
+  -> EXTERN: (108,30) for_dealloc_allocatable
+  -> EXTERN: (111,13) ppe_solve_in_house_
+  -> EXTERN: (113,16) ppe_solve_in_house_simple_dirichlet_
+  -> EXTERN: (115,5) for_dealloc_allocatable
+  -> EXTERN: (118,5) for_alloc_allocatable
+  -> EXTERN: (118,5) for_check_mult_overflow64
+  -> EXTERN: (119,10) CALC_PRESSURE_GRADIENT
+  -> EXTERN: (119,10) for_emit_diagnostic
+  -> EXTERN: (122,8) for_emit_diagnostic
+  -> EXTERN: (122,8) for_emit_diagnostic
+  -> EXTERN: (122,8) for_emit_diagnostic
+  -> EXTERN: (122,8) for_emit_diagnostic
+  -> EXTERN: (122,8) for_emit_diagnostic
+  -> EXTERN: (122,8) for_emit_diagnostic
+  -> EXTERN: (122,8) for_emit_diagnostic
+  -> EXTERN: (122,8) for_emit_diagnostic
+  -> EXTERN: (122,8) for_emit_diagnostic
+  -> EXTERN: (122,8) for_emit_diagnostic
+  -> EXTERN: (122,8) for_emit_diagnostic
+  -> EXTERN: (122,8) for_emit_diagnostic
+  -> EXTERN: (122,8) for_emit_diagnostic
+  -> EXTERN: (122,8) for_emit_diagnostic
+  -> EXTERN: (122,8) for_emit_diagnostic
+  -> EXTERN: (122,26) for_emit_diagnostic
+  -> EXTERN: (125,5) for_dealloc_allocatable
+  -> (130,10) DIVFREE::SECONDARY_PROPERTIES (isz = 12148) (sz = 12151)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (136,11) for_emit_diagnostic
+  -> EXTERN: (136,11) for_emit_diagnostic
+  -> EXTERN: (136,11) for_emit_diagnostic
+  -> EXTERN: (136,11) for_emit_diagnostic
+  -> EXTERN: (136,11) for_emit_diagnostic
+  -> EXTERN: (136,11) for_emit_diagnostic
+  -> EXTERN: (136,11) for_emit_diagnostic
+  -> EXTERN: (136,11) for_emit_diagnostic
+  -> EXTERN: (136,11) for_emit_diagnostic
+  -> EXTERN: (136,11) for_emit_diagnostic
+  -> EXTERN: (136,11) for_emit_diagnostic
+  -> EXTERN: (136,11) for_emit_diagnostic
+  -> EXTERN: (136,11) for_emit_diagnostic
+  -> EXTERN: (136,11) for_emit_diagnostic
+  -> EXTERN: (136,11) for_emit_diagnostic
+  -> EXTERN: (136,11) for_emit_diagnostic
+  -> EXTERN: (136,11) for_emit_diagnostic
+  -> EXTERN: (136,11) for_emit_diagnostic
+  -> EXTERN: (136,11) for_emit_diagnostic
+  -> EXTERN: (136,11) for_emit_diagnostic
+  -> EXTERN: (136,27) for_emit_diagnostic
+  -> EXTERN: (136,56) for_emit_diagnostic
+  -> EXTERN: (136,58) for_emit_diagnostic
+  -> EXTERN: (136,58) for_emit_diagnostic
+  -> EXTERN: (136,58) for_emit_diagnostic
+  -> EXTERN: (136,58) for_emit_diagnostic
+  -> EXTERN: (136,58) for_emit_diagnostic
+  -> EXTERN: (139,24) MOVE_CIRCLES_HALFSTEP
+  -> EXTERN: (144,5) for_dealloc_allocatable
+  -> EXTERN: (144,5) for_dealloc_allocatable
+  -> EXTERN: (144,5) for_dealloc_allocatable
+  -> EXTERN: (145,5) for_dealloc_allocatable
+  -> EXTERN: (145,5) for_dealloc_allocatable
+  -> EXTERN: (146,5) for_dealloc_allocatable
+  -> EXTERN: (146,5) for_dealloc_allocatable
+  -> EXTERN: (146,5) for_dealloc_allocatable
+  -> EXTERN: (147,5) for_dealloc_allocatable
+  -> EXTERN: (148,5) for_dealloc_allocatable
+  -> EXTERN: (149,5) for_dealloc_allocatable
+  -> EXTERN: (149,5) for_dealloc_allocatable
+  -> EXTERN: (153,3) __for_ieee_restore_env_
+  -> EXTERN: (153,3) for_dealloc_allocatable
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at source/base/div_free.F90(55,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+OpenMP Construct at source/base/div_free.F90(120,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+OpenMP Construct at source/base/div_free.F90(134,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+===========================================================================
+
+Begin optimization report for: DIVFREE::SET_TIME_STEP
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (DIVFREE::SET_TIME_STEP) [3/5=60.0%] source/base/div_free.F90(155,14)
+  -> EXTERN: (155,14) for_set_fpe_
+  -> EXTERN: (155,14) __for_ieee_store_env_
+  -> EXTERN: (164,21) for_emit_diagnostic
+  -> EXTERN: (164,21) for_emit_diagnostic
+  -> EXTERN: (164,21) for_emit_diagnostic
+  -> EXTERN: (164,21) for_emit_diagnostic
+  -> EXTERN: (164,21) for_emit_diagnostic
+  -> EXTERN: (164,21) for_emit_diagnostic
+  -> EXTERN: (164,21) for_emit_diagnostic
+  -> EXTERN: (164,21) for_emit_diagnostic
+  -> EXTERN: (164,21) for_emit_diagnostic
+  -> EXTERN: (164,21) for_emit_diagnostic
+  -> EXTERN: (178,3) __for_ieee_restore_env_
+
+===========================================================================
+
+Begin optimization report for: DIVFREE::SMOOTH_MATERIAL_PROPS
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (DIVFREE::SMOOTH_MATERIAL_PROPS) [4/5=80.0%] source/base/div_free.F90(180,14)
+  -> EXTERN: (180,14) for_set_fpe_
+  -> EXTERN: (180,14) __for_ieee_store_env_
+  -> EXTERN: (187,9) for_check_mult_overflow64
+  -> EXTERN: (187,9) for_alloc_allocatable
+  -> EXTERN: (187,9) for_check_mult_overflow64
+  -> EXTERN: (187,9) for_alloc_allocatable
+  -> EXTERN: (188,9) for_emit_diagnostic
+  -> EXTERN: (188,9) for_emit_diagnostic
+  -> EXTERN: (188,29) for_emit_diagnostic
+  -> EXTERN: (188,29) for_emit_diagnostic
+  -> EXTERN: (194,19) for_emit_diagnostic
+  -> EXTERN: (194,19) for_emit_diagnostic
+  -> EXTERN: (194,19) for_emit_diagnostic
+  -> EXTERN: (195,17) for_emit_diagnostic
+  -> EXTERN: (195,17) for_emit_diagnostic
+  -> EXTERN: (195,17) for_emit_diagnostic
+  -> EXTERN: (195,17) for_emit_diagnostic
+  -> EXTERN: (195,17) for_emit_diagnostic
+  -> EXTERN: (196,15) for_emit_diagnostic
+  -> EXTERN: (196,15) for_emit_diagnostic
+  -> EXTERN: (196,15) for_emit_diagnostic
+  -> EXTERN: (196,15) for_emit_diagnostic
+  -> EXTERN: (196,15) for_emit_diagnostic
+  -> EXTERN: (196,15) for_emit_diagnostic
+  -> EXTERN: (196,15) for_emit_diagnostic
+  -> EXTERN: (196,15) for_emit_diagnostic
+  -> EXTERN: (196,15) for_emit_diagnostic
+  -> EXTERN: (196,15) for_emit_diagnostic
+  -> EXTERN: (196,15) for_emit_diagnostic
+  -> EXTERN: (196,15) for_emit_diagnostic
+  -> EXTERN: (196,32) for_emit_diagnostic
+  -> EXTERN: (199,21) WAB
+  -> EXTERN: (200,45) for_emit_diagnostic
+  -> EXTERN: (200,45) for_emit_diagnostic
+  -> EXTERN: (200,45) for_emit_diagnostic
+  -> EXTERN: (203,12) for_emit_diagnostic
+  -> EXTERN: (203,12) for_emit_diagnostic
+  -> EXTERN: (203,42) for_emit_diagnostic
+  -> EXTERN: (203,42) for_emit_diagnostic
+  -> EXTERN: (210,12) for_emit_diagnostic
+  -> EXTERN: (210,12) for_emit_diagnostic
+  -> EXTERN: (210,26) for_emit_diagnostic
+  -> EXTERN: (210,26) for_emit_diagnostic
+  -> EXTERN: (210,26) for_emit_diagnostic
+  -> EXTERN: (210,38) for_emit_diagnostic
+  -> EXTERN: (210,38) for_emit_diagnostic
+  -> EXTERN: (210,38) for_emit_diagnostic
+  -> EXTERN: (217,12) for_emit_diagnostic
+  -> EXTERN: (217,12) for_emit_diagnostic
+  -> EXTERN: (217,26) for_emit_diagnostic
+  -> EXTERN: (217,26) for_emit_diagnostic
+  -> EXTERN: (217,26) for_emit_diagnostic
+  -> EXTERN: (217,50) for_emit_diagnostic
+  -> EXTERN: (217,50) for_emit_diagnostic
+  -> EXTERN: (217,50) for_emit_diagnostic
+  -> EXTERN: (218,12) for_emit_diagnostic
+  -> EXTERN: (218,12) for_emit_diagnostic
+  -> EXTERN: (218,27) for_emit_diagnostic
+  -> EXTERN: (218,27) for_emit_diagnostic
+  -> EXTERN: (218,27) for_emit_diagnostic
+  -> EXTERN: (218,52) for_emit_diagnostic
+  -> EXTERN: (218,52) for_emit_diagnostic
+  -> EXTERN: (218,52) for_emit_diagnostic
+  -> EXTERN: (219,12) for_emit_diagnostic
+  -> EXTERN: (219,12) for_emit_diagnostic
+  -> EXTERN: (219,33) for_emit_diagnostic
+  -> EXTERN: (219,33) for_emit_diagnostic
+  -> EXTERN: (219,33) for_emit_diagnostic
+  -> EXTERN: (219,61) for_emit_diagnostic
+  -> EXTERN: (219,61) for_emit_diagnostic
+  -> EXTERN: (219,61) for_emit_diagnostic
+  -> EXTERN: (220,12) for_emit_diagnostic
+  -> EXTERN: (220,12) for_emit_diagnostic
+  -> EXTERN: (220,30) for_emit_diagnostic
+  -> EXTERN: (220,30) for_emit_diagnostic
+  -> EXTERN: (220,30) for_emit_diagnostic
+  -> EXTERN: (220,57) for_emit_diagnostic
+  -> EXTERN: (220,57) for_emit_diagnostic
+  -> EXTERN: (220,57) for_emit_diagnostic
+  -> EXTERN: (228,14) for_emit_diagnostic
+  -> EXTERN: (228,14) for_emit_diagnostic
+  -> EXTERN: (228,14) for_emit_diagnostic
+  -> EXTERN: (229,12) for_emit_diagnostic
+  -> EXTERN: (229,12) for_emit_diagnostic
+  -> EXTERN: (229,21) for_emit_diagnostic
+  -> EXTERN: (229,21) for_emit_diagnostic
+  -> EXTERN: (229,21) for_emit_diagnostic
+  -> EXTERN: (230,12) for_emit_diagnostic
+  -> EXTERN: (230,12) for_emit_diagnostic
+  -> EXTERN: (230,21) for_emit_diagnostic
+  -> EXTERN: (230,21) for_emit_diagnostic
+  -> EXTERN: (230,21) for_emit_diagnostic
+  -> EXTERN: (231,12) for_emit_diagnostic
+  -> EXTERN: (231,12) for_emit_diagnostic
+  -> EXTERN: (231,24) for_emit_diagnostic
+  -> EXTERN: (231,24) for_emit_diagnostic
+  -> EXTERN: (231,24) for_emit_diagnostic
+  -> EXTERN: (232,12) for_emit_diagnostic
+  -> EXTERN: (232,12) for_emit_diagnostic
+  -> EXTERN: (232,22) for_emit_diagnostic
+  -> EXTERN: (232,22) for_emit_diagnostic
+  -> EXTERN: (232,22) for_emit_diagnostic
+  -> EXTERN: (238,12) for_emit_diagnostic
+  -> EXTERN: (238,12) for_emit_diagnostic
+  -> EXTERN: (238,24) for_emit_diagnostic
+  -> EXTERN: (238,24) for_emit_diagnostic
+  -> EXTERN: (238,37) for_emit_diagnostic
+  -> EXTERN: (238,37) for_emit_diagnostic
+  -> EXTERN: (238,56) for_emit_diagnostic
+  -> EXTERN: (238,56) for_emit_diagnostic
+  -> EXTERN: (244,3) __for_ieee_restore_env_
+  -> EXTERN: (244,3) for_dealloc_allocatable
+  -> EXTERN: (244,3) for_dealloc_allocatable
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at source/base/div_free.F90(191,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+OpenMP Construct at source/base/div_free.F90(208,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+OpenMP Construct at source/base/div_free.F90(215,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+OpenMP Construct at source/base/div_free.F90(226,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+OpenMP Construct at source/base/div_free.F90(236,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+===========================================================================
+
+Begin optimization report for: DIVFREE::SECONDARY_PROPERTIES
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (DIVFREE::SECONDARY_PROPERTIES) [5/5=100.0%] source/base/div_free.F90(246,14)
+  -> EXTERN: (246,14) for_set_fpe_
+  -> EXTERN: (246,14) __for_ieee_store_env_
+  -> EXTERN: (271,16) for_emit_diagnostic
+  -> EXTERN: (271,16) for_emit_diagnostic
+  -> EXTERN: (271,16) for_emit_diagnostic
+  -> EXTERN: (272,11) for_emit_diagnostic
+  -> EXTERN: (272,11) for_emit_diagnostic
+  -> EXTERN: (272,11) for_emit_diagnostic
+  -> EXTERN: (272,11) for_emit_diagnostic
+  -> EXTERN: (272,11) for_emit_diagnostic
+  -> EXTERN: (273,19) for_emit_diagnostic
+  -> EXTERN: (273,19) for_emit_diagnostic
+  -> EXTERN: (273,19) for_emit_diagnostic
+  -> EXTERN: (273,19) for_emit_diagnostic
+  -> EXTERN: (273,19) for_emit_diagnostic
+  -> EXTERN: (273,27) for_emit_diagnostic
+  -> EXTERN: (273,27) for_emit_diagnostic
+  -> EXTERN: (273,27) for_emit_diagnostic
+  -> EXTERN: (273,27) for_emit_diagnostic
+  -> EXTERN: (273,27) for_emit_diagnostic
+  -> EXTERN: (273,36) for_emit_diagnostic
+  -> EXTERN: (273,36) for_emit_diagnostic
+  -> EXTERN: (273,36) for_emit_diagnostic
+  -> EXTERN: (273,36) for_emit_diagnostic
+  -> EXTERN: (273,36) for_emit_diagnostic
+  -> EXTERN: (273,36) for_emit_diagnostic
+  -> EXTERN: (273,36) for_emit_diagnostic
+  -> EXTERN: (273,56) for_emit_diagnostic
+  -> EXTERN: (273,56) for_emit_diagnostic
+  -> EXTERN: (273,56) for_emit_diagnostic
+  -> EXTERN: (273,56) for_emit_diagnostic
+  -> EXTERN: (273,56) for_emit_diagnostic
+  -> EXTERN: (273,64) for_emit_diagnostic
+  -> EXTERN: (273,64) for_emit_diagnostic
+  -> EXTERN: (273,64) for_emit_diagnostic
+  -> EXTERN: (273,64) for_emit_diagnostic
+  -> EXTERN: (273,64) for_emit_diagnostic
+  -> EXTERN: (273,73) for_emit_diagnostic
+  -> EXTERN: (273,73) for_emit_diagnostic
+  -> EXTERN: (273,73) for_emit_diagnostic
+  -> EXTERN: (273,73) for_emit_diagnostic
+  -> EXTERN: (273,73) for_emit_diagnostic
+  -> EXTERN: (273,73) for_emit_diagnostic
+  -> EXTERN: (273,73) for_emit_diagnostic
+  -> EXTERN: (276,9) for_emit_diagnostic
+  -> EXTERN: (276,9) for_emit_diagnostic
+  -> EXTERN: (285,16) for_emit_diagnostic
+  -> EXTERN: (285,16) for_emit_diagnostic
+  -> EXTERN: (285,16) for_emit_diagnostic
+  -> EXTERN: (285,16) for_emit_diagnostic
+  -> EXTERN: (285,16) for_emit_diagnostic
+  -> EXTERN: (287,22) for_emit_diagnostic
+  -> EXTERN: (287,22) for_emit_diagnostic
+  -> EXTERN: (287,22) for_emit_diagnostic
+  -> EXTERN: (287,22) for_emit_diagnostic
+  -> EXTERN: (287,22) for_emit_diagnostic
+  -> EXTERN: (292,6) for_write_seq_lis_xmit
+  -> EXTERN: (292,6) for_write_seq_lis
+  -> EXTERN: (293,6) for_flush
+  -> EXTERN: (298,12) for_emit_diagnostic
+  -> EXTERN: (298,12) for_emit_diagnostic
+  -> EXTERN: (298,12) for_emit_diagnostic
+  -> EXTERN: (298,12) for_emit_diagnostic
+  -> EXTERN: (298,12) for_emit_diagnostic
+  -> EXTERN: (298,37) for_emit_diagnostic
+  -> EXTERN: (298,37) for_emit_diagnostic
+  -> EXTERN: (298,37) for_emit_diagnostic
+  -> EXTERN: (298,37) for_emit_diagnostic
+  -> EXTERN: (298,37) for_emit_diagnostic
+  -> EXTERN: (299,12) for_emit_diagnostic
+  -> EXTERN: (299,12) for_emit_diagnostic
+  -> EXTERN: (299,12) for_emit_diagnostic
+  -> EXTERN: (299,12) for_emit_diagnostic
+  -> EXTERN: (299,12) for_emit_diagnostic
+  -> EXTERN: (299,37) for_emit_diagnostic
+  -> EXTERN: (299,37) for_emit_diagnostic
+  -> EXTERN: (299,37) for_emit_diagnostic
+  -> EXTERN: (299,37) for_emit_diagnostic
+  -> EXTERN: (299,37) for_emit_diagnostic
+  -> EXTERN: (300,6) for_write_seq_lis_xmit
+  -> EXTERN: (300,6) for_write_seq_lis_xmit
+  -> EXTERN: (300,6) for_write_seq_lis
+  -> EXTERN: (301,6) for_flush
+  -> EXTERN: (312,16) for_emit_diagnostic
+  -> EXTERN: (312,16) for_emit_diagnostic
+  -> EXTERN: (312,16) for_emit_diagnostic
+  -> EXTERN: (312,16) for_emit_diagnostic
+  -> EXTERN: (312,16) for_emit_diagnostic
+  -> EXTERN: (316,15) for_emit_diagnostic
+  -> EXTERN: (316,15) for_emit_diagnostic
+  -> EXTERN: (316,15) for_emit_diagnostic
+  -> EXTERN: (316,15) for_emit_diagnostic
+  -> EXTERN: (316,15) for_emit_diagnostic
+  -> EXTERN: (316,15) for_emit_diagnostic
+  -> EXTERN: (316,38) for_emit_diagnostic
+  -> EXTERN: (317,27) WAB
+  -> EXTERN: (318,15) for_emit_diagnostic
+  -> EXTERN: (318,15) for_emit_diagnostic
+  -> EXTERN: (318,15) for_emit_diagnostic
+  -> EXTERN: (318,15) for_emit_diagnostic
+  -> EXTERN: (318,15) for_emit_diagnostic
+  -> EXTERN: (318,15) for_emit_diagnostic
+  -> EXTERN: (318,39) for_emit_diagnostic
+  -> EXTERN: (319,27) WAB
+  -> EXTERN: (321,40) for_emit_diagnostic
+  -> EXTERN: (321,40) for_emit_diagnostic
+  -> EXTERN: (321,40) for_emit_diagnostic
+  -> EXTERN: (321,40) for_emit_diagnostic
+  -> EXTERN: (321,40) for_emit_diagnostic
+  -> EXTERN: (325,6) for_write_seq_lis_xmit
+  -> EXTERN: (325,6) for_write_seq_lis
+  -> EXTERN: (326,6) for_flush
+  -> EXTERN: (332,16) for_emit_diagnostic
+  -> EXTERN: (332,16) for_emit_diagnostic
+  -> EXTERN: (332,16) for_emit_diagnostic
+  -> EXTERN: (332,16) for_emit_diagnostic
+  -> EXTERN: (332,16) for_emit_diagnostic
+  -> EXTERN: (335,32) for_emit_diagnostic
+  -> EXTERN: (335,32) for_emit_diagnostic
+  -> EXTERN: (336,35) for_emit_diagnostic
+  -> EXTERN: (336,35) for_emit_diagnostic
+  -> EXTERN: (338,36) for_emit_diagnostic
+  -> EXTERN: (338,36) for_emit_diagnostic
+  -> EXTERN: (338,36) for_emit_diagnostic
+  -> EXTERN: (338,36) for_emit_diagnostic
+  -> EXTERN: (338,36) for_emit_diagnostic
+  -> EXTERN: (338,56) for_emit_diagnostic
+  -> EXTERN: (338,56) for_emit_diagnostic
+  -> EXTERN: (338,56) for_emit_diagnostic
+  -> EXTERN: (338,56) for_emit_diagnostic
+  -> EXTERN: (338,56) for_emit_diagnostic
+  -> EXTERN: (339,34) for_emit_diagnostic
+  -> EXTERN: (339,34) for_emit_diagnostic
+  -> EXTERN: (339,34) for_emit_diagnostic
+  -> EXTERN: (339,34) for_emit_diagnostic
+  -> EXTERN: (339,34) for_emit_diagnostic
+  -> EXTERN: (340,15) for_emit_diagnostic
+  -> EXTERN: (340,15) for_emit_diagnostic
+  -> EXTERN: (340,15) for_emit_diagnostic
+  -> EXTERN: (340,15) for_emit_diagnostic
+  -> EXTERN: (340,15) for_emit_diagnostic
+  -> EXTERN: (340,15) for_emit_diagnostic
+  -> EXTERN: (340,15) for_emit_diagnostic
+  -> EXTERN: (340,15) for_emit_diagnostic
+  -> EXTERN: (340,37) for_emit_diagnostic
+  -> EXTERN: (340,39) for_emit_diagnostic
+  -> EXTERN: (340,39) for_emit_diagnostic
+  -> EXTERN: (340,39) for_emit_diagnostic
+  -> EXTERN: (340,39) for_emit_diagnostic
+  -> EXTERN: (340,39) WAB
+  -> EXTERN: (340,39) for_emit_diagnostic
+  -> EXTERN: (341,15) for_emit_diagnostic
+  -> EXTERN: (341,15) for_emit_diagnostic
+  -> EXTERN: (341,15) for_emit_diagnostic
+  -> EXTERN: (341,15) for_emit_diagnostic
+  -> EXTERN: (341,15) for_emit_diagnostic
+  -> EXTERN: (341,15) for_emit_diagnostic
+  -> EXTERN: (341,15) for_emit_diagnostic
+  -> EXTERN: (341,15) for_emit_diagnostic
+  -> EXTERN: (341,15) for_emit_diagnostic
+  -> EXTERN: (341,15) for_emit_diagnostic
+  -> EXTERN: (341,15) for_emit_diagnostic
+  -> EXTERN: (341,15) for_emit_diagnostic
+  -> EXTERN: (341,45) for_emit_diagnostic
+  -> EXTERN: (341,45) for_emit_diagnostic
+  -> EXTERN: (341,47) for_emit_diagnostic
+  -> EXTERN: (341,47) for_emit_diagnostic
+  -> EXTERN: (341,47) for_emit_diagnostic
+  -> EXTERN: (341,47) for_emit_diagnostic
+  -> EXTERN: (341,47) for_emit_diagnostic
+  -> EXTERN: (341,47) for_emit_diagnostic
+  -> EXTERN: (341,47) WAB
+  -> EXTERN: (341,47) for_emit_diagnostic
+  -> EXTERN: (342,15) for_emit_diagnostic
+  -> EXTERN: (342,15) for_emit_diagnostic
+  -> EXTERN: (342,39) for_emit_diagnostic
+  -> EXTERN: (342,39) for_emit_diagnostic
+  -> EXTERN: (342,41) WAB
+  -> EXTERN: (342,49) for_emit_diagnostic
+  -> EXTERN: (342,49) for_emit_diagnostic
+  -> EXTERN: (342,49) for_emit_diagnostic
+  -> EXTERN: (343,15) for_emit_diagnostic
+  -> EXTERN: (343,15) for_emit_diagnostic
+  -> EXTERN: (343,43) for_emit_diagnostic
+  -> EXTERN: (343,43) for_emit_diagnostic
+  -> EXTERN: (343,45) WAB
+  -> EXTERN: (345,37) for_emit_diagnostic
+  -> EXTERN: (345,37) for_emit_diagnostic
+  -> EXTERN: (345,37) for_emit_diagnostic
+  -> EXTERN: (345,37) for_emit_diagnostic
+  -> EXTERN: (345,37) for_emit_diagnostic
+  -> EXTERN: (345,58) for_emit_diagnostic
+  -> EXTERN: (345,58) for_emit_diagnostic
+  -> EXTERN: (345,58) for_emit_diagnostic
+  -> EXTERN: (345,58) for_emit_diagnostic
+  -> EXTERN: (345,58) for_emit_diagnostic
+  -> EXTERN: (346,34) for_emit_diagnostic
+  -> EXTERN: (346,34) for_emit_diagnostic
+  -> EXTERN: (346,34) for_emit_diagnostic
+  -> EXTERN: (346,34) for_emit_diagnostic
+  -> EXTERN: (346,34) for_emit_diagnostic
+  -> EXTERN: (347,15) for_emit_diagnostic
+  -> EXTERN: (347,15) for_emit_diagnostic
+  -> EXTERN: (347,15) for_emit_diagnostic
+  -> EXTERN: (347,15) for_emit_diagnostic
+  -> EXTERN: (347,15) for_emit_diagnostic
+  -> EXTERN: (347,15) for_emit_diagnostic
+  -> EXTERN: (347,15) for_emit_diagnostic
+  -> EXTERN: (347,15) for_emit_diagnostic
+  -> EXTERN: (347,43) for_emit_diagnostic
+  -> EXTERN: (347,45) for_emit_diagnostic
+  -> EXTERN: (347,45) for_emit_diagnostic
+  -> EXTERN: (347,45) for_emit_diagnostic
+  -> EXTERN: (347,45) for_emit_diagnostic
+  -> EXTERN: (347,45) WAB
+  -> EXTERN: (347,45) for_emit_diagnostic
+  -> EXTERN: (348,15) for_emit_diagnostic
+  -> EXTERN: (348,15) for_emit_diagnostic
+  -> EXTERN: (348,15) for_emit_diagnostic
+  -> EXTERN: (348,15) for_emit_diagnostic
+  -> EXTERN: (348,15) for_emit_diagnostic
+  -> EXTERN: (348,15) for_emit_diagnostic
+  -> EXTERN: (348,15) for_emit_diagnostic
+  -> EXTERN: (348,15) for_emit_diagnostic
+  -> EXTERN: (348,15) for_emit_diagnostic
+  -> EXTERN: (348,15) for_emit_diagnostic
+  -> EXTERN: (348,15) for_emit_diagnostic
+  -> EXTERN: (348,15) for_emit_diagnostic
+  -> EXTERN: (348,51) for_emit_diagnostic
+  -> EXTERN: (348,51) for_emit_diagnostic
+  -> EXTERN: (348,53) for_emit_diagnostic
+  -> EXTERN: (348,53) for_emit_diagnostic
+  -> EXTERN: (348,53) for_emit_diagnostic
+  -> EXTERN: (348,53) for_emit_diagnostic
+  -> EXTERN: (348,53) for_emit_diagnostic
+  -> EXTERN: (348,53) for_emit_diagnostic
+  -> EXTERN: (348,53) WAB
+  -> EXTERN: (348,53) for_emit_diagnostic
+  -> EXTERN: (349,15) for_emit_diagnostic
+  -> EXTERN: (349,15) for_emit_diagnostic
+  -> EXTERN: (349,47) for_emit_diagnostic
+  -> EXTERN: (349,47) for_emit_diagnostic
+  -> EXTERN: (349,49) WAB
+  -> EXTERN: (349,57) for_emit_diagnostic
+  -> EXTERN: (349,57) for_emit_diagnostic
+  -> EXTERN: (349,57) for_emit_diagnostic
+  -> EXTERN: (350,15) for_emit_diagnostic
+  -> EXTERN: (350,15) for_emit_diagnostic
+  -> EXTERN: (350,51) for_emit_diagnostic
+  -> EXTERN: (350,51) for_emit_diagnostic
+  -> EXTERN: (350,53) WAB
+  -> EXTERN: (358,9) for_write_int_fmt
+  -> EXTERN: (358,9) for_write_int_fmt_xmit
+  -> EXTERN: (360,9) for_write_int_fmt
+  -> EXTERN: (360,9) for_write_int_fmt_xmit
+  -> EXTERN: (362,9) for_write_int_fmt
+  -> EXTERN: (362,9) for_write_int_fmt_xmit
+  -> EXTERN: (364,9) for_write_int_fmt_xmit
+  -> EXTERN: (364,9) for_write_int_fmt
+  -> EXTERN: (368,6) for_open
+  -> EXTERN: (370,9) for_emit_diagnostic
+  -> EXTERN: (370,9) for_emit_diagnostic
+  -> EXTERN: (370,9) for_emit_diagnostic
+  -> EXTERN: (370,9) for_emit_diagnostic
+  -> EXTERN: (370,9) for_emit_diagnostic
+  -> EXTERN: (370,9) for_emit_diagnostic
+  -> EXTERN: (370,9) for_emit_diagnostic
+  -> EXTERN: (370,9) for_emit_diagnostic
+  -> EXTERN: (370,9) for_emit_diagnostic
+  -> EXTERN: (370,9) for_emit_diagnostic
+  -> EXTERN: (370,9) for_emit_diagnostic
+  -> EXTERN: (370,9) for_write_seq_lis
+  -> EXTERN: (370,9) for_emit_diagnostic
+  -> EXTERN: (370,9) for_emit_diagnostic
+  -> EXTERN: (370,9) for_write_seq_lis_xmit
+  -> EXTERN: (370,9) for_emit_diagnostic
+  -> EXTERN: (370,9) for_emit_diagnostic
+  -> EXTERN: (370,9) for_write_seq_lis_xmit
+  -> EXTERN: (370,9) for_emit_diagnostic
+  -> EXTERN: (370,9) for_emit_diagnostic
+  -> EXTERN: (370,9) for_emit_diagnostic
+  -> EXTERN: (370,9) for_emit_diagnostic
+  -> EXTERN: (370,9) for_write_seq_lis_xmit
+  -> EXTERN: (370,9) for_emit_diagnostic
+  -> EXTERN: (372,12) for_close
+  -> EXTERN: (376,11) MIRROR_VELOCITIES
+  -> EXTERN: (378,20) for_emit_diagnostic
+  -> EXTERN: (378,20) for_emit_diagnostic
+  -> EXTERN: (378,20) for_emit_diagnostic
+  -> EXTERN: (378,20) for_emit_diagnostic
+  -> EXTERN: (378,20) for_emit_diagnostic
+  -> EXTERN: (378,20) for_emit_diagnostic
+  -> EXTERN: (378,20) for_emit_diagnostic
+  -> EXTERN: (378,20) for_emit_diagnostic
+  -> EXTERN: (378,20) for_emit_diagnostic
+  -> EXTERN: (378,20) for_emit_diagnostic
+  -> EXTERN: (382,19) for_emit_diagnostic
+  -> EXTERN: (382,19) for_emit_diagnostic
+  -> EXTERN: (382,19) for_emit_diagnostic
+  -> EXTERN: (383,17) for_emit_diagnostic
+  -> EXTERN: (383,17) for_emit_diagnostic
+  -> EXTERN: (383,17) for_emit_diagnostic
+  -> EXTERN: (383,17) for_emit_diagnostic
+  -> EXTERN: (383,17) for_emit_diagnostic
+  -> EXTERN: (384,21) for_emit_diagnostic
+  -> EXTERN: (384,21) for_emit_diagnostic
+  -> EXTERN: (384,21) for_emit_diagnostic
+  -> EXTERN: (384,21) for_emit_diagnostic
+  -> EXTERN: (384,21) for_emit_diagnostic
+  -> EXTERN: (384,29) for_emit_diagnostic
+  -> EXTERN: (384,29) for_emit_diagnostic
+  -> EXTERN: (384,29) for_emit_diagnostic
+  -> EXTERN: (384,29) for_emit_diagnostic
+  -> EXTERN: (384,29) for_emit_diagnostic
+  -> EXTERN: (385,35) for_emit_diagnostic
+  -> EXTERN: (385,35) for_emit_diagnostic
+  -> EXTERN: (385,35) for_emit_diagnostic
+  -> EXTERN: (385,35) for_emit_diagnostic
+  -> EXTERN: (385,35) for_emit_diagnostic
+  -> EXTERN: (385,35) for_emit_diagnostic
+  -> EXTERN: (385,35) for_emit_diagnostic
+  -> EXTERN: (385,72) for_emit_diagnostic
+  -> EXTERN: (385,72) for_emit_diagnostic
+  -> EXTERN: (385,72) for_emit_diagnostic
+  -> EXTERN: (385,72) for_emit_diagnostic
+  -> EXTERN: (385,72) for_emit_diagnostic
+  -> EXTERN: (385,72) for_emit_diagnostic
+  -> EXTERN: (385,72) for_emit_diagnostic
+  -> EXTERN: (386,21) for_emit_diagnostic
+  -> EXTERN: (386,21) for_emit_diagnostic
+  -> EXTERN: (386,21) for_emit_diagnostic
+  -> EXTERN: (386,21) for_emit_diagnostic
+  -> EXTERN: (386,21) for_emit_diagnostic
+  -> EXTERN: (386,29) for_emit_diagnostic
+  -> EXTERN: (386,29) for_emit_diagnostic
+  -> EXTERN: (386,29) for_emit_diagnostic
+  -> EXTERN: (386,29) for_emit_diagnostic
+  -> EXTERN: (386,29) for_emit_diagnostic
+  -> EXTERN: (387,35) for_emit_diagnostic
+  -> EXTERN: (387,35) for_emit_diagnostic
+  -> EXTERN: (387,35) for_emit_diagnostic
+  -> EXTERN: (387,35) for_emit_diagnostic
+  -> EXTERN: (387,35) for_emit_diagnostic
+  -> EXTERN: (387,35) for_emit_diagnostic
+  -> EXTERN: (387,35) for_emit_diagnostic
+  -> EXTERN: (387,72) for_emit_diagnostic
+  -> EXTERN: (387,72) for_emit_diagnostic
+  -> EXTERN: (387,72) for_emit_diagnostic
+  -> EXTERN: (387,72) for_emit_diagnostic
+  -> EXTERN: (387,72) for_emit_diagnostic
+  -> EXTERN: (387,72) for_emit_diagnostic
+  -> EXTERN: (387,72) for_emit_diagnostic
+  -> EXTERN: (391,37) for_emit_diagnostic
+  -> EXTERN: (391,37) for_emit_diagnostic
+  -> EXTERN: (391,37) for_emit_diagnostic
+  -> EXTERN: (391,44) for_emit_diagnostic
+  -> EXTERN: (391,44) for_emit_diagnostic
+  -> EXTERN: (391,44) for_emit_diagnostic
+  -> EXTERN: (391,54) for_emit_diagnostic
+  -> EXTERN: (391,54) for_emit_diagnostic
+  -> EXTERN: (391,54) for_emit_diagnostic
+  -> EXTERN: (392,50) for_emit_diagnostic
+  -> EXTERN: (392,50) for_emit_diagnostic
+  -> EXTERN: (392,50) for_emit_diagnostic
+  -> EXTERN: (392,57) for_emit_diagnostic
+  -> EXTERN: (392,57) for_emit_diagnostic
+  -> EXTERN: (392,57) for_emit_diagnostic
+  -> EXTERN: (393,50) for_emit_diagnostic
+  -> EXTERN: (393,50) for_emit_diagnostic
+  -> EXTERN: (393,50) for_emit_diagnostic
+  -> EXTERN: (393,57) for_emit_diagnostic
+  -> EXTERN: (393,57) for_emit_diagnostic
+  -> EXTERN: (393,57) for_emit_diagnostic
+  -> EXTERN: (394,37) for_emit_diagnostic
+  -> EXTERN: (394,37) for_emit_diagnostic
+  -> EXTERN: (394,37) for_emit_diagnostic
+  -> EXTERN: (394,44) for_emit_diagnostic
+  -> EXTERN: (394,44) for_emit_diagnostic
+  -> EXTERN: (394,44) for_emit_diagnostic
+  -> EXTERN: (394,54) for_emit_diagnostic
+  -> EXTERN: (394,54) for_emit_diagnostic
+  -> EXTERN: (394,54) for_emit_diagnostic
+  -> EXTERN: (395,12) for_emit_diagnostic
+  -> EXTERN: (395,12) for_emit_diagnostic
+  -> EXTERN: (395,12) for_emit_diagnostic
+  -> EXTERN: (395,12) for_emit_diagnostic
+  -> EXTERN: (395,12) for_emit_diagnostic
+  -> EXTERN: (395,12) for_emit_diagnostic
+  -> EXTERN: (395,12) for_emit_diagnostic
+  -> EXTERN: (395,12) for_emit_diagnostic
+  -> EXTERN: (395,12) for_emit_diagnostic
+  -> EXTERN: (395,36) for_emit_diagnostic
+  -> EXTERN: (395,36) for_emit_diagnostic
+  -> EXTERN: (396,12) __getsp_inlined
+  -> EXTERN: (396,12) __resetsp_inlined
+  -> EXTERN: (396,17) for_emit_diagnostic
+  -> EXTERN: (396,17) for_emit_diagnostic
+  -> EXTERN: (396,17) for_emit_diagnostic
+  -> EXTERN: (396,17) for_emit_diagnostic
+  -> EXTERN: (396,17) _alloca
+  -> EXTERN: (396,17) for_emit_diagnostic
+  -> EXTERN: (403,6) for_write_seq_lis_xmit
+  -> EXTERN: (403,6) for_write_seq_lis
+  -> EXTERN: (404,6) for_write_seq_lis_xmit
+  -> EXTERN: (404,6) for_write_seq_lis
+  -> EXTERN: (405,6) for_flush
+  -> EXTERN: (405,17) for_flush
+  -> EXTERN: (414,9) for_emit_diagnostic
+  -> EXTERN: (414,9) for_emit_diagnostic
+  -> EXTERN: (415,9) for_emit_diagnostic
+  -> EXTERN: (415,9) for_emit_diagnostic
+  -> EXTERN: (416,9) for_emit_diagnostic
+  -> EXTERN: (416,9) for_emit_diagnostic
+  -> EXTERN: (418,12) for_emit_diagnostic
+  -> EXTERN: (418,12) for_emit_diagnostic
+  -> EXTERN: (418,12) for_emit_diagnostic
+  -> EXTERN: (418,12) for_emit_diagnostic
+  -> EXTERN: (418,12) for_emit_diagnostic
+  -> EXTERN: (418,12) for_emit_diagnostic
+  -> EXTERN: (418,12) for_emit_diagnostic
+  -> EXTERN: (418,12) for_emit_diagnostic
+  -> EXTERN: (418,12) for_emit_diagnostic
+  -> EXTERN: (418,12) for_emit_diagnostic
+  -> EXTERN: (418,25) for_emit_diagnostic
+  -> EXTERN: (420,28) WAB
+  -> EXTERN: (421,15) for_emit_diagnostic
+  -> EXTERN: (421,15) for_emit_diagnostic
+  -> EXTERN: (421,35) for_emit_diagnostic
+  -> EXTERN: (421,35) for_emit_diagnostic
+  -> EXTERN: (421,42) for_emit_diagnostic
+  -> EXTERN: (421,42) for_emit_diagnostic
+  -> EXTERN: (421,42) for_emit_diagnostic
+  -> EXTERN: (421,42) for_emit_diagnostic
+  -> EXTERN: (421,42) for_emit_diagnostic
+  -> EXTERN: (421,42) for_emit_diagnostic
+  -> EXTERN: (421,42) for_emit_diagnostic
+  -> EXTERN: (421,42) for_emit_diagnostic
+  -> EXTERN: (421,42) for_emit_diagnostic
+  -> EXTERN: (421,42) for_emit_diagnostic
+  -> EXTERN: (422,15) for_emit_diagnostic
+  -> EXTERN: (422,15) for_emit_diagnostic
+  -> EXTERN: (422,35) for_emit_diagnostic
+  -> EXTERN: (422,35) for_emit_diagnostic
+  -> EXTERN: (422,37) for_emit_diagnostic
+  -> EXTERN: (422,37) for_emit_diagnostic
+  -> EXTERN: (422,37) for_emit_diagnostic
+  -> EXTERN: (423,15) for_emit_diagnostic
+  -> EXTERN: (423,15) for_emit_diagnostic
+  -> EXTERN: (423,39) for_emit_diagnostic
+  -> EXTERN: (423,39) for_emit_diagnostic
+  -> EXTERN: (423,41) for_emit_diagnostic
+  -> EXTERN: (423,41) for_emit_diagnostic
+  -> EXTERN: (423,41) for_emit_diagnostic
+  -> EXTERN: (428,6) for_write_seq_lis_xmit
+  -> EXTERN: (428,6) for_write_seq_lis
+  -> EXTERN: (429,6) for_write_seq_lis_xmit
+  -> EXTERN: (429,6) for_write_seq_lis
+  -> EXTERN: (430,6) for_write_seq_lis_xmit
+  -> EXTERN: (430,6) for_write_seq_lis
+  -> EXTERN: (431,6) for_flush
+  -> EXTERN: (432,6) for_flush
+  -> EXTERN: (433,6) for_flush
+  -> EXTERN: (439,23) for_emit_diagnostic
+  -> EXTERN: (439,23) for_emit_diagnostic
+  -> EXTERN: (439,23) for_emit_diagnostic
+  -> EXTERN: (439,23) for_emit_diagnostic
+  -> EXTERN: (439,23) for_emit_diagnostic
+  -> EXTERN: (440,23) for_emit_diagnostic
+  -> EXTERN: (440,23) for_emit_diagnostic
+  -> EXTERN: (440,23) for_emit_diagnostic
+  -> EXTERN: (440,23) for_emit_diagnostic
+  -> EXTERN: (440,23) for_emit_diagnostic
+  -> EXTERN: (441,23) for_emit_diagnostic
+  -> EXTERN: (441,23) for_emit_diagnostic
+  -> EXTERN: (441,23) for_emit_diagnostic
+  -> EXTERN: (444,6) for_write_seq_lis_xmit
+  -> EXTERN: (444,6) for_write_seq_lis
+  -> EXTERN: (445,6) for_write_seq_lis_xmit
+  -> EXTERN: (445,6) for_write_seq_lis
+  -> EXTERN: (446,6) for_write_seq_lis_xmit
+  -> EXTERN: (446,6) for_write_seq_lis
+  -> EXTERN: (447,6) for_flush
+  -> EXTERN: (447,17) for_flush
+  -> EXTERN: (447,28) for_flush
+  -> EXTERN: (452,3) __for_ieee_restore_env_
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at source/base/div_free.F90(268,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+OpenMP Construct at source/base/div_free.F90(283,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+OpenMP Construct at source/base/div_free.F90(437,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+===========================================================================
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING FOOTNOTES:
+
+<1> Inlining the subprogram will lead to incorrect program behavior.
+

@@ -1,0 +1,589 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) Fortran Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 19.1 Build 20200306
+
+Compiler options: -I./obj -O0 -g -debug all -check all -no-ftz -traceback -shared-intel -module ./obj -gen-interfaces -warn all -qopenmp -qopenmp-simd -fpe-all=0 -fp-stack-check -fstack-protector-all -ftrapuv -O3 -xHost -no-inline-max-size -ipo-jobs4 -align array64byte -qopt-report=5 -qopt-report-phase=all -g -qopt-smm-usage=high -c -o obj/linear_solver.o
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: disabled
+  -inline-max-per-compile: disabled
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+Begin optimization report for: linear_solver._
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (linear_solver._) [1/9=11.1%] source/base/linear_solver.F90(1,8)
+
+===========================================================================
+
+Begin optimization report for: LINEAR_SOLVER::NORM
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (LINEAR_SOLVER::NORM) [2/9=22.2%] source/base/linear_solver.F90(6,12)
+  -> EXTERN: (6,12) for_set_fpe_
+  -> EXTERN: (6,12) __for_ieee_store_env_
+  -> EXTERN: (16,20) for_emit_diagnostic
+  -> EXTERN: (16,20) for_emit_diagnostic
+  -> EXTERN: (16,20) for_emit_diagnostic
+  -> EXTERN: (16,25) for_emit_diagnostic
+  -> EXTERN: (16,25) for_emit_diagnostic
+  -> EXTERN: (16,25) for_emit_diagnostic
+  -> EXTERN: (21,1) __for_ieee_restore_env_
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at source/base/linear_solver.F90(14,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+===========================================================================
+
+Begin optimization report for: LINEAR_SOLVER::VTIME
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (LINEAR_SOLVER::VTIME) [3/9=33.3%] source/base/linear_solver.F90(25,12)
+  -> EXTERN: (25,12) for_set_fpe_
+  -> EXTERN: (25,12) __for_ieee_store_env_
+  -> EXTERN: (35,16) for_emit_diagnostic
+  -> EXTERN: (35,16) for_emit_diagnostic
+  -> EXTERN: (35,16) for_emit_diagnostic
+  -> EXTERN: (35,21) for_emit_diagnostic
+  -> EXTERN: (35,21) for_emit_diagnostic
+  -> EXTERN: (35,21) for_emit_diagnostic
+  -> EXTERN: (41,1) __for_ieee_restore_env_
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at source/base/linear_solver.F90(33,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+===========================================================================
+
+Begin optimization report for: LINEAR_SOLVER::INVERSEM
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (LINEAR_SOLVER::INVERSEM) [4/9=44.4%] source/base/linear_solver.F90(47,12)
+  -> EXTERN: (47,12) for_set_fpe_
+  -> EXTERN: (47,12) __for_ieee_store_env_
+  -> EXTERN: (55,6) for_emit_diagnostic
+  -> EXTERN: (55,6) for_emit_diagnostic
+  -> EXTERN: (55,6) for_emit_diagnostic
+  -> EXTERN: (55,15) for_emit_diagnostic
+  -> EXTERN: (55,15) for_emit_diagnostic
+  -> EXTERN: (55,15) for_emit_diagnostic
+  -> EXTERN: (55,21) for_emit_diagnostic
+  -> EXTERN: (55,21) for_emit_diagnostic
+  -> EXTERN: (55,21) for_emit_diagnostic
+  -> EXTERN: (59,1) __for_ieee_restore_env_
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at source/base/linear_solver.F90(53,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+===========================================================================
+
+Begin optimization report for: LINEAR_SOLVER::SPARSE_MAKE_PRECONDITIONER
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (LINEAR_SOLVER::SPARSE_MAKE_PRECONDITIONER) [5/9=55.6%] source/base/linear_solver.F90(63,12)
+  -> EXTERN: (63,12) for_set_fpe_
+  -> EXTERN: (63,12) __for_ieee_store_env_
+  -> EXTERN: (71,6) for_emit_diagnostic
+  -> EXTERN: (71,6) for_emit_diagnostic
+  -> EXTERN: (71,6) for_emit_diagnostic
+  -> EXTERN: (71,11) for_emit_diagnostic
+  -> EXTERN: (71,11) for_emit_diagnostic
+  -> EXTERN: (71,11) for_emit_diagnostic
+  -> EXTERN: (75,1) __for_ieee_restore_env_
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at source/base/linear_solver.F90(69,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+===========================================================================
+
+Begin optimization report for: LINEAR_SOLVER::SPARSE_PBICGSTAB
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (LINEAR_SOLVER::SPARSE_PBICGSTAB) [6/9=66.7%] source/base/linear_solver.F90(82,12)
+  -> EXTERN: (82,12) _alloca
+  -> EXTERN: (82,12) _alloca
+  -> EXTERN: (82,12) _alloca
+  -> EXTERN: (82,12) _alloca
+  -> EXTERN: (82,12) _alloca
+  -> EXTERN: (82,12) _alloca
+  -> EXTERN: (82,12) _alloca
+  -> EXTERN: (82,12) _alloca
+  -> EXTERN: (82,12) _alloca
+  -> EXTERN: (82,12) _alloca
+  -> EXTERN: (82,12) __getsp_inlined
+  -> EXTERN: (82,12) for_set_fpe_
+  -> EXTERN: (82,12) __for_ieee_store_env_
+  -> EXTERN: (104,6) for_emit_diagnostic
+  -> EXTERN: (104,6) for_emit_diagnostic
+  -> EXTERN: (104,6) for_emit_diagnostic
+  -> EXTERN: (105,6) for_emit_diagnostic
+  -> EXTERN: (105,6) for_emit_diagnostic
+  -> EXTERN: (105,6) for_emit_diagnostic
+  -> EXTERN: (106,6) for_emit_diagnostic
+  -> EXTERN: (106,6) for_emit_diagnostic
+  -> EXTERN: (106,6) for_emit_diagnostic
+  -> EXTERN: (107,6) for_emit_diagnostic
+  -> EXTERN: (107,6) for_emit_diagnostic
+  -> EXTERN: (107,6) for_emit_diagnostic
+  -> EXTERN: (108,6) for_emit_diagnostic
+  -> EXTERN: (108,6) for_emit_diagnostic
+  -> EXTERN: (108,6) for_emit_diagnostic
+  -> EXTERN: (109,6) for_emit_diagnostic
+  -> EXTERN: (109,6) for_emit_diagnostic
+  -> EXTERN: (109,6) for_emit_diagnostic
+  -> EXTERN: (110,6) for_emit_diagnostic
+  -> EXTERN: (110,6) for_emit_diagnostic
+  -> EXTERN: (110,6) for_emit_diagnostic
+  -> EXTERN: (111,6) for_emit_diagnostic
+  -> EXTERN: (111,6) for_emit_diagnostic
+  -> EXTERN: (111,6) for_emit_diagnostic
+  -> EXTERN: (112,6) for_emit_diagnostic
+  -> EXTERN: (112,6) for_emit_diagnostic
+  -> EXTERN: (112,6) for_emit_diagnostic
+  -> EXTERN: (113,6) for_emit_diagnostic
+  -> EXTERN: (113,6) for_emit_diagnostic
+  -> EXTERN: (113,6) for_emit_diagnostic
+  -> (116,8) LINEAR_SOLVER::SPARSE_MAKE_PRECONDITIONER (isz = 183) (sz = 194)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (116,8) for_emit_diagnostic
+  -> EXTERN: (116,8) for_emit_diagnostic
+  -> (119,8) LINEAR_SOLVER::SPARSE_ATIME (isz = 635) (sz = 650)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (119,8) for_emit_diagnostic
+  -> EXTERN: (119,8) for_emit_diagnostic
+  -> EXTERN: (119,8) for_emit_diagnostic
+  -> EXTERN: (119,8) for_emit_diagnostic
+  -> EXTERN: (123,6) for_emit_diagnostic
+  -> EXTERN: (123,6) for_emit_diagnostic
+  -> EXTERN: (123,6) for_emit_diagnostic
+  -> EXTERN: (123,11) for_emit_diagnostic
+  -> EXTERN: (123,11) for_emit_diagnostic
+  -> EXTERN: (123,11) for_emit_diagnostic
+  -> EXTERN: (123,16) for_emit_diagnostic
+  -> EXTERN: (123,16) for_emit_diagnostic
+  -> EXTERN: (123,16) for_emit_diagnostic
+  -> EXTERN: (127,3) for_emit_diagnostic
+  -> EXTERN: (127,3) for_emit_diagnostic
+  -> EXTERN: (127,3) for_emit_diagnostic
+  -> EXTERN: (135,11) for_emit_diagnostic
+  -> EXTERN: (135,11) for_emit_diagnostic
+  -> (135,11) LINEAR_SOLVER::VTIME (isz = 190) (sz = 201)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (138,9) for_write_seq_lis
+  -> EXTERN: (144,12) for_emit_diagnostic
+  -> EXTERN: (144,12) for_emit_diagnostic
+  -> EXTERN: (144,12) for_emit_diagnostic
+  -> EXTERN: (144,17) for_emit_diagnostic
+  -> EXTERN: (144,17) for_emit_diagnostic
+  -> EXTERN: (144,17) for_emit_diagnostic
+  -> EXTERN: (151,12) for_emit_diagnostic
+  -> EXTERN: (151,12) for_emit_diagnostic
+  -> EXTERN: (151,12) for_emit_diagnostic
+  -> EXTERN: (151,17) for_emit_diagnostic
+  -> EXTERN: (151,17) for_emit_diagnostic
+  -> EXTERN: (151,17) for_emit_diagnostic
+  -> EXTERN: (151,28) for_emit_diagnostic
+  -> EXTERN: (151,28) for_emit_diagnostic
+  -> EXTERN: (151,28) for_emit_diagnostic
+  -> EXTERN: (151,39) for_emit_diagnostic
+  -> EXTERN: (151,39) for_emit_diagnostic
+  -> EXTERN: (151,39) for_emit_diagnostic
+  -> EXTERN: (156,11) for_emit_diagnostic
+  -> EXTERN: (156,11) for_emit_diagnostic
+  -> EXTERN: (156,11) for_emit_diagnostic
+  -> (156,11) LINEAR_SOLVER::INVERSEM (isz = 259) (sz = 270)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (157,11) for_emit_diagnostic
+  -> EXTERN: (157,11) for_emit_diagnostic
+  -> EXTERN: (157,11) for_emit_diagnostic
+  -> EXTERN: (157,11) for_emit_diagnostic
+  -> (157,11) LINEAR_SOLVER::SPARSE_ATIME (isz = 635) (sz = 650)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (158,11) for_emit_diagnostic
+  -> EXTERN: (158,11) for_emit_diagnostic
+  -> (158,11) LINEAR_SOLVER::VTIME (isz = 190) (sz = 201)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (164,9) for_emit_diagnostic
+  -> EXTERN: (164,9) for_emit_diagnostic
+  -> EXTERN: (164,9) for_emit_diagnostic
+  -> EXTERN: (164,14) for_emit_diagnostic
+  -> EXTERN: (164,14) for_emit_diagnostic
+  -> EXTERN: (164,14) for_emit_diagnostic
+  -> EXTERN: (164,25) for_emit_diagnostic
+  -> EXTERN: (164,25) for_emit_diagnostic
+  -> EXTERN: (164,25) for_emit_diagnostic
+  -> EXTERN: (168,11) for_emit_diagnostic
+  -> (168,11) LINEAR_SOLVER::NORM (isz = 168) (sz = 177)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (180,12) for_emit_diagnostic
+  -> EXTERN: (180,12) for_emit_diagnostic
+  -> EXTERN: (180,12) for_emit_diagnostic
+  -> EXTERN: (180,17) for_emit_diagnostic
+  -> EXTERN: (180,17) for_emit_diagnostic
+  -> EXTERN: (180,17) for_emit_diagnostic
+  -> EXTERN: (180,28) for_emit_diagnostic
+  -> EXTERN: (180,28) for_emit_diagnostic
+  -> EXTERN: (180,28) for_emit_diagnostic
+  -> EXTERN: (187,11) for_emit_diagnostic
+  -> EXTERN: (187,11) for_emit_diagnostic
+  -> EXTERN: (187,11) for_emit_diagnostic
+  -> (187,11) LINEAR_SOLVER::INVERSEM (isz = 259) (sz = 270)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (188,11) for_emit_diagnostic
+  -> EXTERN: (188,11) for_emit_diagnostic
+  -> EXTERN: (188,11) for_emit_diagnostic
+  -> EXTERN: (188,11) for_emit_diagnostic
+  -> (188,11) LINEAR_SOLVER::SPARSE_ATIME (isz = 635) (sz = 650)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (189,11) for_emit_diagnostic
+  -> EXTERN: (189,11) for_emit_diagnostic
+  -> (189,11) LINEAR_SOLVER::VTIME (isz = 190) (sz = 201)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (190,11) for_emit_diagnostic
+  -> (190,11) LINEAR_SOLVER::NORM (isz = 168) (sz = 177)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (195,9) for_emit_diagnostic
+  -> EXTERN: (195,9) for_emit_diagnostic
+  -> EXTERN: (195,9) for_emit_diagnostic
+  -> EXTERN: (195,14) for_emit_diagnostic
+  -> EXTERN: (195,14) for_emit_diagnostic
+  -> EXTERN: (195,14) for_emit_diagnostic
+  -> EXTERN: (195,25) for_emit_diagnostic
+  -> EXTERN: (195,25) for_emit_diagnostic
+  -> EXTERN: (195,25) for_emit_diagnostic
+  -> EXTERN: (195,40) for_emit_diagnostic
+  -> EXTERN: (195,40) for_emit_diagnostic
+  -> EXTERN: (195,40) for_emit_diagnostic
+  -> EXTERN: (201,9) for_emit_diagnostic
+  -> EXTERN: (201,9) for_emit_diagnostic
+  -> EXTERN: (201,9) for_emit_diagnostic
+  -> EXTERN: (201,14) for_emit_diagnostic
+  -> EXTERN: (201,14) for_emit_diagnostic
+  -> EXTERN: (201,14) for_emit_diagnostic
+  -> EXTERN: (201,25) for_emit_diagnostic
+  -> EXTERN: (201,25) for_emit_diagnostic
+  -> EXTERN: (201,25) for_emit_diagnostic
+  -> EXTERN: (204,11) for_emit_diagnostic
+  -> (204,11) LINEAR_SOLVER::NORM (isz = 168) (sz = 177)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (227,1) __resetsp_inlined
+  -> EXTERN: (227,1) __for_ieee_restore_env_
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at source/base/linear_solver.F90(121,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+OpenMP Construct at source/base/linear_solver.F90(149,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+OpenMP Construct at source/base/linear_solver.F90(162,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+OpenMP Construct at source/base/linear_solver.F90(193,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+OpenMP Construct at source/base/linear_solver.F90(199,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+===========================================================================
+
+Begin optimization report for: LINEAR_SOLVER::REMOVE_DC
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (LINEAR_SOLVER::REMOVE_DC) [7/9=77.8%] source/base/linear_solver.F90(231,12)
+  -> EXTERN: (231,12) for_set_fpe_
+  -> EXTERN: (231,12) __for_ieee_store_env_
+  -> EXTERN: (240,18) for_emit_diagnostic
+  -> EXTERN: (240,18) for_emit_diagnostic
+  -> EXTERN: (240,18) for_emit_diagnostic
+  -> EXTERN: (247,6) for_emit_diagnostic
+  -> EXTERN: (247,6) for_emit_diagnostic
+  -> EXTERN: (247,6) for_emit_diagnostic
+  -> EXTERN: (247,11) for_emit_diagnostic
+  -> EXTERN: (247,11) for_emit_diagnostic
+  -> EXTERN: (247,11) for_emit_diagnostic
+  -> EXTERN: (250,1) __for_ieee_restore_env_
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at source/base/linear_solver.F90(238,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+OpenMP Construct at source/base/linear_solver.F90(245,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+===========================================================================
+
+Begin optimization report for: LINEAR_SOLVER::SPARSE_ATIME
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (LINEAR_SOLVER::SPARSE_ATIME) [8/9=88.9%] source/base/linear_solver.F90(254,12)
+  -> EXTERN: (254,12) for_set_fpe_
+  -> EXTERN: (254,12) __for_ieee_store_env_
+  -> EXTERN: (260,6) for_emit_diagnostic
+  -> EXTERN: (260,6) for_emit_diagnostic
+  -> EXTERN: (261,6) for_write_seq_lis
+  -> EXTERN: (266,9) for_emit_diagnostic
+  -> EXTERN: (266,9) for_emit_diagnostic
+  -> EXTERN: (266,9) for_emit_diagnostic
+  -> EXTERN: (266,14) for_emit_diagnostic
+  -> EXTERN: (266,14) for_emit_diagnostic
+  -> EXTERN: (266,14) for_emit_diagnostic
+  -> EXTERN: (267,11) for_emit_diagnostic
+  -> EXTERN: (267,11) for_emit_diagnostic
+  -> EXTERN: (267,11) for_emit_diagnostic
+  -> EXTERN: (267,18) for_emit_diagnostic
+  -> EXTERN: (267,18) for_emit_diagnostic
+  -> EXTERN: (267,18) for_emit_diagnostic
+  -> EXTERN: (268,15) for_emit_diagnostic
+  -> EXTERN: (268,15) for_emit_diagnostic
+  -> EXTERN: (268,15) for_emit_diagnostic
+  -> EXTERN: (268,20) for_emit_diagnostic
+  -> EXTERN: (268,20) for_emit_diagnostic
+  -> EXTERN: (268,20) for_emit_diagnostic
+  -> EXTERN: (268,20) for_emit_diagnostic
+  -> EXTERN: (268,20) for_emit_diagnostic
+  -> EXTERN: (268,20) for_emit_diagnostic
+  -> EXTERN: (270,6) for_emit_diagnostic
+  -> EXTERN: (270,6) for_emit_diagnostic
+  -> EXTERN: (270,6) for_emit_diagnostic
+  -> EXTERN: (273,1) __for_ieee_restore_env_
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at source/base/linear_solver.F90(264,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+===========================================================================
+
+Begin optimization report for: LINEAR_SOLVER::SPARSE_PBICGSTAB_NONULL
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (LINEAR_SOLVER::SPARSE_PBICGSTAB_NONULL) [9/9=100.0%] source/base/linear_solver.F90(275,12)
+  -> EXTERN: (275,12) _alloca
+  -> EXTERN: (275,12) _alloca
+  -> EXTERN: (275,12) _alloca
+  -> EXTERN: (275,12) _alloca
+  -> EXTERN: (275,12) _alloca
+  -> EXTERN: (275,12) _alloca
+  -> EXTERN: (275,12) _alloca
+  -> EXTERN: (275,12) _alloca
+  -> EXTERN: (275,12) _alloca
+  -> EXTERN: (275,12) _alloca
+  -> EXTERN: (275,12) __getsp_inlined
+  -> EXTERN: (275,12) for_set_fpe_
+  -> EXTERN: (275,12) __for_ieee_store_env_
+  -> EXTERN: (297,6) for_emit_diagnostic
+  -> EXTERN: (297,6) for_emit_diagnostic
+  -> EXTERN: (297,6) for_emit_diagnostic
+  -> EXTERN: (298,6) for_emit_diagnostic
+  -> EXTERN: (298,6) for_emit_diagnostic
+  -> EXTERN: (298,6) for_emit_diagnostic
+  -> EXTERN: (299,6) for_emit_diagnostic
+  -> EXTERN: (299,6) for_emit_diagnostic
+  -> EXTERN: (299,6) for_emit_diagnostic
+  -> EXTERN: (300,6) for_emit_diagnostic
+  -> EXTERN: (300,6) for_emit_diagnostic
+  -> EXTERN: (300,6) for_emit_diagnostic
+  -> EXTERN: (301,6) for_emit_diagnostic
+  -> EXTERN: (301,6) for_emit_diagnostic
+  -> EXTERN: (301,6) for_emit_diagnostic
+  -> EXTERN: (302,6) for_emit_diagnostic
+  -> EXTERN: (302,6) for_emit_diagnostic
+  -> EXTERN: (302,6) for_emit_diagnostic
+  -> EXTERN: (303,6) for_emit_diagnostic
+  -> EXTERN: (303,6) for_emit_diagnostic
+  -> EXTERN: (303,6) for_emit_diagnostic
+  -> EXTERN: (304,6) for_emit_diagnostic
+  -> EXTERN: (304,6) for_emit_diagnostic
+  -> EXTERN: (304,6) for_emit_diagnostic
+  -> EXTERN: (305,6) for_emit_diagnostic
+  -> EXTERN: (305,6) for_emit_diagnostic
+  -> EXTERN: (305,6) for_emit_diagnostic
+  -> EXTERN: (306,6) for_emit_diagnostic
+  -> EXTERN: (306,6) for_emit_diagnostic
+  -> EXTERN: (306,6) for_emit_diagnostic
+  -> (309,8) LINEAR_SOLVER::SPARSE_MAKE_PRECONDITIONER (isz = 183) (sz = 194)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (309,8) for_emit_diagnostic
+  -> EXTERN: (309,8) for_emit_diagnostic
+  -> (312,8) LINEAR_SOLVER::SPARSE_ATIME (isz = 635) (sz = 650)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (312,8) for_emit_diagnostic
+  -> EXTERN: (312,8) for_emit_diagnostic
+  -> EXTERN: (312,8) for_emit_diagnostic
+  -> EXTERN: (312,8) for_emit_diagnostic
+  -> EXTERN: (316,6) for_emit_diagnostic
+  -> EXTERN: (316,6) for_emit_diagnostic
+  -> EXTERN: (316,6) for_emit_diagnostic
+  -> EXTERN: (316,11) for_emit_diagnostic
+  -> EXTERN: (316,11) for_emit_diagnostic
+  -> EXTERN: (316,11) for_emit_diagnostic
+  -> EXTERN: (316,16) for_emit_diagnostic
+  -> EXTERN: (316,16) for_emit_diagnostic
+  -> EXTERN: (316,16) for_emit_diagnostic
+  -> EXTERN: (320,3) for_emit_diagnostic
+  -> EXTERN: (320,3) for_emit_diagnostic
+  -> EXTERN: (320,3) for_emit_diagnostic
+  -> EXTERN: (328,11) for_emit_diagnostic
+  -> EXTERN: (328,11) for_emit_diagnostic
+  -> (328,11) LINEAR_SOLVER::VTIME (isz = 190) (sz = 201)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (331,9) for_write_seq_lis
+  -> EXTERN: (337,12) for_emit_diagnostic
+  -> EXTERN: (337,12) for_emit_diagnostic
+  -> EXTERN: (337,12) for_emit_diagnostic
+  -> EXTERN: (337,17) for_emit_diagnostic
+  -> EXTERN: (337,17) for_emit_diagnostic
+  -> EXTERN: (337,17) for_emit_diagnostic
+  -> EXTERN: (344,12) for_emit_diagnostic
+  -> EXTERN: (344,12) for_emit_diagnostic
+  -> EXTERN: (344,12) for_emit_diagnostic
+  -> EXTERN: (344,17) for_emit_diagnostic
+  -> EXTERN: (344,17) for_emit_diagnostic
+  -> EXTERN: (344,17) for_emit_diagnostic
+  -> EXTERN: (344,28) for_emit_diagnostic
+  -> EXTERN: (344,28) for_emit_diagnostic
+  -> EXTERN: (344,28) for_emit_diagnostic
+  -> EXTERN: (344,39) for_emit_diagnostic
+  -> EXTERN: (344,39) for_emit_diagnostic
+  -> EXTERN: (344,39) for_emit_diagnostic
+  -> EXTERN: (349,11) for_emit_diagnostic
+  -> (349,11) LINEAR_SOLVER::REMOVE_DC (isz = 240) (sz = 247)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (350,11) for_emit_diagnostic
+  -> EXTERN: (350,11) for_emit_diagnostic
+  -> EXTERN: (350,11) for_emit_diagnostic
+  -> (350,11) LINEAR_SOLVER::INVERSEM (isz = 259) (sz = 270)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (351,11) for_emit_diagnostic
+  -> EXTERN: (351,11) for_emit_diagnostic
+  -> EXTERN: (351,11) for_emit_diagnostic
+  -> EXTERN: (351,11) for_emit_diagnostic
+  -> (351,11) LINEAR_SOLVER::SPARSE_ATIME (isz = 635) (sz = 650)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (352,11) for_emit_diagnostic
+  -> EXTERN: (352,11) for_emit_diagnostic
+  -> (352,11) LINEAR_SOLVER::VTIME (isz = 190) (sz = 201)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (358,9) for_emit_diagnostic
+  -> EXTERN: (358,9) for_emit_diagnostic
+  -> EXTERN: (358,9) for_emit_diagnostic
+  -> EXTERN: (358,14) for_emit_diagnostic
+  -> EXTERN: (358,14) for_emit_diagnostic
+  -> EXTERN: (358,14) for_emit_diagnostic
+  -> EXTERN: (358,25) for_emit_diagnostic
+  -> EXTERN: (358,25) for_emit_diagnostic
+  -> EXTERN: (358,25) for_emit_diagnostic
+  -> EXTERN: (362,11) for_emit_diagnostic
+  -> (362,11) LINEAR_SOLVER::NORM (isz = 168) (sz = 177)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (374,12) for_emit_diagnostic
+  -> EXTERN: (374,12) for_emit_diagnostic
+  -> EXTERN: (374,12) for_emit_diagnostic
+  -> EXTERN: (374,17) for_emit_diagnostic
+  -> EXTERN: (374,17) for_emit_diagnostic
+  -> EXTERN: (374,17) for_emit_diagnostic
+  -> EXTERN: (374,28) for_emit_diagnostic
+  -> EXTERN: (374,28) for_emit_diagnostic
+  -> EXTERN: (374,28) for_emit_diagnostic
+  -> EXTERN: (381,11) for_emit_diagnostic
+  -> (381,11) LINEAR_SOLVER::REMOVE_DC (isz = 240) (sz = 247)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (382,11) for_emit_diagnostic
+  -> EXTERN: (382,11) for_emit_diagnostic
+  -> EXTERN: (382,11) for_emit_diagnostic
+  -> (382,11) LINEAR_SOLVER::INVERSEM (isz = 259) (sz = 270)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (383,11) for_emit_diagnostic
+  -> EXTERN: (383,11) for_emit_diagnostic
+  -> EXTERN: (383,11) for_emit_diagnostic
+  -> EXTERN: (383,11) for_emit_diagnostic
+  -> (383,11) LINEAR_SOLVER::SPARSE_ATIME (isz = 635) (sz = 650)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (384,11) for_emit_diagnostic
+  -> EXTERN: (384,11) for_emit_diagnostic
+  -> (384,11) LINEAR_SOLVER::VTIME (isz = 190) (sz = 201)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (385,11) for_emit_diagnostic
+  -> (385,11) LINEAR_SOLVER::NORM (isz = 168) (sz = 177)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (390,9) for_emit_diagnostic
+  -> EXTERN: (390,9) for_emit_diagnostic
+  -> EXTERN: (390,9) for_emit_diagnostic
+  -> EXTERN: (390,14) for_emit_diagnostic
+  -> EXTERN: (390,14) for_emit_diagnostic
+  -> EXTERN: (390,14) for_emit_diagnostic
+  -> EXTERN: (390,25) for_emit_diagnostic
+  -> EXTERN: (390,25) for_emit_diagnostic
+  -> EXTERN: (390,25) for_emit_diagnostic
+  -> EXTERN: (390,40) for_emit_diagnostic
+  -> EXTERN: (390,40) for_emit_diagnostic
+  -> EXTERN: (390,40) for_emit_diagnostic
+  -> EXTERN: (396,9) for_emit_diagnostic
+  -> EXTERN: (396,9) for_emit_diagnostic
+  -> EXTERN: (396,9) for_emit_diagnostic
+  -> EXTERN: (396,14) for_emit_diagnostic
+  -> EXTERN: (396,14) for_emit_diagnostic
+  -> EXTERN: (396,14) for_emit_diagnostic
+  -> EXTERN: (396,25) for_emit_diagnostic
+  -> EXTERN: (396,25) for_emit_diagnostic
+  -> EXTERN: (396,25) for_emit_diagnostic
+  -> EXTERN: (399,11) for_emit_diagnostic
+  -> (399,11) LINEAR_SOLVER::NORM (isz = 168) (sz = 177)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (422,1) __resetsp_inlined
+  -> EXTERN: (422,1) __for_ieee_restore_env_
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at source/base/linear_solver.F90(314,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+OpenMP Construct at source/base/linear_solver.F90(342,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+OpenMP Construct at source/base/linear_solver.F90(356,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+OpenMP Construct at source/base/linear_solver.F90(388,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+OpenMP Construct at source/base/linear_solver.F90(394,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+===========================================================================
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING FOOTNOTES:
+
+<1> Inlining the subprogram will lead to incorrect program behavior.
+

@@ -1,0 +1,472 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) Fortran Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 19.1 Build 20200306
+
+Compiler options: -I./obj -O0 -g -debug all -check all -no-ftz -traceback -shared-intel -module ./obj -gen-interfaces -warn all -qopenmp -qopenmp-simd -fpe-all=0 -fp-stack-check -fstack-protector-all -ftrapuv -O3 -xHost -no-inline-max-size -ipo-jobs4 -align array64byte -qopt-report=5 -qopt-report-phase=all -g -qopt-smm-usage=high -c -o obj/new_fick_shift.o
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: disabled
+  -inline-max-per-compile: disabled
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+Begin optimization report for: part_shift._
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (part_shift._) [1/5=20.0%] source/base/new_fick_shift.F90(1,8)
+
+===========================================================================
+
+Begin optimization report for: PART_SHIFT::NEW_FICK_SHIFT
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (PART_SHIFT::NEW_FICK_SHIFT) [2/5=40.0%] source/base/new_fick_shift.F90(15,14)
+  -> EXTERN: (15,14) for_set_fpe_
+  -> EXTERN: (15,14) __for_ieee_store_env_
+  -> EXTERN: (23,5) for_alloc_allocatable
+  -> EXTERN: (23,5) for_check_mult_overflow64
+  -> (24,10) PART_SHIFT::SHIFTING_FORCES (isz = 4451) (sz = 4454)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (27,5) for_emit_diagnostic
+  -> EXTERN: (27,5) for_emit_diagnostic
+  -> EXTERN: (27,5) for_emit_diagnostic
+  -> EXTERN: (27,5) for_emit_diagnostic
+  -> EXTERN: (28,15) for_emit_diagnostic
+  -> EXTERN: (28,15) for_emit_diagnostic
+  -> EXTERN: (28,15) for_emit_diagnostic
+  -> EXTERN: (33,20) for_emit_diagnostic
+  -> EXTERN: (33,20) for_emit_diagnostic
+  -> EXTERN: (33,20) for_emit_diagnostic
+  -> EXTERN: (33,20) for_emit_diagnostic
+  -> EXTERN: (33,20) for_emit_diagnostic
+  -> EXTERN: (33,20) for_emit_diagnostic
+  -> EXTERN: (33,20) for_emit_diagnostic
+  -> EXTERN: (33,20) for_emit_diagnostic
+  -> EXTERN: (33,20) for_emit_diagnostic
+  -> EXTERN: (33,20) for_emit_diagnostic
+  -> EXTERN: (44,11) for_emit_diagnostic
+  -> EXTERN: (44,11) for_emit_diagnostic
+  -> EXTERN: (48,23) for_emit_diagnostic
+  -> EXTERN: (48,23) for_emit_diagnostic
+  -> EXTERN: (48,23) for_emit_diagnostic
+  -> EXTERN: (48,23) for_emit_diagnostic
+  -> EXTERN: (48,23) for_emit_diagnostic
+  -> EXTERN: (48,23) for_emit_diagnostic
+  -> EXTERN: (48,23) for_emit_diagnostic
+  -> EXTERN: (48,23) for_emit_diagnostic
+  -> EXTERN: (48,23) for_emit_diagnostic
+  -> EXTERN: (48,23) for_emit_diagnostic
+  -> EXTERN: (49,22) exp
+  -> EXTERN: (50,11) for_emit_diagnostic
+  -> EXTERN: (50,11) for_emit_diagnostic
+  -> EXTERN: (59,11) for_emit_diagnostic
+  -> EXTERN: (59,11) for_emit_diagnostic
+  -> EXTERN: (59,11) for_emit_diagnostic
+  -> EXTERN: (62,21) for_emit_diagnostic
+  -> EXTERN: (62,21) for_emit_diagnostic
+  -> EXTERN: (62,21) for_emit_diagnostic
+  -> EXTERN: (62,21) for_emit_diagnostic
+  -> EXTERN: (62,21) for_emit_diagnostic
+  -> EXTERN: (62,21) for_emit_diagnostic
+  -> EXTERN: (62,21) for_emit_diagnostic
+  -> EXTERN: (62,21) for_emit_diagnostic
+  -> EXTERN: (62,21) for_emit_diagnostic
+  -> EXTERN: (62,21) for_emit_diagnostic
+  -> EXTERN: (63,11) for_emit_diagnostic
+  -> EXTERN: (63,11) for_emit_diagnostic
+  -> EXTERN: (63,11) for_emit_diagnostic
+  -> EXTERN: (63,11) for_emit_diagnostic
+  -> EXTERN: (63,11) for_emit_diagnostic
+  -> EXTERN: (67,18) for_emit_diagnostic
+  -> EXTERN: (67,18) for_emit_diagnostic
+  -> EXTERN: (67,18) for_emit_diagnostic
+  -> EXTERN: (67,18) for_emit_diagnostic
+  -> EXTERN: (67,18) for_emit_diagnostic
+  -> EXTERN: (70,11) for_emit_diagnostic
+  -> EXTERN: (70,11) for_emit_diagnostic
+  -> EXTERN: (70,11) for_emit_diagnostic
+  -> EXTERN: (70,11) for_emit_diagnostic
+  -> EXTERN: (70,25) for_emit_diagnostic
+  -> EXTERN: (70,25) for_emit_diagnostic
+  -> EXTERN: (70,25) for_emit_diagnostic
+  -> EXTERN: (76,11) for_emit_diagnostic
+  -> EXTERN: (76,11) for_emit_diagnostic
+  -> EXTERN: (76,11) for_emit_diagnostic
+  -> EXTERN: (76,11) for_emit_diagnostic
+  -> EXTERN: (76,25) for_emit_diagnostic
+  -> EXTERN: (76,25) for_emit_diagnostic
+  -> EXTERN: (76,25) for_emit_diagnostic
+  -> EXTERN: (76,25) for_emit_diagnostic
+  -> EXTERN: (76,25) for_emit_diagnostic
+  -> EXTERN: (76,25) for_emit_diagnostic
+  -> EXTERN: (76,25) for_emit_diagnostic
+  -> EXTERN: (76,25) for_emit_diagnostic
+  -> EXTERN: (80,18) for_emit_diagnostic
+  -> EXTERN: (80,18) for_emit_diagnostic
+  -> EXTERN: (80,18) for_emit_diagnostic
+  -> EXTERN: (80,18) for_emit_diagnostic
+  -> EXTERN: (80,18) for_emit_diagnostic
+  -> EXTERN: (80,18) for_emit_diagnostic
+  -> EXTERN: (80,18) for_emit_diagnostic
+  -> EXTERN: (80,18) for_emit_diagnostic
+  -> EXTERN: (80,18) for_emit_diagnostic
+  -> EXTERN: (80,18) for_emit_diagnostic
+  -> EXTERN: (82,14) for_emit_diagnostic
+  -> EXTERN: (82,14) for_emit_diagnostic
+  -> EXTERN: (82,14) for_emit_diagnostic
+  -> EXTERN: (82,14) for_emit_diagnostic
+  -> EXTERN: (82,32) for_emit_diagnostic
+  -> EXTERN: (82,32) for_emit_diagnostic
+  -> EXTERN: (82,32) for_emit_diagnostic
+  -> EXTERN: (82,32) for_emit_diagnostic
+  -> EXTERN: (82,32) for_emit_diagnostic
+  -> EXTERN: (88,5) for_dealloc_allocatable
+  -> EXTERN: (89,5) for_dealloc_allocatable
+  -> EXTERN: (90,3) __for_ieee_restore_env_
+  -> EXTERN: (90,3) for_dealloc_allocatable
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at source/base/new_fick_shift.F90(40,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+OpenMP Construct at source/base/new_fick_shift.F90(56,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+===========================================================================
+
+Begin optimization report for: PART_SHIFT::VALUE_CORRECTION
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (PART_SHIFT::VALUE_CORRECTION) [3/5=60.0%] source/base/new_fick_shift.F90(92,14)
+  -> EXTERN: (92,14) for_set_fpe_
+  -> EXTERN: (92,14) __for_ieee_store_env_
+  -> EXTERN: (98,5) for__rtc_uninit_use_src
+  -> EXTERN: (98,5) for_alloc_allocatable
+  -> EXTERN: (98,5) for_check_mult_overflow64
+  -> EXTERN: (98,5) for__rtc_uninit_use_src
+  -> EXTERN: (98,5) for_alloc_allocatable
+  -> EXTERN: (98,5) for_check_mult_overflow64
+  -> EXTERN: (99,10) GRAD_OPERATOR
+  -> EXTERN: (99,10) for_emit_diagnostic
+  -> EXTERN: (99,10) for_emit_diagnostic
+  -> EXTERN: (100,10) GRAD_OPERATOR
+  -> EXTERN: (100,10) for_emit_diagnostic
+  -> EXTERN: (100,10) for_emit_diagnostic
+  -> EXTERN: (104,11) for_emit_diagnostic
+  -> EXTERN: (104,11) for_emit_diagnostic
+  -> EXTERN: (104,11) for_emit_diagnostic
+  -> EXTERN: (106,8) for_emit_diagnostic
+  -> EXTERN: (106,8) for_emit_diagnostic
+  -> EXTERN: (106,8) for_emit_diagnostic
+  -> EXTERN: (106,8) for_emit_diagnostic
+  -> EXTERN: (106,16) for_emit_diagnostic
+  -> EXTERN: (106,16) for_emit_diagnostic
+  -> EXTERN: (106,16) for_emit_diagnostic
+  -> EXTERN: (106,16) for_emit_diagnostic
+  -> EXTERN: (106,16) for_emit_diagnostic
+  -> EXTERN: (106,26) for_emit_diagnostic
+  -> EXTERN: (106,26) for_emit_diagnostic
+  -> EXTERN: (106,26) for_emit_diagnostic
+  -> EXTERN: (106,26) for_emit_diagnostic
+  -> EXTERN: (106,26) for_emit_diagnostic
+  -> EXTERN: (106,26) for_emit_diagnostic
+  -> EXTERN: (106,26) for_emit_diagnostic
+  -> EXTERN: (106,26) for_emit_diagnostic
+  -> EXTERN: (106,26) for_emit_diagnostic
+  -> EXTERN: (106,26) for_emit_diagnostic
+  -> EXTERN: (107,8) for_emit_diagnostic
+  -> EXTERN: (107,8) for_emit_diagnostic
+  -> EXTERN: (107,8) for_emit_diagnostic
+  -> EXTERN: (107,8) for_emit_diagnostic
+  -> EXTERN: (107,16) for_emit_diagnostic
+  -> EXTERN: (107,16) for_emit_diagnostic
+  -> EXTERN: (107,16) for_emit_diagnostic
+  -> EXTERN: (107,16) for_emit_diagnostic
+  -> EXTERN: (107,16) for_emit_diagnostic
+  -> EXTERN: (107,26) for_emit_diagnostic
+  -> EXTERN: (107,26) for_emit_diagnostic
+  -> EXTERN: (107,26) for_emit_diagnostic
+  -> EXTERN: (107,26) for_emit_diagnostic
+  -> EXTERN: (107,26) for_emit_diagnostic
+  -> EXTERN: (107,26) for_emit_diagnostic
+  -> EXTERN: (107,26) for_emit_diagnostic
+  -> EXTERN: (107,26) for_emit_diagnostic
+  -> EXTERN: (107,26) for_emit_diagnostic
+  -> EXTERN: (107,26) for_emit_diagnostic
+  -> EXTERN: (111,5) for_dealloc_allocatable
+  -> EXTERN: (111,5) for_dealloc_allocatable
+  -> EXTERN: (113,3) __for_ieee_restore_env_
+  -> EXTERN: (113,3) for_dealloc_allocatable
+  -> EXTERN: (113,3) for_dealloc_allocatable
+
+===========================================================================
+
+Begin optimization report for: PART_SHIFT::SHIFTING_FORCES
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (PART_SHIFT::SHIFTING_FORCES) [4/5=80.0%] source/base/new_fick_shift.F90(115,14)
+  -> EXTERN: (115,14) for_set_fpe_
+  -> EXTERN: (115,14) __for_ieee_store_env_
+  -> EXTERN: (131,10) WAB
+  -> EXTERN: (134,5) for_alloc_allocatable
+  -> EXTERN: (134,5) for_check_mult_overflow64
+  -> EXTERN: (135,5) for_alloc_allocatable
+  -> EXTERN: (135,5) for_check_mult_overflow64
+  -> EXTERN: (135,5) for_alloc_allocatable
+  -> EXTERN: (135,5) for_check_mult_overflow64
+  -> EXTERN: (135,5) for_alloc_allocatable
+  -> EXTERN: (135,5) for_check_mult_overflow64
+  -> EXTERN: (141,15) for_emit_diagnostic
+  -> EXTERN: (141,15) for_emit_diagnostic
+  -> EXTERN: (141,15) for_emit_diagnostic
+  -> EXTERN: (142,13) for_emit_diagnostic
+  -> EXTERN: (142,13) for_emit_diagnostic
+  -> EXTERN: (142,13) for_emit_diagnostic
+  -> EXTERN: (142,13) for_emit_diagnostic
+  -> EXTERN: (142,13) for_emit_diagnostic
+  -> EXTERN: (143,11) for_emit_diagnostic
+  -> EXTERN: (143,11) for_emit_diagnostic
+  -> EXTERN: (143,11) for_emit_diagnostic
+  -> EXTERN: (143,11) for_emit_diagnostic
+  -> EXTERN: (143,11) for_emit_diagnostic
+  -> EXTERN: (143,11) for_emit_diagnostic
+  -> EXTERN: (143,11) for_emit_diagnostic
+  -> EXTERN: (143,11) for_emit_diagnostic
+  -> EXTERN: (143,11) for_emit_diagnostic
+  -> EXTERN: (143,11) for_emit_diagnostic
+  -> EXTERN: (143,11) for_emit_diagnostic
+  -> EXTERN: (143,11) for_emit_diagnostic
+  -> EXTERN: (143,28) for_emit_diagnostic
+  -> EXTERN: (146,19) WAB
+  -> EXTERN: (146,32) pow
+  -> EXTERN: (149,11) for_emit_diagnostic
+  -> EXTERN: (149,11) for_emit_diagnostic
+  -> EXTERN: (149,11) for_emit_diagnostic
+  -> EXTERN: (149,11) for_emit_diagnostic
+  -> EXTERN: (149,11) for_emit_diagnostic
+  -> EXTERN: (149,11) for_emit_diagnostic
+  -> EXTERN: (149,11) for_emit_diagnostic
+  -> EXTERN: (149,11) for_emit_diagnostic
+  -> EXTERN: (149,36) for_emit_diagnostic
+  -> EXTERN: (152,11) for_emit_diagnostic
+  -> EXTERN: (152,11) for_emit_diagnostic
+  -> EXTERN: (152,11) for_emit_diagnostic
+  -> EXTERN: (152,11) for_emit_diagnostic
+  -> EXTERN: (152,11) for_emit_diagnostic
+  -> EXTERN: (152,11) for_emit_diagnostic
+  -> EXTERN: (152,11) for_emit_diagnostic
+  -> EXTERN: (152,38) for_emit_diagnostic
+  -> EXTERN: (154,8) for_emit_diagnostic
+  -> EXTERN: (154,8) for_emit_diagnostic
+  -> EXTERN: (154,8) for_emit_diagnostic
+  -> EXTERN: (154,8) for_emit_diagnostic
+  -> EXTERN: (154,8) for_emit_diagnostic
+  -> EXTERN: (154,34) for_emit_diagnostic
+  -> EXTERN: (154,34) for_emit_diagnostic
+  -> EXTERN: (154,34) for_emit_diagnostic
+  -> EXTERN: (154,34) for_emit_diagnostic
+  -> EXTERN: (154,34) for_emit_diagnostic
+  -> EXTERN: (166,18) for_emit_diagnostic
+  -> EXTERN: (166,18) for_emit_diagnostic
+  -> EXTERN: (166,18) for_emit_diagnostic
+  -> EXTERN: (167,16) for_emit_diagnostic
+  -> EXTERN: (167,16) for_emit_diagnostic
+  -> EXTERN: (167,16) for_emit_diagnostic
+  -> EXTERN: (167,16) for_emit_diagnostic
+  -> EXTERN: (167,16) for_emit_diagnostic
+  -> EXTERN: (168,14) for_emit_diagnostic
+  -> EXTERN: (168,14) for_emit_diagnostic
+  -> EXTERN: (168,14) for_emit_diagnostic
+  -> EXTERN: (168,14) for_emit_diagnostic
+  -> EXTERN: (168,14) for_emit_diagnostic
+  -> EXTERN: (168,14) for_emit_diagnostic
+  -> EXTERN: (168,14) for_emit_diagnostic
+  -> EXTERN: (168,14) for_emit_diagnostic
+  -> EXTERN: (168,14) for_emit_diagnostic
+  -> EXTERN: (168,14) for_emit_diagnostic
+  -> EXTERN: (168,14) for_emit_diagnostic
+  -> EXTERN: (168,14) for_emit_diagnostic
+  -> EXTERN: (168,31) for_emit_diagnostic
+  -> EXTERN: (173,35) SHIFTING_COHESION
+  -> EXTERN: (176,11) for_emit_diagnostic
+  -> EXTERN: (176,11) for_emit_diagnostic
+  -> EXTERN: (176,11) for_emit_diagnostic
+  -> EXTERN: (176,11) for_emit_diagnostic
+  -> EXTERN: (176,11) for_emit_diagnostic
+  -> EXTERN: (185,8) for_emit_diagnostic
+  -> EXTERN: (185,8) for_emit_diagnostic
+  -> EXTERN: (185,8) for_emit_diagnostic
+  -> EXTERN: (185,8) for_emit_diagnostic
+  -> EXTERN: (185,8) for_emit_diagnostic
+  -> EXTERN: (185,8) for_emit_diagnostic
+  -> EXTERN: (185,8) for_emit_diagnostic
+  -> EXTERN: (185,8) for_emit_diagnostic
+  -> EXTERN: (185,8) for_emit_diagnostic
+  -> EXTERN: (185,8) for_emit_diagnostic
+  -> EXTERN: (185,8) for_emit_diagnostic
+  -> EXTERN: (185,8) for_emit_diagnostic
+  -> EXTERN: (185,8) for_emit_diagnostic
+  -> EXTERN: (185,8) for_emit_diagnostic
+  -> EXTERN: (185,8) for_emit_diagnostic
+  -> EXTERN: (185,8) for_emit_diagnostic
+  -> EXTERN: (185,31) for_emit_diagnostic
+  -> EXTERN: (188,14) for_emit_diagnostic
+  -> EXTERN: (188,14) for_emit_diagnostic
+  -> EXTERN: (188,14) for_emit_diagnostic
+  -> EXTERN: (189,14) for_emit_diagnostic
+  -> EXTERN: (189,14) for_emit_diagnostic
+  -> EXTERN: (189,14) for_emit_diagnostic
+  -> EXTERN: (189,14) for_emit_diagnostic
+  -> EXTERN: (189,14) for_emit_diagnostic
+  -> EXTERN: (189,14) for_emit_diagnostic
+  -> EXTERN: (189,14) for_emit_diagnostic
+  -> EXTERN: (189,14) for_emit_diagnostic
+  -> EXTERN: (189,14) for_emit_diagnostic
+  -> EXTERN: (189,14) for_emit_diagnostic
+  -> EXTERN: (189,14) for_emit_diagnostic
+  -> EXTERN: (189,14) for_emit_diagnostic
+  -> EXTERN: (189,14) for_emit_diagnostic
+  -> EXTERN: (189,14) for_emit_diagnostic
+  -> EXTERN: (189,14) for_emit_diagnostic
+  -> EXTERN: (189,14) for_emit_diagnostic
+  -> EXTERN: (189,40) for_emit_diagnostic
+  -> EXTERN: (193,11) for_emit_diagnostic
+  -> EXTERN: (193,11) for_emit_diagnostic
+  -> EXTERN: (193,11) for_emit_diagnostic
+  -> EXTERN: (193,11) for_emit_diagnostic
+  -> EXTERN: (193,11) for_emit_diagnostic
+  -> EXTERN: (193,11) for_emit_diagnostic
+  -> EXTERN: (193,11) for_emit_diagnostic
+  -> EXTERN: (193,11) for_emit_diagnostic
+  -> EXTERN: (193,11) for_emit_diagnostic
+  -> EXTERN: (193,11) for_emit_diagnostic
+  -> EXTERN: (193,11) for_emit_diagnostic
+  -> EXTERN: (193,11) for_emit_diagnostic
+  -> EXTERN: (193,11) for_emit_diagnostic
+  -> EXTERN: (193,11) for_emit_diagnostic
+  -> EXTERN: (193,11) for_emit_diagnostic
+  -> EXTERN: (193,11) for_emit_diagnostic
+  -> EXTERN: (193,37) for_emit_diagnostic
+  -> EXTERN: (198,3) __for_ieee_restore_env_
+  -> EXTERN: (198,3) for_dealloc_allocatable
+  -> EXTERN: (198,3) for_dealloc_allocatable
+  -> EXTERN: (198,3) for_dealloc_allocatable
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at source/base/new_fick_shift.F90(138,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+OpenMP Construct at source/base/new_fick_shift.F90(163,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+OpenMP Construct at source/base/new_fick_shift.F90(182,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+===========================================================================
+
+Begin optimization report for: PART_SHIFT::REPULSIVE_FORCES
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (PART_SHIFT::REPULSIVE_FORCES) [5/5=100.0%] source/base/new_fick_shift.F90(200,14)
+  -> EXTERN: (200,14) for_set_fpe_
+  -> EXTERN: (200,14) __for_ieee_store_env_
+  -> EXTERN: (210,5) for_alloc_allocatable
+  -> EXTERN: (210,5) for_check_mult_overflow64
+  -> EXTERN: (216,15) for_emit_diagnostic
+  -> EXTERN: (216,15) for_emit_diagnostic
+  -> EXTERN: (216,15) for_emit_diagnostic
+  -> EXTERN: (217,13) for_emit_diagnostic
+  -> EXTERN: (217,13) for_emit_diagnostic
+  -> EXTERN: (217,13) for_emit_diagnostic
+  -> EXTERN: (217,13) for_emit_diagnostic
+  -> EXTERN: (217,13) for_emit_diagnostic
+  -> EXTERN: (219,14) for_emit_diagnostic
+  -> EXTERN: (219,14) for_emit_diagnostic
+  -> EXTERN: (219,14) for_emit_diagnostic
+  -> EXTERN: (219,27) for_emit_diagnostic
+  -> EXTERN: (219,27) for_emit_diagnostic
+  -> EXTERN: (219,27) for_emit_diagnostic
+  -> EXTERN: (224,51) for_emit_diagnostic
+  -> EXTERN: (224,58) for_emit_diagnostic
+  -> EXTERN: (224,58) for_emit_diagnostic
+  -> EXTERN: (224,58) for_emit_diagnostic
+  -> EXTERN: (224,58) for_emit_diagnostic
+  -> EXTERN: (224,58) for_emit_diagnostic
+  -> EXTERN: (224,58) for_emit_diagnostic
+  -> EXTERN: (224,58) for_emit_diagnostic
+  -> EXTERN: (224,64) for_emit_diagnostic
+  -> EXTERN: (224,64) for_emit_diagnostic
+  -> EXTERN: (224,64) for_emit_diagnostic
+  -> EXTERN: (224,69) for_emit_diagnostic
+  -> EXTERN: (224,69) for_emit_diagnostic
+  -> EXTERN: (224,69) for_emit_diagnostic
+  -> EXTERN: (224,76) for_emit_diagnostic
+  -> EXTERN: (224,76) for_emit_diagnostic
+  -> EXTERN: (224,76) for_emit_diagnostic
+  -> EXTERN: (224,83) for_emit_diagnostic
+  -> EXTERN: (224,83) for_emit_diagnostic
+  -> EXTERN: (224,83) for_emit_diagnostic
+  -> EXTERN: (226,8) for_emit_diagnostic
+  -> EXTERN: (226,8) for_emit_diagnostic
+  -> EXTERN: (226,8) for_emit_diagnostic
+  -> EXTERN: (226,8) for_emit_diagnostic
+  -> EXTERN: (232,8) for_emit_diagnostic
+  -> EXTERN: (232,8) for_emit_diagnostic
+  -> EXTERN: (232,8) for_emit_diagnostic
+  -> EXTERN: (232,8) for_emit_diagnostic
+  -> EXTERN: (232,8) for_emit_diagnostic
+  -> EXTERN: (232,8) for_emit_diagnostic
+  -> EXTERN: (232,8) for_emit_diagnostic
+  -> EXTERN: (232,8) for_emit_diagnostic
+  -> EXTERN: (232,8) for_emit_diagnostic
+  -> EXTERN: (232,8) for_emit_diagnostic
+  -> EXTERN: (232,26) for_emit_diagnostic
+  -> EXTERN: (232,28) for_emit_diagnostic
+  -> EXTERN: (232,28) for_emit_diagnostic
+  -> EXTERN: (232,28) for_emit_diagnostic
+  -> EXTERN: (232,28) for_emit_diagnostic
+  -> EXTERN: (232,28) for_emit_diagnostic
+  -> EXTERN: (232,48) for_emit_diagnostic
+  -> EXTERN: (232,48) for_emit_diagnostic
+  -> EXTERN: (232,48) for_emit_diagnostic
+  -> EXTERN: (235,5) for_dealloc_allocatable
+  -> EXTERN: (236,3) __for_ieee_restore_env_
+  -> EXTERN: (236,3) for_dealloc_allocatable
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at source/base/new_fick_shift.F90(213,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+OpenMP Construct at source/base/new_fick_shift.F90(230,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+===========================================================================
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING FOOTNOTES:
+
+<1> Inlining the subprogram will lead to incorrect program behavior.
+

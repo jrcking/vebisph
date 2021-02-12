@@ -1,0 +1,103 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) Fortran Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 19.1 Build 20200306
+
+Compiler options: -I./obj -O0 -g -debug all -check all -no-ftz -traceback -shared-intel -module ./obj -gen-interfaces -warn all -qopenmp -qopenmp-simd -fpe-all=0 -fp-stack-check -fstack-protector-all -ftrapuv -O3 -xHost -no-inline-max-size -ipo-jobs4 -align array64byte -qopt-report=5 -qopt-report-phase=all -g -qopt-smm-usage=high -c -o obj/sph2D_incom.o
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: disabled
+  -inline-max-per-compile: disabled
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+Begin optimization report for: ISPH
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (ISPH) [1/1=100.0%] source/base/sph2D_incom.F90(1,9)
+  -> EXTERN: (1,9) for_set_reentrancy
+  -> EXTERN: (1,9) for_set_fpe_
+  -> EXTERN: (34,8) GETDATA
+  -> EXTERN: (38,6) for_open
+  -> EXTERN: (39,6) for_open
+  -> EXTERN: (40,6) for_open
+  -> EXTERN: (42,6) for_open
+  -> EXTERN: (43,6) for_open
+  -> EXTERN: (44,6) for_open
+  -> EXTERN: (55,8) CELL_GENERATOR
+  -> EXTERN: (59,3) for_alloc_allocatable
+  -> EXTERN: (59,3) for_check_mult_overflow64
+  -> EXTERN: (59,3) for_alloc_allocatable
+  -> EXTERN: (59,3) for_check_mult_overflow64
+  -> EXTERN: (61,8) CELL_POSITION
+  -> EXTERN: (61,8) for_emit_diagnostic
+  -> EXTERN: (61,8) for_emit_diagnostic
+  -> EXTERN: (78,10) omp_get_wtime
+  -> EXTERN: (79,11) DIV_FREE
+  -> EXTERN: (81,8) omp_get_wtime
+  -> EXTERN: (90,9) for_write_seq_lis_xmit
+  -> EXTERN: (90,9) for_write_seq_lis_xmit
+  -> EXTERN: (90,9) for_write_seq_lis_xmit
+  -> EXTERN: (90,9) for_write_seq_lis
+  -> EXTERN: (91,9) for_write_seq_lis_xmit
+  -> EXTERN: (91,9) for_write_seq_lis_xmit
+  -> EXTERN: (91,9) for_write_seq_lis_xmit
+  -> EXTERN: (91,9) for_write_seq_lis
+  -> EXTERN: (92,9) for_write_seq_lis_xmit
+  -> EXTERN: (92,9) for_write_seq_lis_xmit
+  -> EXTERN: (92,9) for_write_seq_lis_xmit
+  -> EXTERN: (92,9) for_write_seq_lis
+  -> EXTERN: (93,9) for_write_seq_lis_xmit
+  -> EXTERN: (93,9) for_write_seq_lis_xmit
+  -> EXTERN: (93,9) for_write_seq_lis
+  -> EXTERN: (95,21) omp_get_num_threads
+  -> EXTERN: (97,9) for_write_seq_lis_xmit
+  -> EXTERN: (97,9) for_write_seq_lis_xmit
+  -> EXTERN: (97,9) for_write_seq_lis_xmit
+  -> EXTERN: (97,9) for_write_seq_lis
+  -> EXTERN: (99,9) for_write_seq_lis_xmit
+  -> EXTERN: (99,9) for_write_seq_lis_xmit
+  -> EXTERN: (99,9) for_write_seq_lis_xmit
+  -> EXTERN: (99,9) for_write_seq_lis
+  -> EXTERN: (101,9) for_write_seq_fmt
+  -> EXTERN: (105,11) output_
+  -> EXTERN: (111,8) output_
+  -> EXTERN: (113,9) for_close
+  -> EXTERN: (114,9) for_close
+  -> EXTERN: (115,9) for_close
+  -> EXTERN: (116,9) for_close
+  -> EXTERN: (117,9) for_close
+  -> EXTERN: (118,9) for_close
+  -> EXTERN: (119,9) for_close
+  -> EXTERN: (120,9) for_close
+  -> EXTERN: (122,3) for_dealloc_allocatable
+  -> EXTERN: (122,3) for_dealloc_allocatable
+  -> EXTERN: (123,3) for_dealloc_allocatable
+  -> EXTERN: (124,3) for_dealloc_allocatable
+  -> EXTERN: (124,3) for_dealloc_allocatable
+  -> EXTERN: (125,3) for_dealloc_allocatable
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at source/base/sph2D_incom.F90(94,7)
+remark #16201: OpenMP DEFINED REGION WAS PARALLELIZED
+===========================================================================

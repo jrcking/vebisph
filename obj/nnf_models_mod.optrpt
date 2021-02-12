@@ -1,0 +1,157 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) Fortran Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 19.1 Build 20200306
+
+Compiler options: -I./obj -O0 -g -debug all -check all -no-ftz -traceback -shared-intel -module ./obj -gen-interfaces -warn all -qopenmp -qopenmp-simd -fpe-all=0 -fp-stack-check -fstack-protector-all -ftrapuv -O3 -xHost -no-inline-max-size -ipo-jobs4 -align array64byte -qopt-report=5 -qopt-report-phase=all -g -qopt-smm-usage=high -c -o obj/nnf_models_mod.o
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: disabled
+  -inline-max-per-compile: disabled
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+Begin optimization report for: nnf_models._
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (nnf_models._) [1/6=16.7%] source/base/nnf_models_mod.F90(1,8)
+
+===========================================================================
+
+Begin optimization report for: NNF_MODELS::NNF_NEWTONIAN
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (NNF_MODELS::NNF_NEWTONIAN) [2/6=33.3%] source/base/nnf_models_mod.F90(8,14)
+  -> EXTERN: (8,14) for_set_fpe_
+  -> EXTERN: (8,14) __for_ieee_store_env_
+  -> EXTERN: (17,8) for_emit_diagnostic
+  -> EXTERN: (17,8) for_emit_diagnostic
+  -> EXTERN: (17,8) for_emit_diagnostic
+  -> EXTERN: (17,20) for_emit_diagnostic
+  -> EXTERN: (17,20) for_emit_diagnostic
+  -> EXTERN: (17,20) for_emit_diagnostic
+  -> EXTERN: (21,3) __for_ieee_restore_env_
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at source/base/nnf_models_mod.F90(15,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+===========================================================================
+
+Begin optimization report for: NNF_MODELS::NNF_POWER_LAW
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (NNF_MODELS::NNF_POWER_LAW) [3/6=50.0%] source/base/nnf_models_mod.F90(23,14)
+  -> EXTERN: (23,14) for_set_fpe_
+  -> EXTERN: (23,14) __for_ieee_store_env_
+  -> EXTERN: (36,8) for_emit_diagnostic
+  -> EXTERN: (36,8) for_emit_diagnostic
+  -> EXTERN: (36,8) for_emit_diagnostic
+  -> EXTERN: (36,24) for_emit_diagnostic
+  -> EXTERN: (36,24) for_emit_diagnostic
+  -> EXTERN: (36,24) for_emit_diagnostic
+  -> EXTERN: (36,40) pow
+  -> EXTERN: (39,3) __for_ieee_restore_env_
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at source/base/nnf_models_mod.F90(34,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+===========================================================================
+
+Begin optimization report for: NNF_MODELS::NNF_BINGHAM
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (NNF_MODELS::NNF_BINGHAM) [4/6=66.7%] source/base/nnf_models_mod.F90(41,14)
+  -> EXTERN: (41,14) for_set_fpe_
+  -> EXTERN: (41,14) __for_ieee_store_env_
+  -> EXTERN: (56,12) for_emit_diagnostic
+  -> EXTERN: (56,12) for_emit_diagnostic
+  -> EXTERN: (56,12) for_emit_diagnostic
+  -> EXTERN: (57,11) for_emit_diagnostic
+  -> EXTERN: (57,11) for_emit_diagnostic
+  -> EXTERN: (57,11) for_emit_diagnostic
+  -> EXTERN: (59,11) for_emit_diagnostic
+  -> EXTERN: (59,11) for_emit_diagnostic
+  -> EXTERN: (59,11) for_emit_diagnostic
+  -> EXTERN: (59,38) for_emit_diagnostic
+  -> EXTERN: (59,38) for_emit_diagnostic
+  -> EXTERN: (59,38) for_emit_diagnostic
+  -> EXTERN: (63,3) __for_ieee_restore_env_
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at source/base/nnf_models_mod.F90(54,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+===========================================================================
+
+Begin optimization report for: NNF_MODELS::NNF_CROSS
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (NNF_MODELS::NNF_CROSS) [5/6=83.3%] source/base/nnf_models_mod.F90(65,14)
+  -> EXTERN: (65,14) for_set_fpe_
+  -> EXTERN: (65,14) __for_ieee_store_env_
+  -> EXTERN: (83,8) for_emit_diagnostic
+  -> EXTERN: (83,8) for_emit_diagnostic
+  -> EXTERN: (83,8) for_emit_diagnostic
+  -> EXTERN: (83,60) for_emit_diagnostic
+  -> EXTERN: (83,60) for_emit_diagnostic
+  -> EXTERN: (83,60) for_emit_diagnostic
+  -> EXTERN: (83,66) pow
+  -> EXTERN: (86,3) __for_ieee_restore_env_
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at source/base/nnf_models_mod.F90(81,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+===========================================================================
+
+Begin optimization report for: NNF_MODELS::NNF_CARREAU
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (NNF_MODELS::NNF_CARREAU) [6/6=100.0%] source/base/nnf_models_mod.F90(88,14)
+  -> EXTERN: (88,14) for_set_fpe_
+  -> EXTERN: (88,14) __for_ieee_store_env_
+  -> EXTERN: (107,8) for_emit_diagnostic
+  -> EXTERN: (107,8) for_emit_diagnostic
+  -> EXTERN: (107,8) for_emit_diagnostic
+  -> EXTERN: (107,60) for_emit_diagnostic
+  -> EXTERN: (107,60) for_emit_diagnostic
+  -> EXTERN: (107,60) for_emit_diagnostic
+  -> EXTERN: (107,66) pow
+  -> EXTERN: (107,71) pow
+  -> EXTERN: (110,3) __for_ieee_restore_env_
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at source/base/nnf_models_mod.F90(105,7)
+remark #16200: OpenMP DEFINED LOOP WAS PARALLELIZED
+===========================================================================

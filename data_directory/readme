@@ -1,0 +1,3 @@
+As we output the data directly into this directory, and currently fortran doesn't offer a portable way to create new directory,  we have to create in advance.
+
+Another reason mercurial only keep track on files, not directory, so have a readme will help to create empty directory.
