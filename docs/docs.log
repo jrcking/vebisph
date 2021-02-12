@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.12)  12 FEB 2021 12:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.12)  12 FEB 2021 12:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -720,11 +720,7 @@ Underfull \hbox (badness 2990) in paragraph at lines 35--36
 meth-ods in this code fol-low 
  []
 
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
-
-LaTeX Warning: Reference `case' on page 3 undefined on input line 165.
-
-[3] (./docs.bbl
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] (./docs.bbl
 Underfull \hbox (badness 1173) in paragraph at lines 47--55
 []\OT1/cmr/m/n/9 R. Fat-tal, R. Kupfer-man,  Time-dependent sim-u-la-tion of vi
 s-coelas-tic flows at high Weis-senberg num-ber us-ing
@@ -736,11 +732,11 @@ Underfull \hbox (badness 1275) in paragraph at lines 47--55
 ian Fluid Me-chan-ics 126 (2005) 23 -- 37. doi:[]doi:
  []
 
-) [4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 204.
+[4]) [5]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 207.
  (./docs.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 204.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 204.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 207.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 207.
 
 
 Package rerunfilecheck Warning: File `docs.out' has changed.
@@ -748,21 +744,14 @@ Package rerunfilecheck Warning: File `docs.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `docs.out':
-(rerunfilecheck)             Before: 510AD2E94A7942F4515E6640315D5CAF;772
-(rerunfilecheck)             After:  494D9B6699B1FBC24D3D67FB55970D62;850.
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right .
-
-
+(rerunfilecheck)             Before: 494D9B6699B1FBC24D3D67FB55970D62;850
+(rerunfilecheck)             After:  9EDB1368CE1A61A0FDDE7C03710BCF3A;855.
  ) 
 Here is how much of TeX's memory you used:
- 18597 strings out of 483183
- 344442 string characters out of 5966292
- 604361 words of memory out of 5000000
- 33203 multiletter control sequences out of 15000+600000
+ 18600 strings out of 483183
+ 344430 string characters out of 5966292
+ 607390 words of memory out of 5000000
+ 33205 multiletter control sequences out of 15000+600000
  543695 words of font info for 63 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  60i,13n,65p,725b,713s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -792,10 +781,10 @@ fonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt
 10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
 
-Output written on docs.pdf (4 pages, 301131 bytes).
+Output written on docs.pdf (5 pages, 299913 bytes).
 PDF statistics:
- 249 PDF objects out of 1000 (max. 8388607)
- 212 compressed objects within 3 object streams
- 45 named destinations out of 1000 (max. 500000)
- 101 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 257 PDF objects out of 1000 (max. 8388607)
+ 219 compressed objects within 3 object streams
+ 46 named destinations out of 1000 (max. 500000)
+ 109 words of extra memory for PDF output out of 10000 (max. 10000000)
 

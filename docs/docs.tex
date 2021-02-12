@@ -13,7 +13,7 @@
   >={Latex[width=2mm,length=2mm]},
   % Specifications for style of nodes:
             base/.style = {rectangle, rounded corners, draw=black,
-                           minimum width=3cm, minimum height=1cm,
+                           minimum width=2.5cm, minimum height=1cm,
                            text centered, font=\sffamily},
              box/.style = {base, fill=yellow!60, font=\scriptsize},
             boxs/.style = {base, fill=red!60, font=\tiny},
@@ -39,27 +39,29 @@ A brief description of the VEISPH code. Numerical methods in this code follow ar
 \maketitle
 %end front matter
 
-\section{File structure}
+\section{Directory structure}
 
 \begin{tikzpicture}[node distance=1.5cm,
     every node/.style={fill=white, font=\sffamily}, align=center]
   % Specification of nodes (position, etc.)
   \node (veisph)       [box, xshift=6cm]                        {veisph};
   \node (source)     [box, below of=veisph, xshift=-6cm, yshift=-1cm]                  {source};
-  \node (data)    [box, right of=source, xshift=2cm]  {data\_directory};
-  \node (vtk)      [box, right of=data, xshift=2cm]                {vtk\_conv};
-  \node (parav)    [box, right of=vtk, xshift=2cm]     {paraview\_files};
-  \node (obj)   [box, right of=parav, xshift=2cm]  {obj}; 
+  \node (data)    [box, right of=source, xshift=1.5cm]  {data\_directory};
+  \node (vtk)      [box, right of=data, xshift=1.5cm]                {vtk\_conv};
+  \node (parav)    [box, right of=vtk, xshift=1.5cm]     {paraview\_files};
+  \node (obj)   [box, right of=parav, xshift=1.5cm]  {obj}; 
+  \node (docs)   [box, right of=obj, xshift=1.5cm]  {docs};   
   
   \node (base)   [box, below of=source, yshift=-1cm]  {base};
-  \node (para)   [box, right of=base, xshift=2cm]  {para};
-  \node (gen)   [box, right of=para, xshift=2cm]  {gen};          
+  \node (para)   [box, right of=base, xshift=1.5cm]  {para};
+  \node (gen)   [box, right of=para, xshift=1.5cm]  {gen};          
 
   \draw[->] (veisph) edge (source);
   \draw[->] (veisph) edge (vtk);
   \draw[->] (veisph) edge (parav);
   \draw[->] (veisph) edge (data);
   \draw[->] (veisph) edge (obj);        
+  \draw[->] (veisph) edge (docs);          
 
   \draw[->] (source) edge (base);
   \draw[->] (source) edge (para);
@@ -76,8 +78,9 @@ A brief description of the VEISPH code. Numerical methods in this code follow ar
 \end{itemize}
 \item \verb|data_directory| contains output files produced by the code
 \item \verb|vtk_conv| contains a program to convert output files into \verb|.vtu| files, which can be read by Paraview.
-\item \verb|paraview_files| \verb|.vtu| files are automatically created in here.
+\item \verb|paraview_files| the program in \verb|vtk_conv| creates \verb|.vtu| files here.
 \item \verb|obj| contains \verb|.o| and \verb|.mod| files created during compilation.
+\item \verb|docs| contains this document...
 \end{itemize}  
 
 
