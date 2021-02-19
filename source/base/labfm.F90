@@ -44,7 +44,7 @@ contains
      bvecGx=0.0d0;bvecGy=0.0d0;bvecL=0.0d0;gvec=0.0d0;xvec=0.0d0
 
      !! No parallelism for individual linear system solving...
-     call openblas_set_num_threads(1)
+!     call openblas_set_num_threads(1)
 
      !$OMP PARALLEL DO PRIVATE(nsize,amatGx,k,j,rij,rad,qq,x,y,xx,yy,nearsurf, &
      !$OMP ff1,gvec,xvec,i1,i2,amatL,amatGy,bvecGx,bvecGy,bvecL,xs,ys)
@@ -98,7 +98,7 @@ contains
               amatGx(i1,i1)=1.0d0
            end do
         endif
-     
+
         amatGy = amatGx;amatL=amatGx !! copying LHS
 
         !! Build RHS for ddx and ddy
@@ -114,7 +114,7 @@ contains
         !! Solve system for Lap coefficients
         bvecL(:)=0.0d0;bvecL(3)=1.0d0;bvecL(5)=1.0d0;i1=0;i2=0;nsize=nsizeG
         call dgesv(nsize,1,amatL,nsize,i1,bvecL,nsize,i2)     
-        
+
         !! Another loop of neighbours to calculate interparticle weights
         do k=1,ij_count(i)
            j = ij_link(i,k) 
@@ -147,12 +147,10 @@ contains
            ij_w_G(i,k,2) = dot_product(bvecGy,gvec)
            ij_w_L(i,k) = -dot_product(bvecL,gvec)  
         end do
-        
-        write(2,*) ""  !! Temporary fix for a weird openblas/lapack/openmp bug 
+
+        wait(1) !! Temporary fix for a weird openblas/lapack/openmp bug 
         !! The bug may be due to a race condition or something, but not really sure
-        !! writing nothing to fort.2 ( I guess) is akin to a pause. Discovered by trial
-        !! and error. Results in a big fort.2 file, and should probably find a proper solution 
-        !! sometime.
+        !! What's the best way to fix this??
      end do
      !$OMP END PARALLEL DO
      deallocate(amatGx,amatGy,amatL,bvecGx,bvecGy,bvecL,gvec,xvec)     

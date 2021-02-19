@@ -49,7 +49,7 @@ module common_2d
 
   !! Switches and flags
   logical :: external_forcing,akinci,output_everytime,fick_shifting
-  logical :: use_labfm,output_mirrors,i_RESTART  
+  logical :: output_mirrors,i_RESTART  
   integer(ikind) ::  i_open_domain,i_shift_coeff
 
   !! Boundary condition framework
