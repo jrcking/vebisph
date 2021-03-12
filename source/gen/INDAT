@@ -1,19 +1,19 @@
  F         :i_RESTART
     0        :open domain (0-closed,1-open)
-    100.0000000000        :tmax - max time of simulation
+   1000.0000000000        :tmax - max time of simulation
     0        :shift_coeff - how much to shift
-    932        :np
-    932        :npfb
-     62        :nbS
-      0.0099999998 :dt_out - time interval between outputs
-      0.0433333333 :h
-      0.0333333333 :dx
+  10000        :np
+  10000        :npfb
+      0        :nbS
+      0.5000000000 :dt_out - time interval between outputs
+      0.0816814090 :h
+      0.0628318531 :dx
       0.0000000000 :dt
-      8.0000000000          0.000000 :body_force
-      1.0000000000 Rayleigh Number
+      0.0000000000          0.000000 :body_force
+   1000.0000000000 Rayleigh Number
       1.0000000000 Prandtl Number
-      1.0000000000 Prandtl Number
-      0.1000000000 Viscosity ratio
+1000000.0000000000 Prandtl Number
+      0.5000000000 Viscosity ratio
       0.4000000000      0.2000000000 :dt_coefs cfl,visc
-      0.0000000000  :ve_nonlinearity parameter
+    100.0000000000  :ve_nonlinearity parameter
       0.0000000000  :EVSS coefficient

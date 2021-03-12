@@ -420,15 +420,15 @@ program datgen
      shift_coeff = 0 ! choose shift coeff, 0=.5h*h,1=A*dt*h*|u|
      dt_coef_cfl = 0.4d0;dt_coef_visc = 0.2d0
      i_open_domain=0
-     dt_out = 0.01;tmax = 100.0d0    !! Output interval and final time
+     dt_out = 0.5;tmax = 1000.0d0    !! Output interval and final time
      
      !! Physical parameters
      body_force = (/0.0d0,0.0d0/)    
      ve_nonlinearity=100d0;alpha_evss=0.0d0
-     beta = 1.0d0;Ra=1.0d4;Pr=1.0d0;El=0.0d0
+     beta = 0.5d0;Ra=1.0d3;Pr=1.0d0;El=1.0d6
 
      !! Resolution:
-     dx=yl/50.0;h=1.3d0*dx      !! N.B. you should only need to change dx
+     dx=yl/100.0;h=1.3d0*dx      !! N.B. you should only need to change dx
 
      !   JRCK boundary conditions
      nb_patches = 4

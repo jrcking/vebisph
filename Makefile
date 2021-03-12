@@ -20,7 +20,7 @@ else
 FFLAGS += -Dconst_mod=$(const_mod)
 endif
 
-LDFLAGS := -fopenmp -lstdc++ -m64
+LDFLAGS := -fopenmp -m64
 
 ifneq ($(strip $(highorder)),)
 LDFLAGS += -lopenblas
@@ -40,7 +40,7 @@ OBJ_FILES += obj/freesurf_mod.o obj/mirror_boundaries_mod.o obj/gradient_calcula
 OBJ_FILES += obj/predictor_mod.o obj/correct_velocity.o 
 OBJ_FILES += $(foreach sdir,$(SRC_DIR),$(patsubst $(sdir)/%.F90,obj/%.o,$(wildcard $(sdir)/*.F90)))
 
-HDEPS := $(OBJ_FILES:.o=.d)
+#HDEPS := $(OBJ_FILES:.o=.d)
 
 vpath %.F90 $(SRC_DIR)
 
@@ -58,14 +58,15 @@ obj/%.o: %.F90
 
 
 cleanup:
-	rm -v ./obj/*.o
-	rm -v ./obj/*.mod
-	rm -v ./veisph
-	rm -v I* TEMP_REC.dat
-	rm -v ./data_directory/PART*
-	rm -v ./data_directory/TIME
-	rm -v ./data_directory/TIME_OUT
-	rm -v ./data_directory/LS
-	rm -v ./paraview_files/*
+	rm -vf ./obj/*.o
+	rm -vf ./obj/*.mod
+	rm -vf ./veisph
+	rm -vf I* TEMP_REC.dat
+	rm -vf ./data_directory/PART*
+	rm -vf ./data_directory/TIME
+	rm -vf ./data_directory/TIME_OUT
+	rm -vf ./data_directory/LS
+	rm -vf ./paraview_files/*
+	rm -vf fort*
 
 

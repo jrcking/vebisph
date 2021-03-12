@@ -32,7 +32,7 @@ contains
 
     !! These flags control the ISPH algorithm
     lagrangian = .true.          !! Lagrangian or Eulerian
-    external_forcing = .false.   !! Switch on external (maybe divergent) forcing term in predictor module
+    external_forcing = .true.    !! Switch on external (maybe divergent) forcing term in predictor module
     fick_shifting = .true.       !! Use Fickian shifting as in Lind et al. 2012 (JCP paper)
     akinci = .false.             !! Use Akinci shifting (as in King 2020 ArXiv preprint). Only for free-surface flows
     output_everytime = .false.   !! Output every time-step
