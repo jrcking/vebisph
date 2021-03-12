@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.12)  12 FEB 2021 12:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.12)  12 MAR 2021 08:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -737,15 +737,8 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 207.
  (./docs.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 207.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 207.
-
-
-Package rerunfilecheck Warning: File `docs.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `docs.out':
-(rerunfilecheck)             Before: 494D9B6699B1FBC24D3D67FB55970D62;850
-(rerunfilecheck)             After:  9EDB1368CE1A61A0FDDE7C03710BCF3A;855.
+Package rerunfilecheck Info: File `docs.out' has not changed.
+(rerunfilecheck)             Checksum: 9EDB1368CE1A61A0FDDE7C03710BCF3A;855.
  ) 
 Here is how much of TeX's memory you used:
  18600 strings out of 483183
@@ -781,7 +774,7 @@ fonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt
 10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
 
-Output written on docs.pdf (5 pages, 299913 bytes).
+Output written on docs.pdf (5 pages, 299906 bytes).
 PDF statistics:
  257 PDF objects out of 1000 (max. 8388607)
  219 compressed objects within 3 object streams
