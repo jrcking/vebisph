@@ -137,36 +137,6 @@ and then express~\eqref{eq:mom} as
 
 This formulation introduces a small amount of additional viscosity into the solvent part, and then removes the same amount via the divergence of $\bm{\Phi}$, improving stability when $\beta$ is small or zero. For $\beta>0.1$ we can usually set $\alpha_{evss}=0$, and~\eqref{eq:mom_evss} returns to~\eqref{eq:mom}. For smaller $\beta$, values of $\alpha_{evss}$ between $0.01$ and $0.1$ are usually sufficient to provide stability.
 
-
-\section{Case creation}\label{case}
-
-In the directory \texttt{source/gen/} there is a file \texttt{datclass.F90}. This is the main part of a program which generates the input data for the code. Navigate to this directory, and then build and run it with:
-\begin{verbatim}
-make
-./gen2D
-cp I* ../../.
-\end{verbatim}
-When you run \texttt{./gen2D}, it will give a list of cases and prompt you to choose one. Type the relevant number and press enter. You can modify \verb|datclass.F90| to create more cases.
-
-The following cases are currently included in \verb|datclass.F90|:
-\begin{enumerate}
-\item 2D dam break
-\item Taylor Green vortices
-\item Poiseuille flow
-\item Taylor-Couette flow
-\item Periodic cylinders in a channel (as in~\cite{vazquez_2012})
-\item Kolmogorov flow (you need to set the \verb|external_forcing| switch to \verb|.true.|).
-\item Plane Couette flow
-\end{enumerate}
-
-\section{Compiling and running the code}
-
-The Makefile is build for systems with the compiler \verb|gfortran| install. If using an alternative compiler, modify the lines \verb|FC := gfortran| and \verb|LD := gfortran| to point to your chosen compiler. You need a system with OpenMP installed.
-
-To compile the code, use \verb|make const_mod=X| where \verb|X| points to the constitutive model of you want. $1$ gives Newtonian, $2$ to $7$ give Oldroyd B, FENE-P, FENE-CR, Linear PTT, Exponential PTT and Giesekus (respectively). Oldroyd B is the simplest viscoelastic constitutive model, and first to experiment with.
-
-To run the code (after having created the case files as described in Section~\ref{case}), run \verb|./veisph|
-
 \section{Boundary framework}
 
 The computational domain is described by a set of boundary nodes, connected by straight lines (boundary patches), along with circles. In \texttt{datclass.F90} these are hard-coded for each case. For example, a rectangular domain with solid upper and lower boundaries and periodic lateral boundaries would be defined as:
@@ -197,9 +167,66 @@ The code consists of modules, each module is stored in a separate \verb|.F90| fi
 
 The main program is contained within \verb|sph2D_incom.F90|. It calls routines from the input module \verb|input.F90|, some other housekeeping, then contains the main time loop. Within the main time loop, the routine \verb|div_free| is called, which performs a single time step, then \verb|output| is called, which saves any data as required. The module \verb|div_free.F90| is the heart of the code, and is fairly clearly commented, the the subroutine \verb|divfree| corresponds (roughly) to the steps $1$ to $7$ on pages 5 and 6 of~\cite{king_2020_ve}.
 
-\section{Outputs}
+\section{Case creation, compiling, running and postprocessing}
+
+\subsection{Case creation}\label{case}
+
+In the directory \texttt{source/gen/} there is a file \texttt{datclass.F90}. This is the main part of a program which generates the input data for the code. Navigate to this directory, and then build and run it with:
+\begin{verbatim}
+make
+./gen2D
+cp I* ../../.
+\end{verbatim}
+When you run \verb|./gen2D|, it will give a list of cases and prompt you to choose one. Type the relevant number and press enter. You can modify \verb|datclass.F90| to create more cases.
+
+The following cases are currently included in \verb|datclass.F90|:
+\begin{enumerate}
+\item 2D dam break
+\item Taylor Green vortices
+\item Poiseuille flow
+\item Taylor-Couette flow
+\item Periodic cylinders in a channel (as in~\cite{vazquez_2012})
+\item Kolmogorov flow (you need to set the \verb|external_forcing| switch to \verb|.true.|).
+\item Plane Couette flow
+\end{enumerate}
+
+\subsection{Compiling and running the code}
+
+The Makefile is built for systems with the compiler \verb|gfortran| install. If using an alternative compiler, modify the lines \verb|FC := gfortran| and \verb|LD := gfortran| to point to your chosen compiler. You need a system with OpenMP installed.
+
+To compile and run the code,
+\begin{enumerate}
+\item Navigate the main directory \verb|veisph|
+\item Compile the code with the command \verb|make const_mod=X|, where \verb|X| points to the constitutive model of you want. $1$ gives Newtonian, $2$ to $7$ give Oldroyd B, FENE-P, FENE-CR, Linear PTT, Exponential PTT and Giesekus (respectively). Oldroyd B is the simplest viscoelastic constitutive model, and first to experiment with.
+\item Run the code by typing \verb|./veisph|
+\end{enumerate}
+
+\section{Post-processing}
 
 Data from the code are saved in the folder \verb|data_directory|. Within the folder \verb|vtk_conv| there is a small program which converts the data into a format which can be read by Paraview. 
+
+To process the results
+\begin{enumerate}
+\item Navigate in a terminal to \verb|vtk_conv|
+\item Run \verb|./a.out|
+\item The files which paraview can read will be created in the folder \verb|paraview_files|
+\end{enumerate}
+
+To view the files, open paraview, and open the files \verb|PART00XX|.
+
+Additional outputs/diagnostics are saved as files called \verb|fort.XXX|. For example, a routine in \verb|div_free.F90| writes the maximum velocity in the domain at each output time to the file \verb|fort.192|.
+
+\section{Linux tips}
+\begin{itemize}
+\item Use tab key to autocomplete;
+\item \verb|cd ../| navigates up one level;
+\item Similarly, \verb|cp x ../.| copies file \verb|x| up one level;
+\item Use up/down arrow keys to scroll through command line history;
+\item Ctrl+shift+N opens a new terminal;
+\item In a file browser, you right click--> open in terminal;
+\item Ctrl+C aborts a program.
+\end{itemize}
+
 
 \bibliographystyle{elsarticle-num-names}
 \bibliography{jrckbib}

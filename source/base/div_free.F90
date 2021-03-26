@@ -169,7 +169,7 @@ contains
         end do
         !$OMP END PARALLEL DO
 
-        if(.false.)then
+        if(.true.)then
         !! Centre-line velocity for poiseuille flow
         k=0;tmpa=0.0d0
         !$OMP PARALLEL DO REDUCTION(+:k,tmpa)

@@ -83,13 +83,12 @@ contains
            gvec(10:14) = abfs4(rad,xx,yy,ff1);xvec(10:14) = monomials4(x,y)
           
                            
-           !! Build the LHS - it is the same for all three diff operators (ddx,ddy,Lap)
+           !! Build the LHS - it is the same for all three operators
            do i1=1,nsize
-              do i2=1,nsize
-                 amatGx(i1,i2) = amatGx(i1,i2) + xvec(i1)*gvec(i2)
-              end do
-           end do         
-        end do
+              amatGy(i1,:) = xvec(i1)*gvec(:)   !! Contribution to LHS for this interaction
+           end do    
+           amatGx(:,:) = amatGx(:,:) + amatGy(:,:)                     
+        end do   
         
         if(nearsurf)then
            amatGx(:,6:14)=0.0d0  ! right block
