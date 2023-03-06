@@ -12,9 +12,6 @@ module divfree
   use velocity_correction
   use sphtools
   use omp_lib
-#ifdef use_labfm  
-  use labfm
-#endif  
   implicit none
 
   private
@@ -32,7 +29,7 @@ contains
 
     !! These flags control the ISPH algorithm
     lagrangian = .true.          !! Lagrangian or Eulerian
-    external_forcing = .true.    !! Switch on external (maybe divergent) forcing term in predictor module
+    external_forcing = .false.    !! Switch on external (may be divergent) forcing term in predictor module
     fick_shifting = .true.       !! Use Fickian shifting as in Lind et al. 2012 (JCP paper)
     akinci = .false.             !! Use Akinci shifting (as in King 2020 ArXiv preprint). Only for free-surface flows
     output_everytime = .false.   !! Output every time-step
@@ -80,17 +77,17 @@ contains
        ushift(1:npfb,:) = -u(1:npfb,:)  
     end if
  
-    !! STEP 6: Calculate high-order weights using LABFM if desired (if unsure, ignore this)
-#ifdef use_labfm
-    call labfm_weights
-#endif    
-    
+   
     !! STEP 7: Prediction step - Calculate viscous, polymeric and advective terms, and update velocity to u*
     call prediction_step       
 
     !! STEP 8: Build and solve the Pressure (correction) Poisson equation    
     call mirror_velocities    !! Calculate u* for mirror particles
     call ppe_solve_in_house_simple_dirichlet     !! Setup and solve the Poisson equation
+
+!    do i=1,nbS
+!       u(i,:) = u0(i,:)
+!    end do
 
     !! STEP 9: Calculate pressure gradient and final velocity
     allocate(grad_p(npfb,dims))
@@ -99,6 +96,7 @@ contains
     !$OMP PARALLEL DO
     do i=nbS+1,npfb
        u(i,:) = u(i,:) + dt*(body_force(:) - grad_p(i,:))
+       if(ij_count(i).le.3) u(i,:) = u0(i,:) + dt*body_force(:) !! Gravity only for solo particles
     enddo
     !$OMP END PARALLEL DO
     deallocate(grad_p)
@@ -141,7 +139,7 @@ contains
     end do
     dt_CFL = dt_coef_cfl*h/umax
     ! Constraint 2: Viscous condition - coeff*min(ro*h**2/mu)
-    dt_visc = dt_coef_visc*h*h*sqrt(Ra/Pr)      
+    dt_visc = dt_coef_visc*h*h*min(sqrt(Ra/Pr),sqrt(Ra*Pr))      
 
     dt = min(dt_CFL,dt_visc)
     return
@@ -173,14 +171,14 @@ contains
         !! Centre-line velocity for poiseuille flow
         k=0;tmpa=0.0d0
         !$OMP PARALLEL DO REDUCTION(+:k,tmpa)
-        do i=nbS+1,npfb
-           if(abs(r(i,2)-0.5d0).le.dx)then
+        do i=1,npfb
+!           if(abs(r(i,2)-0.5d0).le.dx)then
               k=k+1
-              tmpa=tmpa+u(i,1)
-           end if
+              tmpa=tmpa+dot_product(u(i,:),u(i,:))
+!           end if
         end do
         !$OMP END PARALLEL DO
-        tmpb=tmpa/dble(k)
+        tmpb=sqrt(tmpa/dble(npfb))
         write(192,*) time,tmpb
         flush(192)
         end if

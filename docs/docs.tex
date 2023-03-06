@@ -24,7 +24,7 @@
 }
 \begin{document}
 %front matter
-\title{VEISPH code: two dimensional incompressible SPH code for viscoelastic flows}
+\title{VEBISPH code: two dimensional incompressible SPH code for viscoelastic flows}
 
 \author{J. R. C. King}
 \email{jack.king@manchester.ac.uk}
@@ -32,7 +32,7 @@
 \date{\today}
 \begin{abstract}
 
-A brief description of the VEISPH code. Numerical methods in this code follow arXiv:2009.12245~\cite{king_2020_ve}
+A brief description of the VEBISPH code. Numerical methods in this code follow~\cite{king_2021}
 
 \end{abstract}
 
@@ -86,16 +86,18 @@ A brief description of the VEISPH code. Numerical methods in this code follow ar
 
 \section{Governing equations}\label{ge}
 
-The governing equations (here listed in dimensionless form) in the arbitrary frame of reference as in~\cite{king_2020_ve} are:
+The governing equations (here listed in dimensionless form) in the arbitrary frame of reference as in~\cite{king_2021} are:
 
 \begin{subequations}
 \begin{align}\nabla\cdot\bm{u}&=0\label{eq:mass}\\
 \frac{d\bm{u}}{dt}-\bm{u_{s}}\cdot\nabla\cdot\bm{u}&=-\nabla{p}+\beta\sqrt{\frac{Pr}{Ra}}\nabla^{2}\bm{u}+\frac{\left(1-\beta\right)Pr}{Ra\times{El}}\nabla\cdot\bm{\tau_{p}}+\theta\bm{e_{y}}+\bm{f}\label{eq:mom}\\
 \frac{d\bm{A}}{dt}-\bm{u_{s}}\cdot\nabla\bm{A}-\left(\bm{A}\cdot\nabla\bm{u}^{T}+\nabla\bm{u}\cdot\bm{A}\right)&=\frac{-1}{El}\sqrt{\frac{Pr}{Ra}}f_{R}\left(\bm{A}\right)\label{eq:conf}\\
 \frac{d\theta}{dt}-\bm{u_{s}}\cdot\nabla\theta&=\frac{1}{\sqrt{Ra\times{Pr}}}\nabla^{2}\theta\label{eq:heat}\end{align}\label{eq:ce}\end{subequations}
-where $\bm{u}$ is the velocity, $p$ the pressure, $\theta$ the temperature deviation (from ambient), and $\bm{\tau_{p}}$ is the polymeric stress, related to the conformation tensor $\bm{A}$ by  the strain function $\bm{\tau_{p}}=f_{S}\left(\bm{A}\right)$. $f_{R}$ is a relaxation function. $\bm{f}$ is a body force.
-
-\emph{N.B. Equation~\eqref{eq:heat} is not yet implemented in the code!}
+where $\bm{u}$ is the velocity, $p$ the pressure, $\theta$ the temperature deviation (from ambient), and $\bm{\tau_{p}}$ is the polymeric stress, related to the conformation tensor $\bm{A}$ by  the strain function 
+\begin{equation}\bm{\tau_{p}}=f_{S}\left(\bm{A}\right)=\bm{A}-\bm{I}\end{equation}. The relaxation function $f_{R}$ 
+defines the closure of the constitutive model, and in this code is limited to the Linear PTT model with
+\begin{equation}f_{R}=\left[1+\varepsilon{tr}\left(\bm{A}-\bm{I}\right)\right]\left(\bm{A}-\bm{I}\right)\end{equation}
+where $\varepsilon$ is the degree of non-linearity, and $\bm{I}$ is the identity tensor. When $\varepsilon=0$, the PTT model collapses to the Oldroyd B model. $\bm{f}$ is a body force.
 
 The system is controlled by the four dimensionless quantities:
 \begin{subequations}
@@ -108,34 +110,10 @@ where $\eta_{s}$ is the solvent viscosity, $\eta_{0}$ is the total viscosity, $c
 
 The Reynolds number is related to these dimensionless groups by: $Re=\sqrt{Ra/Pr}$. The Weissenberg number is $Wi=El\sqrt{Ra/Pr}$.
 
-The strain and relaxation functions for various constitutive models are given in Table~\ref{tab:cm}.
 
-\begin{table}
-\begin{center}
-\caption{Strain and relaxation functions for the constitutive models used in this work.\label{tab:cm}}
-\begin{tabular}{|l|l|l|}
-Constitutive model & $f_{S}$& $f_{R}$\\
-\hline
-Oldroyd B & $\bm{A}-\bm{I}$ & $\bm{A}-\bm{I}$ \\
-FENE-P & $\frac{\bm{A}}{1-tr\left(\bm{A}\right)/L^{2}}-\bm{I}$ & $\frac{\bm{A}}{1-tr\left(\bm{A}\right)/L^{2}}-\bm{I}$ \\
-FENE-CR & $\frac{\bm{A}-\bm{I}}{1-tr\left(\bm{A}\right)/L^{2}}$ & $\frac{\bm{A}-\bm{I}}{1-tr\left(\bm{A}\right)/L^{2}}$ \\
-Linear PTT & $\bm{A}-\bm{I}$ & $\left[1+\varepsilon{tr}\left(\bm{A}-\bm{I}\right)\right]\left(\bm{A}-\bm{I}\right)$ \\
-Exponential PTT & $\bm{A}-\bm{I}$ & $\exp\left[\varepsilon{tr}\left(\bm{A}-\bm{I}\right)\right]\left(\bm{A}-\bm{I}\right)$ \\
-Giesekus & $\bm{A}-\bm{I}$ & $\alpha\bm{A}^{2}+\left(1-2\alpha\right)\bm{A}-\left(1-\alpha\right)\bm{I}$ \\
-\end{tabular}
-\end{center}
-\end{table}
+\section{Numerical implementation}
 
-Time evolution is with a first-order projection scheme~\cite{chorin_1968}, with divergence free velocity constraint enforced via a Poisson equation, which is solved using a BiCGStab algorithm with Jacobi preconditioner. Boundary conditions are imposed with mirror particles. SPH gradient and divergence operators are corrected to first order following~\cite{bonet_lok}. Temporal evolution of the conformation tensor is via the log-conformation formulation of~\cite{fattal_2004,fattal_2005}, mostly following~\cite{lopez_2019}.
-
-\section{Elasto-viscous stress splitting}
-
-With the above non-dimensionalisation, we introduce the tensor
-\begin{equation}\bm{\Phi}=\bm{\tau_{p}}-\frac{\alpha_{evss}El}{1-\beta}\sqrt{\frac{Ra}{Pr}}\left(\nabla\bm{u}+\nabla\bm{u}^{T}\right)\end{equation}
-and then express~\eqref{eq:mom} as
-\begin{equation}\frac{d\bm{u}}{dt}-\bm{u_{s}}\cdot\nabla\cdot\bm{u}=-\nabla{p}+\left(\beta+\alpha_{evss}\right)\sqrt{\frac{Pr}{Ra}}\nabla^{2}\bm{u}+\frac{\left(1-\beta\right)Pr}{Ra\times{El}}\nabla\cdot\bm{\Phi}+\theta\bm{e_{y}}+\bm{f}\label{eq:mom_evss}.\end{equation}
-
-This formulation introduces a small amount of additional viscosity into the solvent part, and then removes the same amount via the divergence of $\bm{\Phi}$, improving stability when $\beta$ is small or zero. For $\beta>0.1$ we can usually set $\alpha_{evss}=0$, and~\eqref{eq:mom_evss} returns to~\eqref{eq:mom}. For smaller $\beta$, values of $\alpha_{evss}$ between $0.01$ and $0.1$ are usually sufficient to provide stability.
+Full details in~\cite{king_2021}. Spatial discretisation is with SPH operators. Time evolution is with a first-order projection scheme~\cite{chorin_1968}, with divergence free velocity constraint enforced via a Poisson equation, which is solved using a BiCGStab algorithm with Jacobi preconditioner. Boundary conditions are imposed with mirror particles. SPH gradient and divergence operators are corrected to first order following~\cite{bonet_lok}. Temporal evolution of the conformation tensor is via the log-conformation formulation of~\cite{fattal_2004,fattal_2005}, mostly following~\cite{lopez_2019}.
 
 \section{Boundary framework}
 
@@ -143,6 +121,7 @@ The computational domain is described by a set of boundary nodes, connected by s
 \begin{verbatim}
      b_type(:) = (/ 1, 2, 1, 2/)
      b_vel(:) = (/ -0.0d0,0.0d0,0.0d0,0.0d0/)    
+     b_thermal(:) = (/ 1.0d0,0.0d0,-1.0d0,0.0d0/)
      b_periodic_parent(:) = (/ 3, 4, 1, 2/)
      b_node(1,:) = (/ 0.0d0, 0.0d0 /)
      b_node(2,:) = (/ xl, 0.0d0 /)
@@ -165,7 +144,7 @@ Pressure boundary conditions ($\bm{n}\cdot\nabla{p}=\bm{f}\cdot\bm{n}$) are cons
 
 The code consists of modules, each module is stored in a separate \verb|.F90| file. Each module contains one or more subroutines which perform similar tasks, or tasks related to a theme (e.g. the module \verb|part_shift| contains routines related to Fickian shifting).
 
-The main program is contained within \verb|sph2D_incom.F90|. It calls routines from the input module \verb|input.F90|, some other housekeeping, then contains the main time loop. Within the main time loop, the routine \verb|div_free| is called, which performs a single time step, then \verb|output| is called, which saves any data as required. The module \verb|div_free.F90| is the heart of the code, and is fairly clearly commented, the the subroutine \verb|divfree| corresponds (roughly) to the steps $1$ to $7$ on pages 5 and 6 of~\cite{king_2020_ve}.
+The main program is contained within \verb|sph2D_incom.F90|. It calls routines from the input module \verb|input.F90|, some other housekeeping, then contains the main time loop. Within the main time loop, the routine \verb|div_free| is called, which performs a single time step, then \verb|output| is called, which saves any data as required. The module \verb|div_free.F90| is the heart of the code, and is fairly clearly commented, the the subroutine \verb|divfree| corresponds (roughly) to the steps $1$ to $7$ on pages 5 and 6 of~\cite{king_2021}.
 
 \section{Case creation, compiling, running and postprocessing}
 
@@ -184,9 +163,9 @@ The following cases are currently included in \verb|datclass.F90|:
 \item 2D dam break
 \item Taylor Green vortices
 \item Poiseuille flow
-\item Taylor-Couette flow
+\item Rayleigh-Benard flow
 \item Periodic cylinders in a channel (as in~\cite{vazquez_2012})
-\item Kolmogorov flow (you need to set the \verb|external_forcing| switch to \verb|.true.|).
+\item Free-surface Rayleigh-Benard.
 \item Plane Couette flow
 \end{enumerate}
 
@@ -196,9 +175,9 @@ The Makefile is built for systems with the compiler \verb|gfortran| install. If 
 
 To compile and run the code,
 \begin{enumerate}
-\item Navigate the main directory \verb|veisph|
-\item Compile the code with the command \verb|make const_mod=X|, where \verb|X| points to the constitutive model of you want. $1$ gives Newtonian, $2$ to $7$ give Oldroyd B, FENE-P, FENE-CR, Linear PTT, Exponential PTT and Giesekus (respectively). Oldroyd B is the simplest viscoelastic constitutive model, and first to experiment with.
-\item Run the code by typing \verb|./veisph|
+\item Navigate the main directory \verb|vebisph|
+\item Compile the code with the command \verb|make const_mod=X|, where $X=1$ will compile for Newtonian flows, and $X=2$ will compile for viscoelastic flows.
+\item Run the code by typing \verb|./vebisph|
 \end{enumerate}
 
 \section{Post-processing}
@@ -208,7 +187,7 @@ Data from the code are saved in the folder \verb|data_directory|. Within the fol
 To process the results
 \begin{enumerate}
 \item Navigate in a terminal to \verb|vtk_conv|
-\item Run \verb|./a.out|
+\item Run \verb|./a.out| (you may need to recompile it, with \verb|gfortran PART2VTU_2D.f| first.
 \item The files which paraview can read will be created in the folder \verb|paraview_files|
 \end{enumerate}
 
@@ -218,12 +197,12 @@ Additional outputs/diagnostics are saved as files called \verb|fort.XXX|. For ex
 
 \section{Linux tips}
 \begin{itemize}
-\item Use tab key to autocomplete;
+\item Use tab key to autocomplete commands;
 \item \verb|cd ../| navigates up one level;
 \item Similarly, \verb|cp x ../.| copies file \verb|x| up one level;
 \item Use up/down arrow keys to scroll through command line history;
 \item Ctrl+shift+N opens a new terminal;
-\item In a file browser, you right click--> open in terminal;
+\item In a file browser, you right click $\to$ open in terminal;
 \item Ctrl+C aborts a program.
 \end{itemize}
 

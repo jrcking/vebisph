@@ -39,11 +39,9 @@ contains
           temp = (P(j)-P(i))
           grad_p_tmp(:) = grad_p_tmp(:) + temp*ij_w_G(i,k,:)
        end do
-#ifdef use_labfm
-       grad_p(i,:) = grad_p_tmp(:)
-#else       
+     
        grad_p(i,:) = matmul(kgcm(i,:,:),grad_p_tmp(:))
-#endif       
+
     end do
     !$OMP END PARALLEL DO
 
@@ -68,11 +66,8 @@ contains
           temp = pha(j) - pha(i)
           grad_tmp(:) = grad_tmp(:) + temp*ij_w_G(i,k,:)
        end do
-#ifdef use_labfm
-       grad(i,:) = grad_tmp(:)
-#else       
+
        grad(i,:) = matmul(kgcm(i,:,:),grad_tmp(:))   !! Apply kernel gradient correction
-#endif       
     end do
     !$OMP END PARALLEL DO
     

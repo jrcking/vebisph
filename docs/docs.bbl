@@ -11,12 +11,15 @@
 \providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
 \providecommand{\bibinfo}[2]{#2}
 \ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
-%Type = Misc
-\bibitem[{King and Lind(2020)}]{king_2020_ve}
-\bibinfo{author}{J.~King}, \bibinfo{author}{S.~Lind}, \bibinfo{title}{{H}igh
-  {W}eissenberg number simulations with incompressible {S}moothed {P}article
-  {H}ydrodynamics and the log-conformation formulation}, \bibinfo{year}{2020}.
-  \href{http://arxiv.org/abs/2009.12245}{{\tt arXiv:2009.12245}}.
+%Type = Article
+\bibitem[{King and Lind(2021)}]{king_2021}
+\bibinfo{author}{J.~King}, \bibinfo{author}{S.~Lind},
+\newblock \bibinfo{title}{High weissenberg number simulations with
+  incompressible smoothed particle hydrodynamics and the log-conformation
+  formulation},
+\newblock \bibinfo{journal}{Journal of Non-Newtonian Fluid Mechanics}
+  \bibinfo{volume}{293} (\bibinfo{year}{2021}) \bibinfo{pages}{104556}.
+  \DOIprefix\doi{10.1016/j.jnnfm.2021.104556}.
 %Type = Article
 \bibitem[{Chorin(1968)}]{chorin_1968}
 \bibinfo{author}{A.~J. Chorin},

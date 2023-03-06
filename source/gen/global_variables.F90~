@@ -13,7 +13,7 @@
       real(rkind) :: grx, gry
       real(rkind) :: xb_min, xb_max, yb_min, yb_max, xl
       real(rkind) :: v_mu,U_bulk   
-      real(rkind), dimension(:), allocatable :: xp, yp ,up, vp, p, vol,theta
+      real(rkind), dimension(:), allocatable :: xp, yp ,up, vp, p, vol
       real(rkind), dimension(:), allocatable :: xp_gas,yp_gas,up_gas,vp_gas
       real(rkind), dimension(:,:,:), allocatable :: tau_e
 

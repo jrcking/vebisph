@@ -31,7 +31,7 @@ module common_2d
   real(rkind), dimension(:,:), allocatable :: r0, u0         !! Position and velocity at start of each time step
   logical( c_bool ), dimension(:), allocatable, target :: inbin  !! Bin flag
   real(rkind),allocatable,dimension(:) :: ppe_smooth
-  integer(ikind), dimension(:), allocatable, target :: irelation,vrelation,thetarelation
+  integer(ikind), dimension(:), allocatable, target :: irelation,vrelation
   real(rkind),dimension(:),allocatable, target :: dP_mp
   real(rkind),dimension(:,:),allocatable, target :: surf_norm
   real(rkind), dimension(:,:), allocatable,target :: ushift,dr_fs !! For Fickian shifting
@@ -55,7 +55,7 @@ module common_2d
   !! Boundary condition framework
   real(rkind),dimension(:,:),allocatable, target :: b_node,b_edge,c_centre,c_vel,c_vel0,c_centre0
   integer(ikind),dimension(:),allocatable,target :: b_type,b_periodic_parent
-  real(rkind),dimension(:),allocatable,target :: b_corner_angle,c_radius,b_vel,c_omega,b_thermal,c_thermal
+  real(rkind),dimension(:),allocatable,target :: b_corner_angle,c_radius,b_vel,c_omega
   integer(ikind),dimension(:),allocatable,target :: p_inflow
   real(rkind) :: U_inflow,U_inflow0
   integer(ikind) :: nb_patches,np_inflow,i_pset_part,ip_dirichlet,nb_circles

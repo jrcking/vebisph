@@ -73,7 +73,8 @@ contains
                    vrelation(k) = 999+ib
                    r(k,:) = r(i,:) - ric(:)*2.0*(rad-c_radius(ib))
                    tang_be(1) = ric(2);tang_be(2)=-ric(1)
-                   u(k,:) = 2.0d0*c_vel(ib,:) + 2.0d0*tang_be(:)*c_radius(ib)*c_omega(ib)-1.0d0*u(i,:)   
+                   u(k,:) = 2.0d0*c_vel(ib,:) + 2.0d0*tang_be(:)*c_radius(ib)*c_omega(ib)-1.0d0*u(i,:)
+                   theta(k) = 2.0d0*c_thermal(ib) - 1.0d0*theta(i) 
                    dP_mp(k) = dot_product(body_force,r(k,:)-r(i,:)) 
                 end if            
              else if(c_dir.lt.0.0d0)then  !! outer circle (i.e. fluid inside, boundary outside)
@@ -85,7 +86,8 @@ contains
                    vrelation(k) = 999+ib
                    r(k,:) = r(i,:) + ric(:)*2.0*(abs(c_radius(ib))-rad)
                    tang_be(1) = ric(2);tang_be(2)=-ric(1)
-                   u(k,:) = 2.0d0*c_vel(ib,:) + 2.0d0*tang_be(:)*abs(c_radius(ib))*c_omega(ib)-1.0d0*u(i,:)   
+                   u(k,:) = 2.0d0*c_vel(ib,:) + 2.0d0*tang_be(:)*abs(c_radius(ib))*c_omega(ib)-1.0d0*u(i,:)
+                   theta(k) = 2.0d0*c_thermal(ib)-1.0d0*theta(i)
                    dP_mp(k) = dot_product(body_force,r(k,:)-r(i,:)) 
                 end if
              end if
@@ -127,6 +129,7 @@ contains
              k = npfb + imp   ! index of the mirror particle
              irelation(k) = i ! parent of the mirror
              vrelation(k) = ib !mirror-parent velocity relationship
+            
 
              ! position of the mirror
              r(k,:) = r(i,:) - 2.0d0*bp(2)*norm_be(:)
@@ -138,6 +141,11 @@ contains
                 tmp = b_vel(ib)*16.0d0*bp(1)*bp(1)*((1.0d0-bp(1))**2.0)*(0.5+0.5*tanh(80.0*(time-0.05)))
                 u(k,:) = 2.0*tmp*tang_be(:) -u(i,:)
              end if
+
+             ! temperature of the mirror is *-1.0
+             tang_be(1)=norm_be(2);tang_be(2)=-norm_be(1)
+             theta(k) = 2.0*b_thermal(ib) -theta(i)
+             
 
              ! set the pressure difference between mirror and parent
              dP_mp(k) = dot_product(body_force,r(k,:)-r(i,:)) 
@@ -161,6 +169,7 @@ contains
              k = npfb + imp   ! index of the mirror particle
              irelation(k) = i ! parent of the mirror
              vrelation(k) = ib !mirror-parent velocity relationship
+           
              
              ! position the mirror (relative to patches now, to account for non-parallel patches)
              trans_bp(:) = -1.0d0*bp(1)*b_edge(ib,:) - bp(2)*norm_be(:)
@@ -168,6 +177,9 @@ contains
 
              ! velocity of the mirror is unchanged (patches must be parallel)
              u(k,:) = u(i,:)
+
+             ! temperature of the mirror is unchanged (patches must be parallel)
+             theta(k) = theta(i)
 
              ! set the pressure difference between mirror and parent
              dP_mp(k) = 0.0d0
@@ -181,6 +193,15 @@ contains
         tmp = dot_product(u(i,:),u(i,:))
         if(i.le.nbS.and.tmp.ne.0.0d0) then  !! if mirroring a moving solid particle
            u(j,:)=u(i,:)
+        end if
+     end do
+
+      !! Make sure mirrors of solid particles have the same temperature as their parents...
+     do j=npfb+1,npfb+imp
+        i=irelation(j)
+        tmp = theta(i)*theta(i)
+        if(i.le.nbS.and.tmp.ne.0.0d0) then  !! if mirroring a moving solid particle
+           theta(j)=theta(i)
         end if
      end do
 
@@ -211,6 +232,7 @@ contains
              k = npfb + imp
              irelation(k) = i ! parent of the mirror
              vrelation(k) = -ib !mirror-parent velocity relationship
+            
 
              ! position the mirror
              r(k,:) = r(i,:) - 2.0d0*trans_bp(:)
@@ -220,6 +242,7 @@ contains
              u(k,:) = 2.0*tmp*tang_be(:) -u(i,:)    !! Contributions from both moving bounds...
              norm_be=bound_norm(ibm1);tang_be(1)=norm_be(2);tang_be(2)=-norm_be(1) 
              u(k,:) = u(k,:) + 2.0*tmp*tang_be(:)
+             theta(k) = theta(i) + 2.0*b_thermal(ib)
 
              ! set the pressure difference between mirror and parent
              dP_mp(k) = dot_product(body_force,r(k,:)-r(i,:))
@@ -237,6 +260,7 @@ contains
              k = npfb + imp
              irelation(k) = i ! parent of the mirror
              vrelation(k) = -ib !mirror-parent velocity relationship
+            
 
              ! position the mirror
              trans_bp(:) = b_node(ib,:) - b_node(ibp,:)
@@ -244,6 +268,10 @@ contains
 
              ! don't change the velocity
              u(k,:) = u(i,:)
+
+             ! don't change the temperature
+             theta(k) = theta(i)
+
 
              ! set the pressure difference between mirror and parent
              dP_mp(k) = 0.0d0
@@ -275,12 +303,14 @@ contains
                    i = irelation(j)
                    irelation(k) = i
                    vrelation(k) = -ib !j !mirror-parent velocity relationship
+                  
 
                    ! position the mirror
                    r(k,:) = r(j,:) - 2.0d0*perp_dist*norm_be(:)
 
                    tang_be(1)=norm_be(2);tang_be(2)=-norm_be(1)
                    u(k,:) = 2.0*b_vel(ibb)*tang_be(:)-u(j,:)          ! velocity of the mirror is *-1.0 + 2b_velocity
+                   theta(k) = 2.0*b_thermal(ibb)-theta(j)
                    
                    ! set the pressure difference between mirror and parent
                    dP_mp(k) = dP_mp(j) ! diff between parent-mirror and parent-mirror-parent

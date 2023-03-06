@@ -34,11 +34,8 @@ subroutine ppe_solve_in_house_simple_dirichlet
         uij(:) = u(i,:) - u(j,:)
 
         !R.H.S. Poisson equation cf Eqn 15 in Lind et al. 2011
-#ifdef use_labfm
-        Factor_B_tmp=Factor_B_tmp - dot_product(uij(:),ij_w_G(i,k,:))
-#else        
+
         Factor_B_tmp=Factor_B_tmp - dot_product(uij(:),matmul(kgcm(i,:,:),ij_w_G(i,k,:)))
-#endif        
      enddo
      Factor_B(i) = Factor_B_tmp/dt
      temp = temp + Factor_B(i)

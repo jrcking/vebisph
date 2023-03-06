@@ -137,7 +137,6 @@ contains
     allocate(sum_f(npfb,dims),sum_ft(npfb,dims),sum_coh(npfb,dims))
 
     !! Step 3: Loop over particles and then neighbours to calculate forces, concentrations
-! NB. tensile correction bit is commented out now - Rt*(Wab(qq)/Wab1)**nt is the most expensive part...
     !$OMP PARALLEL DO PRIVATE(k,j,rij,rad,qq,fab,sum_f_tmp,sum_ft_tmp)
     do i=1,npfb
        sum_f_tmp=0.0d0;sum_ft_tmp=0.0d0

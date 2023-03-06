@@ -82,6 +82,9 @@ program isph
      n_dump = 0
      n_dump2= 0
   end if
+  
+  ! Output data to file
+  call output  
 
   !! MAIN LOOP ====================================================================================
   do while (time.le.tmax)

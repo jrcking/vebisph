@@ -50,13 +50,14 @@ contains
     !! read in data on boundaries JRCK
     open(10,file='IBOUND')
     read(10,*) nb_patches
-    allocate(b_node(nb_patches,2),b_edge(nb_patches,2),b_vel(nb_patches))
+    allocate(b_node(nb_patches,2),b_edge(nb_patches,2),b_vel(nb_patches),b_thermal(nb_patches))
     allocate(b_type(nb_patches),b_periodic_parent(nb_patches))
     do i=1,nb_patches
        read(10,*) b_node(i,:)
        read(10,*) b_edge(i,:)
        read(10,*) b_type(i)
        read(10,*) b_vel(i)   !! transverse velocity on (wall) patch, in direction of b_edge...
+       read(10,*) b_thermal(i)
        if(b_type(i).eq.2)then !period boundary patch
           read(10,*) b_periodic_parent(i)
        end if
@@ -68,17 +69,19 @@ contains
     !! Circles !!
     read(10,*) nb_circles
     if(nb_circles.ne.0)then 
-       allocate(c_centre(4*nb_circles,2),c_radius(4*nb_circles),c_omega(4*nb_circles),c_vel(4*nb_circles,2))
+       allocate(c_centre(4*nb_circles,2),c_radius(4*nb_circles),c_omega(4*nb_circles),c_vel(4*nb_circles,2),c_thermal(4*nb_circles))
        do i=1,nb_circles
           read(10,*) c_centre(i,:)
           read(10,*) c_radius(i)
           read(10,*) c_omega(i)
           read(10,*) c_vel(i,:)
+          read(10,*) c_thermal(i)
        end do
     end if
     close(10)
     write(6,*) "Boundaries read in. There are ",nb_patches," boundary patches"
 
+    
     !! check boundaries JRCK
     call check_boundaries
 
@@ -134,7 +137,7 @@ contains
        end if
     else
        do i=1,npfb
-          read(13,*)r(i,1), r(i,2), u(i,1), u(i,2), p(i), dv
+          read(13,*)r(i,1), r(i,2), u(i,1), u(i,2), theta(i), dv
 #if const_mod!=1
           tau_p(i,:,:)=0.0d0   !! Initialise polymeric stress to zero
 #endif
