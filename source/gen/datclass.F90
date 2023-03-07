@@ -306,10 +306,10 @@ program datgen
      !! Physical parameters
      body_force = (/0.0d0,0.0d0/)    
      ve_nonlinearity=0.1d0;alpha_evss=0.0d0
-     beta = 0.9d0;Ra=1.0d5;Pr=1.0d0;El=1.0d-4
+     beta = 0.9d0;Ra=1.0d4;Pr=1.0d0;El=1.0d-4
 
      !! Resolution:
-     dx=yl/60.0;h=1.3d0*dx      !! N.B. you should only need to change dx
+     dx=yl/100.0;h=1.3d0*dx      !! N.B. you should only need to change dx
     
      !! Build domain
      nb_patches = 4

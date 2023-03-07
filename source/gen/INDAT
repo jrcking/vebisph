@@ -2,15 +2,15 @@
     0        :open domain (0-closed,1-open)
     100.0000000000        :tmax - max time of simulation
     0        :shift_coeff - how much to shift
-   3662        :np
-   3662        :npfb
-    122        :nbS
+  10102        :np
+  10102        :npfb
+    202        :nbS
       0.1000000015 :dt_out - time interval between outputs
-      0.0216666667 :h
-      0.0166666667 :dx
+      0.0130000000 :h
+      0.0100000000 :dx
       0.0000000000 :dt
       0.0000000000          0.000000 :body_force
- 100000.0000000000 Rayleigh Number
+  10000.0000000000 Rayleigh Number
       1.0000000000 Prandtl Number
       0.0001000000 Prandtl Number
       0.9000000000 Viscosity ratio

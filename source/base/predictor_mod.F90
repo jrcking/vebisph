@@ -56,7 +56,7 @@ contains
     coeff_theta = 1.0d0/sqrt(Ra*Pr)
 
 #if const_mod==1
-    !$OMP PARALLEL DO PRIVATE(k,j,uij,rhs_tmp)
+    !$OMP PARALLEL DO PRIVATE(k,j,uij,rhs_tmp,thetaij,rhs_theta_tmp)
     do i=1,npfb                                       !! Newtonian option
        rhs_tmp(:) = 0.0d0
        rhs_theta_tmp = 0.0d0
@@ -76,7 +76,7 @@ contains
     end do
     !$OMP END PARALLEL DO
 #else
-    !$OMP PARALLEL DO PRIVATE(k,j,uij,rhs_tmp,tauij)
+    !$OMP PARALLEL DO PRIVATE(k,j,uij,rhs_tmp,tauij,thetaij,rhs_theta_tmp)
     do i=1,npfb                                      !! Viscoelastic option
        rhs_tmp(:) = 0.0d0
        rhs_theta_tmp = 0.0d0
